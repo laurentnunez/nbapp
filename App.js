@@ -1,7 +1,7 @@
 //import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
 import { StyleSheet, Text, Image, SafeAreaView } from 'react-native';
-import { ActivityIndicator, View } from 'react-native-web';
+import { ActivityIndicator, FlatList, View } from 'react-native-web';
 
 
 export default function App() {
@@ -33,17 +33,22 @@ useEffect(()=> {
 
 
 return(
-  <SafeAreaView>
-
+<SafeAreaView>
+ 
   {teams ? (
     teams.map((team)=>(
       <View key={team.id}>
         <Text>{team.name}</Text>
+        <Image
+        style={{
+          width:70,
+          height:70,
+        }}
+        source={{uri:team.logo}}/>
         
       </View>
     ))
   ):(<ActivityIndicator size="large" color="black"/>)}
-
   </SafeAreaView>
 
 );
@@ -51,41 +56,3 @@ return(
 
 
 
-
-
-
-//useEffect(()=>{
-
-//  getTeams();
-//  },[]);
-
-//  const getTeams = () => {
-//    fetch('https://www.balldontlie.io/api/v1/teams')
-//    .then(function(response){
-//      return response.json();
-//    }).then(function(response){
-//      console.log(response.data);
-//      setTeams(response.data);
-//    }); 
-//  }
-
-  //const getContent = () => {
-  //  if (isLoading) {
-  //    return <ActivityIndicator size="large"/>;
-  //  }
-
-  //  if (error) {
-  //   return <Text>{error}</Text>
-  //  }
-  //  console.log(response.data);
-
-  //  return <Text>{response["full_name"]}</Text>
-  //};
-  
- // }
-
-
-  //return (
-    
-  //);
-//}
