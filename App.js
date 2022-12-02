@@ -11,7 +11,7 @@ export default function App() {
 //let [isLoading, setIsLoading] = useState(true);
 //let [error, setError] = useState();
 //let [response, setResponse] = useState();
-const [teams, setTeams] = useState([]);
+const [estTeams, setEstTeams] = useState([]);
 
 useEffect(()=> {
 
@@ -23,36 +23,91 @@ useEffect(()=> {
     }
   };
 
-  fetch('https://api-nba-v1.p.rapidapi.com/teams', options)
+  fetch('https://api-nba-v1.p.rapidapi.com/teams?conference=East', options)
   .then(res => res.json())
   .then((result)=>{
     console.log(result);
-    setTeams(result.response);
+    setEstTeams(result.response);
   });
 },[]);
 
 
-return(
-<SafeAreaView>
- 
-  {teams ? (
-    teams.map((team)=>(
-      <View key={team.id}>
-        <Text>{team.name}</Text>
-        <Image
-        style={{
-          width:70,
-          height:70,
-        }}
-        source={{uri:team.logo}}/>
-        
+  return(
+  
+  <View>
+    <Text style={styles.title}>CONFERENCE EST</Text>
+    <View style={styles.container}>
+      
+      {estTeams ? (
+        estTeams.map((estTeam)=>(
+          <View style={styles.teamCard} key={estTeam.id}>
+            <Text style={styles.teamName}>{estTeam.name}</Text>
+            <Image
+            style={{
+              width:110,
+              height:130,
+              margin:5,
+              padding: 20,
+              
+            }}
+            source={{uri:estTeam.logo}}/>
+            
+          </View>
+        ))
+      ):(<ActivityIndicator size="large" color="black"/>)}
       </View>
-    ))
-  ):(<ActivityIndicator size="large" color="black"/>)}
-  </SafeAreaView>
 
-);
-    };
+    </View>
 
+
+
+  );
+
+
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex:1,
+    padding: 5,
+    textAlign: 'center',
+    alignItems: 'center',
+    alignContent: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#000',
+    flexDirection:'row',
+    justifyContent:"space-evenly",
+    flexWrap:"wrap",
+
+  },
+
+  teamCard: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#1a1a1a',
+    width: 150,
+    height: 180,
+    margin:10,
+    padding: 3,
+    borderRadius:3,
+  
+  },
+  
+  teamName: {
+    color:'#E9E9E9',
+    marginBottom: 5,
+    fontWeight: 'bold',
+    fontSize: 18,
+  },
+
+  title: {
+    color:'#008b8b',
+    margin: 5,
+    fontWeight: 'bold',
+    fontSize: 20,
+    textAlign: 'center',
+  },
+
+});
 
 
