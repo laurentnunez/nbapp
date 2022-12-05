@@ -3,18 +3,20 @@ import { StatusBar, View, Text } from "react-native-web";
 
 export default function TeamScreen({route}) {
 
-  const estTeam = route.params
+
+  const datasTeam = route.params
 
   return (
     <View>
-      <Text>{estTeam.name}</Text>
+      <Text>{datasTeam.name}</Text>
       <Image
-        source={{uri:estTeam.logo}}
+        source={{uri:datasTeam.logo}}
         style={{
         width:200,
         height:250
         }}
       />
+
       <StatusBar style="auto" />
     </View>
   )

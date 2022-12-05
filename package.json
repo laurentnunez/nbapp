@@ -20,7 +20,7 @@
     "react-native": "0.70.5",
     "react-native-animation-library": "^0.0.8",
     "react-native-safe-area-context": "^4.4.1",
-    "react-native-web": "~0.18.9"
+    "react-native-web": "^0.18.10"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
