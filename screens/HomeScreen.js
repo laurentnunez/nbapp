@@ -1,7 +1,7 @@
 //import { StatusBar } from 'expo-status-bar';
+//import TeamScreen from './screens/TeamScreen';
 import { useEffect, useState } from 'react';
-import { StyleSheet, Text, Image } from 'react-native';
-import { ActivityIndicator,Button,TouchableOpacity,View } from 'react-native-web';
+import { StyleSheet, Image, ActivityIndicator,Button,TouchableOpacity,View  } from 'react-native';
 
 export default function HomeScreen({ navigation }) {
 
@@ -32,17 +32,7 @@ useEffect(()=> {
 
   return(
   
-    
-
-
   <View >
-    <View >
-      <Button  
-        onPress={()=> navigation.navigate("Games")}
-        title="Games"
-      />
-    </View>
-   
 
     <View style={styles.container}>
       {teams ? (
@@ -65,6 +55,10 @@ useEffect(()=> {
       </View>
 
     </View>
+
+
+
+
 
   );
 
