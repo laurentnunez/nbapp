@@ -40,7 +40,7 @@ useEffect(()=> {
           <View style={styles.teamCard} key={estTeam.id}>
             <Button 
               title={estTeam.name}
-              onPress={()=> navigation.navigate("Team")}
+              onPress={()=> navigation.navigate("Team",estTeam)}
             />
             <Text style={styles.teamName}>{estTeam.name}</Text>
             <Image
