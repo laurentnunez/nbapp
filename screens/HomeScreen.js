@@ -14,18 +14,14 @@ useEffect(()=> {
 
   const options = {
     method: 'GET',
-    headers: {
-      'X-RapidAPI-Key': '2e2457b816msh7b4f76d57eb1fd9p1b092ajsnee5aa756253f',
-      'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
-    }
   };
 
-  fetch('https://api-nba-v1.p.rapidapi.com/teams', options)
-  .then(res => res.json())
-  .then((result)=>{
-    console.log(result);
-    setTeams(result.response);
-  });
+  //fetch('https://api.sportsdata.io/v3/nba/scores/json/teams?key=cea20b49658146aa897fd5a6ee565e05')
+  //.then(res => res.json())
+  //.then((result)=>{
+    //console.log(result);
+    //setTeams(result);
+  //});
 
 },[]);
 
@@ -37,9 +33,9 @@ useEffect(()=> {
     <View style={styles.container}>
       {teams ? (
         teams.map((team)=>(
-          <View key={team.id}>
+          <View >
             <TouchableOpacity onPress={()=> navigation.navigate("Team",team)}>
-              <Image
+              <Image key={team.TeamId}
               style={{
                 width:91,
                 height:91,
@@ -47,7 +43,7 @@ useEffect(()=> {
                 padding: 5,
                 
               }}
-              source={{uri:team.logo}}/>
+              source={{uri:team.WikipediaLogoUrl}}/>
             </TouchableOpacity>
           </View>
         ))

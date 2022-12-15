@@ -8,9 +8,9 @@ export default function TeamScreen({route}) {
 
   return (
     <View>
-      <Text>{datasTeam.name}</Text>
+      <Text key={datasTeam.TeamId} >{datasTeam.Name}</Text>
       <Image
-        source={{uri:datasTeam.logo}}
+        source={{uri:datasTeam.WikipediaLogoUrl}}
         style={{
         width:200,
         height:250
