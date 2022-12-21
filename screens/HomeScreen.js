@@ -1,7 +1,7 @@
 //import { StatusBar } from 'expo-status-bar';
 //import TeamScreen from './screens/TeamScreen';
 import { useEffect, useState } from 'react';
-import { StyleSheet, Image, ActivityIndicator,Button,TouchableOpacity,View  } from 'react-native';
+import { SafeAreaView,StyleSheet, Text, ActivityIndicator,View  } from 'react-native';
 
 export default function HomeScreen({ navigation }) {
 
@@ -9,49 +9,41 @@ export default function HomeScreen({ navigation }) {
 //let [error, setError] = useState();
 //let [response, setResponse] = useState();
 const [teams, setTeams] = useState([]);
+const [leagues, setLeagues] = useState([]);
 
 useEffect(()=> {
 
-  const options = {
-    method: 'GET',
-  };
+  //const options = {
+    //method: 'GET',
+    //headers: {
+      //'X-RapidAPI-Key': '2e2457b816msh7b4f76d57eb1fd9p1b092ajsnee5aa756253f',
+      //'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
+    //}
+  //};
 
-  //fetch('https://api.sportsdata.io/v3/nba/scores/json/teams?key=cea20b49658146aa897fd5a6ee565e05')
-  //.then(res => res.json())
-  //.then((result)=>{
-    //console.log(result);
-    //setTeams(result);
-  //});
+  fetch('https://api.sportsdata.io/v3/nba/scores/json/Standings/2023?key=cea20b49658146aa897fd5a6ee565e05')
+  .then(res => res.json())
+  .then((result)=>{
+    console.log(result);
+    setTeams(result);
+  });
 
 },[]);
 
-
   return(
   
-  <View >
+    <SafeAreaView>
 
-    <View style={styles.container}>
-      {teams ? (
-        teams.map((team)=>(
-          <View >
-            <TouchableOpacity onPress={()=> navigation.navigate("Team",team)}>
-              <Image key={team.TeamId}
-              style={{
-                width:91,
-                height:91,
-                margin:10,
-                padding: 5,
-                
-              }}
-              source={{uri:team.WikipediaLogoUrl}}/>
-            </TouchableOpacity>
-          </View>
-        ))
-      ):(<ActivityIndicator size="large" color="black"/>)}
-      </View>
-
-    </View>
-
+ 
+     {teams ? (
+         teams.map((team)=>(
+        	      <View key={team.TeamID} >
+                 <Text >{team.City} {team.Name}</Text>
+             </View>
+      	    ))
+    ):(<ActivityIndicator size="large" color="black"/>)}	 
+  
+   </SafeAreaView>
 
 
 
