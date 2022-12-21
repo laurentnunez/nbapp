@@ -2,14 +2,15 @@
 //import TeamScreen from './screens/TeamScreen';
 import { useEffect, useState } from 'react';
 import { SafeAreaView,StyleSheet, Text, ActivityIndicator,View  } from 'react-native';
+import {Card} from 'react-native-elements';
 
 export default function HomeScreen({ navigation }) {
 
 //let [isLoading, setIsLoading] = useState(true);
 //let [error, setError] = useState();
 //let [response, setResponse] = useState();
-const [teams, setTeams] = useState([]);
-const [leagues, setLeagues] = useState([]);
+const [games, setGames] = useState([]);
+
 
 useEffect(()=> {
 
@@ -21,25 +22,25 @@ useEffect(()=> {
     //}
   //};
 
-  fetch('https://api.sportsdata.io/v3/nba/scores/json/Standings/2023?key=cea20b49658146aa897fd5a6ee565e05')
+  fetch('https://api.sportsdata.io/v3/nba/stats/json/BoxScores/2022-DEC-20?key=cea20b49658146aa897fd5a6ee565e05')
   .then(res => res.json())
   .then((result)=>{
     console.log(result);
-    setTeams(result);
+    setGames(result);
   });
 
 },[]);
 
   return(
   
-    <SafeAreaView>
-
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.innerText}>MATCHS DU JOUR</Text>
  
-     {teams ? (
-         teams.map((team)=>(
-        	      <View key={team.TeamID} >
-                 <Text >{team.City} {team.Name}</Text>
-             </View>
+     {games ? (
+         games.map((game)=>(
+        	      <Card containerStyle={styles.card} key={game.GameID} >
+                 <Text  style={styles.innerText} >{game.HomeTeam} - {game.HomeTeamScore} vs. {game.AwayTeamScore} - {game.AwayTeam}</Text>
+             </Card>
       	    ))
     ):(<ActivityIndicator size="large" color="black"/>)}	 
   
@@ -54,16 +55,24 @@ useEffect(()=> {
 
 const styles = StyleSheet.create({
   container: {
-    flex:1,
-    padding: 5,
-    textAlign: 'center',
-    alignItems: 'center',
-    alignContent: 'center',
-    justifyContent:'center',
-    backgroundColor: '#000',
+    flex: 1,
+    paddingTop: 22,
+    backgroundColor:'#000',
+  },
+  card: {
+    backgroundColor: '#1a1a1a',
+    padding: 20,
+    marginVertical: 10,
+    borderRadius: 7,
+    justifyContent: 'center',
     flexDirection:'row',
-    flexWrap:"wrap",
-
+  },
+  innerText: {
+    fontWeight: 'bold',
+    color:'white',
+    fontSize: 20,
+    alignSelf: 'center',
+    
   },
   
 
