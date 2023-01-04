@@ -22,7 +22,8 @@ useEffect(()=> {
     //}
   //};
 
-  fetch('https://api.sportsdata.io/v3/nba/stats/json/BoxScores/2022-DEC-20?key=cea20b49658146aa897fd5a6ee565e05')
+    
+  fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/2023-JAN-02?key=cea20b49658146aa897fd5a6ee565e05')
   .then(res => res.json())
   .then((result)=>{
     console.log(result);
@@ -34,12 +35,12 @@ useEffect(()=> {
   return(
   
     <SafeAreaView style={styles.container}>
-      <Text style={styles.innerText}>MATCHS DU JOUR</Text>
+      <Text style={styles.innerText}>LES MATCHS</Text>
  
      {games ? (
          games.map((game)=>(
-        	      <Card containerStyle={styles.card} key={game.GameID} >
-                 <Text  style={styles.innerText} >{game.HomeTeam} - {game.HomeTeamScore} vs. {game.AwayTeamScore} - {game.AwayTeam}</Text>
+        	    <Card containerStyle={styles.card} key={game.GameID} >
+                 <Text  style={styles.innerText} >{game.HomeTeam} vs. {game.AwayTeam}</Text>
              </Card>
       	    ))
     ):(<ActivityIndicator size="large" color="black"/>)}	 

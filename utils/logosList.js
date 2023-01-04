@@ -1,23 +1,23 @@
 export const Logos =[
   {
     "team":"ATL",
-    "logo":"https:\/\/upload.wikimedia.org\/wikipedia\/en\/2\/24\/Atlanta_Hawks_logo.svg",
+    "logo":"https://upload.wikimedia.org\/wikipedia\/en\/2\/24\/Atlanta_Hawks_logo.svg",
   },
   {
     "team":"BKN",
-    "logo":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/4\/44\/Brooklyn_Nets_newlogo.svg",
+    "logo":"https://upload.wikimedia.org\/wikipedia\/commons\/4\/44\/Brooklyn_Nets_newlogo.svg",
   },
   {
     "team":"BOS",
-    "logo":"https:\/\/upload.wikimedia.org\/wikipedia\/en\/8\/8f\/Boston_Celtics.svg",
+    "logo":"https://upload.wikimedia.org\/wikipedia\/en\/8\/8f\/Boston_Celtics.svg",
   },
   {
     "team":"CHA",
-    "logo":"https:\/\/upload.wikimedia.org\/wikipedia\/en\/c\/c4\/Charlotte_Hornets_%282014%29.svg",
+    "logo":"https://upload.wikimedia.org\/wikipedia\/en\/c\/c4\/Charlotte_Hornets_%282014%29.svg",
   },
   {
     "team":"CHI",
-    "logo":"https:\/\/upload.wikimedia.org\/wikipedia\/en\/6\/67\/Chicago_Bulls_logo.svg",
+    "logo":"https://upload.wikimedia.org\/wikipedia\/en\/6\/67\/Chicago_Bulls_logo.svg",
   },
   {
     "team":"CLE",
@@ -25,59 +25,59 @@ export const Logos =[
   },
   {
     "team":"DAL",
-    "logo":"https:\/\/upload.wikimedia.org\/wikipedia\/en\/9\/97\/Dallas_Mavericks_logo.svg",
+    "logo":"https://upload.wikimedia.org\/wikipedia\/en\/9\/97\/Dallas_Mavericks_logo.svg",
   },
   {
     "team":"DEN",
-    "logo":"https:\/\/upload.wikimedia.org\/wikipedia\/en\/7\/76\/Denver_Nuggets.svg",
+    "logo":"https://upload.wikimedia.org\/wikipedia\/en\/7\/76\/Denver_Nuggets.svg",
   },
   {
     "team":"DET",
-    "logo":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/7\/7c\/Pistons_logo17.svg",
+    "logo":"https://upload.wikimedia.org\/wikipedia\/commons\/7\/7c\/Pistons_logo17.svg",
   },
   {
     "team":"GSW",
-    "logo":"https:\/\/upload.wikimedia.org\/wikipedia\/en\/0\/01\/Golden_State_Warriors_logo.svg",
+    "logo":"https://upload.wikimedia.org\/wikipedia\/en\/0\/01\/Golden_State_Warriors_logo.svg",
   },
   {
     "team":"HOU",
-    "logo":"https:\/\/upload.wikimedia.org\/wikipedia\/en\/2\/28\/Houston_Rockets.svg",
+    "logo":"https://upload.wikimedia.org\/wikipedia\/en\/2\/28\/Houston_Rockets.svg",
   },
   {
     "team":"IND",
-    "logo":"https:\/\/upload.wikimedia.org\/wikipedia\/en\/1\/1b\/Indiana_Pacers.svg",
+    "logo":"https://upload.wikimedia.org\/wikipedia\/en\/1\/1b\/Indiana_Pacers.svg",
   },
   {
     "team":"LAC",
-    "logo":"https:\/\/upload.wikimedia.org\/wikipedia\/en\/b\/bb\/Los_Angeles_Clippers_%282015%29.svg",
+    "logo":"https://upload.wikimedia.org\/wikipedia\/en\/b\/bb\/Los_Angeles_Clippers_%282015%29.svg",
   },
   {
     "team":"LAL",
-    "logo":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/3\/3c\/Los_Angeles_Lakers_logo.svg",
+    "logo":"https://upload.wikimedia.org\/wikipedia\/commons\/3\/3c\/Los_Angeles_Lakers_logo.svg",
   },
   {
     "team":"MEM",
-    "logo":"https:\/\/upload.wikimedia.org\/wikipedia\/en\/f\/f1\/Memphis_Grizzlies.svg",
+    "logo":"https://upload.wikimedia.org\/wikipedia\/en\/f\/f1\/Memphis_Grizzlies.svg",
   },
   {
     "team":"MIA",
-    "logo":"https:\/\/upload.wikimedia.org\/wikipedia\/en\/f\/fb\/Miami_Heat_logo.svg",
+    "logo":"https://upload.wikimedia.org\/wikipedia\/en\/f\/fb\/Miami_Heat_logo.svg",
   },
   {
     "team":"MIL",
-    "logo":"https:\/\/upload.wikimedia.org\/wikipedia\/en\/4\/4a\/Milwaukee_Bucks_logo.svg",
+    "logo":"https://upload.wikimedia.org\/wikipedia\/en\/4\/4a\/Milwaukee_Bucks_logo.svg",
   },
   {
     "team":"MIN",
-    "logo":"https:\/\/upload.wikimedia.org\/wikipedia\/en\/c\/c2\/Minnesota_Timberwolves_logo.svg",
+    "logo":"https://upload.wikimedia.org\/wikipedia\/en\/c\/c2\/Minnesota_Timberwolves_logo.svg",
   },
   {
-    "team":"NOP",
-    "logo":"https:\/\/upload.wikimedia.org\/wikipedia\/en\/0\/0d\/New_Orleans_Pelicans_logo.svg",
+    "team":"NO",
+    "logo":"https://upload.wikimedia.org\/wikipedia\/en\/0\/0d\/New_Orleans_Pelicans_logo.svg",
   },
   {
-    "team":"NYK",
-    "logo":"https:\/\/upload.wikimedia.org\/wikipedia\/en\/2\/25\/New_York_Knicks_logo.svg",
+    "team":"NY",
+    "logo":"https://upload.wikimedia.org\/wikipedia\/en\/2\/25\/New_York_Knicks_logo.svg",
   },
   {
     "team":"OKC",
@@ -92,7 +92,7 @@ export const Logos =[
     "logo":"https:\/\/upload.wikimedia.org\/wikipedia\/en\/0\/0e\/Philadelphia_76ers_logo.svg",
   },
   {
-    "team":"PHX",
+    "team":"PHO",
     "logo":"https:\/\/upload.wikimedia.org\/wikipedia\/en\/d\/dc\/Phoenix_Suns_logo.svg",
   },
   {
@@ -104,7 +104,7 @@ export const Logos =[
     "logo":"https:\/\/upload.wikimedia.org\/wikipedia\/en\/c\/c7\/SacramentoKings.svg",
   },
   {
-    "team":"SAS",
+    "team":"SA",
     "logo":"https:\/\/upload.wikimedia.org\/wikipedia\/en\/a\/a2\/San_Antonio_Spurs.svg",
   },
   {
