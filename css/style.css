@@ -1,0 +1,585 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Jost', sans-serif;
+    background-color: rgb(17, 17, 17);
+    color: #bdc1c6;
+    
+}
+
+.off {
+    display: none;
+}
+
+
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: rgb(219, 0, 0);
+    top:0;
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+@media screen and (max-width:640px){
+    .nav {justify-content: space-between;}
+}
+
+
+h1 {
+    margin-left: 3rem;
+}
+
+@media screen and (max-width:640px){
+    h1 {
+        margin-left: 1rem;
+    }
+}
+
+.navbar a {
+    margin-left: 2rem;
+    cursor: pointer;
+}
+
+.navbar a:hover {
+    color: white;
+    transition: ease-in-out 0.3s;
+}
+
+
+@media screen and (max-width: 640px){
+    .navbar {
+        padding: 0;
+        background-color: rgba(0, 0, 0, 0.774);
+        backdrop-filter: blur(7px);
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        top:0;
+        right:0;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease-in-out;
+        margin-right: -100%;  
+    }
+    
+    .navbar a {
+        margin: 20px 0;
+        font-size: 2rem;
+    }
+
+    .navbar a:hover {
+        color: white;
+        transition: 0.3s ease-in-out;
+    }
+}
+
+.mobile {
+    margin-right: 0;
+}
+
+
+
+
+.burger {
+    width: 40px;
+    height: 25px;
+    margin-right: 1rem;
+    cursor: pointer;
+    position: relative;
+}
+
+@media screen and (min-width: 640px) {
+    .burger {
+        display:none
+    }
+}
+
+
+
+.burger span {
+    display: block;
+    width: 100%;
+    height: 5px;
+    position: absolute;
+    background-color: white;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.3s ease-in-out;
+}
+
+.burger span::before , .burger span::after {
+   content: '';
+   position: absolute;
+   width: 100%;
+   height: 5px;
+   background-color: white;
+   transition: transform 0.3s ease-in-out;
+}
+
+.burger span::before {
+    transform: translateY(-10px);
+}
+
+.burger span::after {
+    transform: translateY(10px);
+}
+
+.burger.active span{
+    background-color: transparent;
+}
+
+.burger.active span::before {
+    transform: translateY(0px) rotateZ(45deg);
+}
+
+.burger.active span::after {
+    transform: translateY(0px) rotateZ(-45deg);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    padding: 0 2rem 4rem 2rem;
+}
+
+@media screen and (max-width: 640px){
+   main 
+   {padding: 0 0 2rem 0;
+
+   } 
+}
+
+
+
+
+.dateWrapper {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+background-color:black;
+height: 4.5rem;
+width: 100%;
+margin-bottom: 1rem;
+}
+
+.dateWrapperButtons {
+    display: flex;
+}
+
+@media screen and (max-width: 640px){
+    .dateWrapperButtons {
+        width: 90%;
+    } 
+}
+
+.dateWrapperButtons button {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-size: larger;
+    font-family: 'Anton', sans-serif;
+    height: 2.6rem;  
+    width: 6rem;
+    margin: 0;
+}
+
+
+
+
+
+.dateWrapperButtons button:hover {
+    cursor: pointer;
+    background-color: #161616;
+    border-bottom: 1px solid #cea100;
+    color:white;
+    transition: ease-in-out 0.5s;   
+}
+
+
+.selected {
+    background-color: #161616;
+    border-bottom: 1px solid #cea100;
+    color:white;
+}
+
+.no-selected {
+    color:#bdc1c6;
+    background-color: black;
+    border-bottom: 1px solid black;
+}
+
+
+.first-section {
+    width: 100%;
+}
+
+@media screen and (max-width: 640px){
+    .first-section {
+        margin: 0 0.5rem 0 0.5rem;
+    }  
+}
+
+.cardImage {
+    height:auto;
+    width: 35px;
+    
+}
+
+
+/*=====NOUVEAU TABLEAU CLASSEMENTS=====*/
+table {
+    margin-left: auto;
+    margin-right:auto ;
+    table-layout: fixed;
+    width: 50%;
+    border-collapse: collapse;
+    border-radius: 7px;
+    background-color: rgb(34, 37, 43);  
+}
+
+@media screen and (max-width: 768px){
+    table{
+        width: 80%;
+    } 
+ }
+
+
+@media screen and (max-width: 640px){
+    table{
+        margin: 0 ;
+        width: 95%;
+    } 
+ }
+
+
+thead th:nth-child(1) {
+    width: 1%;
+  }
+  
+  thead th:nth-child(2) {
+    width: 1%;
+    
+  }
+  
+  thead th:nth-child(3) {
+    width: 6%;
+  }
+
+  thead th:nth-child(4) {
+    width: 4%;
+  }
+  thead th:nth-child(5) {
+    width: 4%;
+  }
+  thead th:nth-child(6) {
+    width: 4%;
+  }
+
+  thead th:nth-child(7) {
+    width: 4%;
+  }
+
+  th, td {
+    padding: 0.5rem;
+    text-align: center;
+  }
+
+tbody tr:nth-child(6) {
+    border-bottom: #bdc1c6 1px dotted;
+}
+
+tbody tr:nth-child(10) {
+    border-bottom: #bdc1c6 1px solid;
+}
+
+tbody tr:nth-child(15) {
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+ }
+
+tbody tr:nth-child(odd) {
+    background-color: rgb(24, 26, 31);
+  }
+  
+tbody tr:nth-child(even) {
+    background-color: rgb(34, 37, 43);  
+  }
+
+  tbody tr:hover {
+    color:white;
+    transition: ease-in-out 0.3s;
+    cursor: pointer;
+    background-color: rgb(13, 14, 17);
+  }
+
+.cardElements{
+    height: 4rem;
+    font-size: 20px;
+}
+
+@media screen and (max-width: 640px){
+    .cardRank {
+        font-size: 14px;
+    }
+    
+    .cardName {
+        font-size: 14px;
+    }
+
+    .cardWin {
+        font-size: 14px;
+    }
+
+    .cardLost {
+        font-size: 14px;
+    }
+    .cardPercentage {
+        font-size: 14px;
+    }
+
+}
+
+/*=====CSS POUR LES MATCHS=====*/
+
+.games {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin:0.5rem 5rem 2rem 5rem ;
+}
+
+@media screen and (max-width:640px){
+    .games {
+        margin:  0.5rem 0 0.5rem 0 ;
+    }
+}
+
+.gameCardButton {
+    border-radius: 5px;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    flex-direction: center;
+    color:#bbbbbb;
+    letter-spacing: 2px;
+    margin: 0.5rem;
+    font-family: 'Anton', sans-serif;
+    width: 25rem;
+}
+
+.gameCardButton:hover {
+    cursor: pointer;
+}
+
+
+.homeTeam {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    width: 50%;
+    height: 12rem;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background: rgb(44, 0, 0);
+}
+
+@media screen and (max-width:640px){
+    .homeTeam {
+        height: 8rem;
+    }
+}
+
+.visitorTeam {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    width: 50%;
+    height: 12rem;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background: rgb(0, 108, 209);
+}
+
+@media screen and (max-width:640px){
+    .visitorTeam {
+        height: 8rem;
+    }
+}
+
+
+
+.gameData {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding: 0.2rem;
+}
+
+.gameData p {
+    display: flex;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+@media screen and (max-width: 640px){
+    .gameData p {
+        font-size: 35px;
+    }
+}
+
+
+.homeTeamScore {
+    font-size: x-large;
+}
+
+
+.visitorTeamScore {
+    font-size: x-large;
+}
+
+.gameCardImage{
+    width: 50%;
+    margin: auto;
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+   
+}
+
+/*BACKGROUND COLORS DE CHAQUE EQUIPE*/
+
+
+/*CONF EST*/
+.BOS {
+    background: rgb(0, 129, 11);
+}
+
+.MIL {
+    background: rgb(0, 75, 16);
+}
+
+.PHI{
+    background: rgb(29, 116, 216);
+}
+
+.CLE{
+    background: rgb(44, 0, 0);
+}
+
+.BKN{
+    background: rgb(0, 0, 0);
+}
+
+.MIA{
+    background: rgb(77, 0, 0);
+}
+
+.NYK{
+    background: rgb(216, 86, 0);
+}
+
+.ATL{
+    background: rgb(255, 40, 40);
+}
+
+.WAS{
+    background: rgb(255, 255, 255);
+}
+
+.TOR{
+    background: rgb(24, 24, 24);
+}
+
+.CHI{
+    background: rgb(165, 0, 0);
+}
+
+.IND {
+    background: rgb(212, 156, 0);
+}
+
+.ORL{
+    background: rgb(0, 108, 209);
+}
+
+.CHA {
+    background: rgb(0, 160, 172);
+}
+
+.DET {
+    background: rgb(0, 5, 82);
+}
+
+/*CONF OUEST*/
+.MEM {
+    background: rgb(0, 26, 73);
+}
+
+.MIN {
+    background: rgb(0, 63, 134);
+}
+
+.DEN {
+    background: rgb(0, 0, 29);
+}
+
+.SAC {
+    background: rgb(87, 11, 138);
+}
+
+.PHX {
+    background: rgb(121, 0, 190);
+}
+
+.DAL {
+    background: rgb(0, 36, 196);
+}
+
+.LAC {
+    background: rgb(0, 22, 122);
+}
+
+.NOP {
+    background: rgb(90, 0, 15);
+}
+
+.GSW {
+    background: rgb(255, 219, 14);
+}
+
+.OKC {
+    background: rgb(196, 46, 0);
+}
+
+.UTA {
+    background: rgb(0, 53, 26);
+}
+
+.POR {
+    background: rgb(55, 0, 0);
+}
+
+.LAL {
+    background: rgb(39, 0, 131);
+}
+
+.SAS {
+    background: rgb(128, 128, 128);
+}
+
+.HOU {
+    background: rgb(46, 0, 0);
+}

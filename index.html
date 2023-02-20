@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:wght@400;500&family=Kanit&display=swap" rel="stylesheet">
+    <title>NBApp</title>
+    <script src="/js/script.js" defer></script>
+    <script src="/js/date.js" defer></script>
+    <script src="/js/gameDatas.js" defer></script>
+    <script src="/js/oneGame.js" defer></script>
+</head>
+<body>
+    
+        <nav class="nav">
+            <h1>NBApp</h1>
+            <div class="navbar">
+                <a class="gamesButton">MATCHS</a>
+                <a class="standingsButton">CLASSEMENTS</a>
+                <a class="teamsButton">EQUIPES</a>
+            </div>
+            <div class="burger">
+                <span></span>
+            </div>
+        </nav>
+        <div class="dateWrapper">
+            <h3 class="gamesMonthAndYear"></h3>
+            <div class="dateWrapperButtons">
+                <button type="button" class="eastButton selected off">Conf. Est</button>
+                <button type="button" class="westButton no-selected off">Conf. Ouest</button>
+                <button type="button" class="threeLessButton no-selected off"></button>
+                <button type="button" class="twoLessButton no-selected off"></button>
+                <button type="button" class="oneLessButton no-selected off"></button>
+                <button type="button"  class="todayButton selected off">16<p>auj</p></button>
+                <button type="button" class="oneMoreButton no-selected off"></button>
+                <button type="button" class="twoMoreButton no-selected off"></button>
+                <button type="button" class="threeMoreButton no-selected off"></button>
+            </div>
+            
+        </div>
+    <main>       
+        <div class="first-section">
+            <table class ="standingsTable">
+                <thead class="headTable">
+                    <tr class ="headCol">
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col">TEAM</th>
+                        <th scope="col">V</th>
+                        <th scope="col">D</th>
+                        <th scope="col">%V</th>
+                    </tr> 
+                </thead>
+                <tbody class="bodyTable">
+                    <tr class="cardElements"></tr>
+                </tbody>
+            </table>    
+        </div>
+        <div class="second-section">
+            <div class="games">
+                <button type ="button" class="gameCardButton" id="11929">
+                    <div class="homeTeam">
+                            <img class="gameCardImage" src="https://upload.wikimedia.org/wikipedia/fr/thumb/d/d9/Timberwolves_du_Minnesota_logo_2017.png/200px-Timberwolves_du_Minnesota_logo_2017.png"/>
+                            <div class="gameData">
+                                    <p class="homeTeamScore">112</p>
+                            </div>
+                    </div>
+                    <div class="visitorTeam">
+                            <img class="gameCardImage" src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f1/Memphis_Grizzlies.svg/1200px-Memphis_Grizzlies.svg.png"/>
+                            <div class="gameData">
+                                <p class="visitorTeamScore">108</p>
+                            </div>
+                    </div>
+                </button>
+            </div>
+        </div>
+        <div class="third-section">
+
+        </div>
+    </main>
+</body>
+</html>
