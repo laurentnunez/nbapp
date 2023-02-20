@@ -51,6 +51,8 @@ const threeDaysAfterButtonSelector = document.querySelector('.threeMoreButton');
 
 const standingsTableSelector = document.querySelector('.standingsTable');
 
+
+
 //===================================================================
 //FONCTIONS
 //===================================================================
@@ -301,7 +303,7 @@ function handleStandingsButton () {
     oneMoreButtonSelector.classList.add("off");
     twoMoreButtonSelector.classList.add("off");
     threeMoreButtonSelector.classList.add("off");
-
+    gamesMonthAndYear.classList.add("off");
     eastButtonSelector.classList.add("select");
 
     handleEastButton ();
@@ -637,7 +639,7 @@ function handleGamesJson (json) {
     console.log(json.response);
 
         const oldGamesCardSelector = document.querySelector(".gameCardButton");
-        oldGamesCardSelector.remove();
+        //oldGamesCardSelector.remove();
 
 
     //on lance la boucle sur le tb json.reponse pour récupérer les infos des matchs

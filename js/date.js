@@ -8,9 +8,9 @@ const threeLessButtonSelector = document.querySelector('.threeLessButton');
 const oneMoreButtonSelector = document.querySelector('.oneMoreButton');
 const twoMoreButtonSelector = document.querySelector('.twoMoreButton');
 const threeMoreButtonSelector = document.querySelector('.threeMoreButton');
-
 const gamesMonthAndYear = document.querySelector('.gamesMonthAndYear');
 
+const dateButtonSelector = document.querySelectorAll("#dateButton");
 
 function getTheDate () {
 
@@ -28,10 +28,8 @@ function getTheDate () {
     const theTwoLessDay = todayDate.getDate()-2;
     const theThreeLessDay = todayDate.getDate()-3;
 
-   
-    const tabMonth = new Array ("JANVIER","FEVRIER","MARS","AVRIL","MAI","JUIN","JUILLET","AOUT","SEPTEMBRE","OCTOBRE","NOVEMBRE","DECEMBRE");
-
-
+  
+    //On inscrit les jours sur les boutons de haut de page
     todayButtonSelector.textContent=theDay;
     oneLessButtonSelector.textContent=theOneLessDay;
     twoLessButtonSelector.textContent=theTwoLessDay;
@@ -40,15 +38,27 @@ function getTheDate () {
     twoMoreButtonSelector.textContent=theTwoMoreDay;
     threeMoreButtonSelector.textContent=theThreeMoreDay;
 
+    //On inscrit le mois et l'année actuels sur la page
+    const tabMonth = new Array ("JANVIER","FEVRIER","MARS","AVRIL","MAI","JUIN","JUILLET","AOUT","SEPTEMBRE","OCTOBRE","NOVEMBRE","DECEMBRE");
     gamesMonthAndYear.textContent=tabMonth[todayDate.getMonth()]+" "+theYear;
+    
+    //On indique le mois et l'année au format numérique
+        //On convertit le mois au bon format 
+        function monthConvert () {
+            return (theMonth<10 ? "0" : "")+theMonth;
+        };
+        const month = monthConvert();
+
+    const monthAndYear = month+"-"+theYear;
+    //On affiche le mois et l'année au format : mm-yyyy
+    //console.log(monthAndYear);
+
+
     
 
 }
 
+
+
 gamesMonthAndYear.addEventListener('click', getTheDate)
-oneLessButtonSelector.addEventListener('click', getTheDate);
-twoLessButtonSelector.addEventListener('click', getTheDate);
-threeLessButtonSelector.addEventListener('click', getTheDate);
-oneMoreButtonSelector.addEventListener('click', getTheDate);
-twoMoreButtonSelector.addEventListener('click', getTheDate);
-threeMoreButtonSelector.addEventListener('click', getTheDate);
+//dateButtonSelector.addEventListener('click', handleDateButton);
