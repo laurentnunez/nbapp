@@ -356,7 +356,50 @@ tbody tr:nth-child(even) {
 
 /*=====TABLEAU D'UN MATCH=====*/
 
+.gameContainer {
+    display: flex;
+}
 
+.oneGameTableHome{
+    margin-left: auto;
+    margin-right:2rem ;
+    table-layout: fixed;
+    width: 25%;
+    border-collapse: collapse;
+    border-radius: 7px;
+    background-color: rgb(34, 37, 43); 
+    font-size: 18px;
+}
+
+
+.oneGameTableHome thead th:nth-child(1) {
+    width: 6%;
+  }
+
+.oneGameTableHome thead th:nth-child(2) {
+    width: 0.5%;
+}
+
+.oneGameTableHome thead th:nth-child(3) {
+    width: 0.5%;
+}
+
+.oneGameTableHome thead th:nth-child(4) {
+    width: 0.5%;
+}
+
+
+
+
+.oneGameTableVisitor{
+    margin-left: 2rem;
+    margin-right:auto ;
+    table-layout: fixed;
+    width: 25%;
+    border-collapse: collapse;
+    border-radius: 7px;
+    background-color: rgb(34, 37, 43); 
+}
 
 /*=====CSS POUR LES MATCHS=====*/
 
