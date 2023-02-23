@@ -389,28 +389,26 @@ function handleGamesButton () {
 //fonction qui récupère la liste des matchs
 function handleGamesJson (json) {
 
+
+   
+
     console.log(json.response);
 
-    if (json.response=[]) {
-        console.log("PAS DE MATCH");
+    if (json.response.lenght = 0) {
 
-        const newGameCard = document.createElement("button");
-        newGameCard.classList.add("gameCardButton");
-
-        const newGameData = document.createElement("p");
-        newGameData.classList.add("no-game");
-        newGameData.textContent="pas de match actuellement...";
-
-        gamesElementSelector.append(newGameCard);
-        newGameCard.append(newGameData);
+        const noGameCard = document.querySelector('.gameCardButton');
+        noGameCard.classList.remove('off');
     
     }
 
     else {
 
 
-    //const oldGamesCardSelector = document.querySelector(".gameCardButton");
-    //oldGamesCardSelector.remove();
+        const noGameCardP = document.querySelector('.no-game');
+        noGameCardP.textContent="Les matchs...";
+
+        const oldGamesCardSelector = document.querySelector(".gameCardButton");
+        oldGamesCardSelector.remove();
 
     //on lance la boucle sur le tb json.reponse pour récupérer les infos des matchs
     for (const dataGames of json.response)

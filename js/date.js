@@ -45,6 +45,11 @@ function getTheDate () {
 
 }
 
+
+
+
+
+
 gamesMonthAndYear.addEventListener('click', getTheDate)
 oneLessButtonSelector.addEventListener('click', getTheDate);
 twoLessButtonSelector.addEventListener('click', getTheDate);
