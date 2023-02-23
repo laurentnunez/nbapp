@@ -217,7 +217,7 @@ margin-bottom: 1rem;
     
     
     .dateWrapperButtons {
-        width: 90%;
+        width: 100%;
     } 
 }
 
@@ -239,7 +239,8 @@ margin-bottom: 1rem;
 .dateWrapperButtons button:hover {
     cursor: pointer;
     background-color: #1D2C49;
-    border-bottom: 1px solid #cea100;
+    border-bottom: 1px solid #fb5924;
+    ;
     color:white;
     transition: ease-in-out 0.5s;   
 }
@@ -247,7 +248,7 @@ margin-bottom: 1rem;
 
 .selected {
     background-color: #1D2C49;
-    border-bottom: 1px solid #cea100;
+    border-bottom: 1px solid #fb5924;
     color:white;
 }
 
@@ -585,6 +586,13 @@ tbody tr:nth-child(even) {
         margin:  0.5rem 0 0.5rem 0 ;
     }
 }
+
+
+.no-game{
+    font-size: 20px;
+}
+
+
 
 .gameCardButton {
     border-radius: 5px;

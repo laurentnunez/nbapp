@@ -30,14 +30,11 @@ toggleMenu();
 
 
 
-//ici on récupère le classement des équipes
+
 
 //===================================================================
 //QUERY SELECTOR
 //===================================================================
-
-
-
 
 
 
@@ -54,6 +51,8 @@ const gamesElementSelector = document.querySelector('.games');
 const sectionSelector = document.querySelector('.first-section');
 
 const secondSectionSelector = document.querySelector('.second-section');
+
+const thirdSectionSelector = document.querySelector('.third-section');
 
 const dateWrapperSelector = document.querySelector('.dateWrapper');
 
@@ -312,6 +311,9 @@ function handleStandingsButton () {
     twoMoreButtonSelector.classList.add("off");
     threeMoreButtonSelector.classList.add("off");
 
+    secondSectionSelector.classList.toggle('off');
+    thirdSectionSelector.classList.toggle('off');
+
     eastButtonSelector.classList.add("select");
 
     handleEastButton ();
@@ -336,7 +338,13 @@ function handleGamesButton () {
     //console.log("afficher les matchs");
     eastButtonSelector.classList.add("off");
     westButtonSelector.classList.add("off");
-    sectionSelector.classList.add("off");
+
+    sectionSelector.classList.toggle('off');
+    thirdSectionSelector.classList.toggle('off');
+
+
+    todayButtonSelector.classList.remove('no-selected');
+    todayButtonSelector.classList.add('selected');
 
     getTheDate ();
 
@@ -383,8 +391,26 @@ function handleGamesJson (json) {
 
     console.log(json.response);
 
-    const oldGamesCardSelector = document.querySelector(".gameCardButton");
-    oldGamesCardSelector.remove();
+    if (json.response=[]) {
+        console.log("PAS DE MATCH");
+
+        const newGameCard = document.createElement("button");
+        newGameCard.classList.add("gameCardButton");
+
+        const newGameData = document.createElement("p");
+        newGameData.classList.add("no-game");
+        newGameData.textContent="pas de match actuellement...";
+
+        gamesElementSelector.append(newGameCard);
+        newGameCard.append(newGameData);
+    
+    }
+
+    else {
+
+
+    //const oldGamesCardSelector = document.querySelector(".gameCardButton");
+    //oldGamesCardSelector.remove();
 
     //on lance la boucle sur le tb json.reponse pour récupérer les infos des matchs
     for (const dataGames of json.response)
@@ -469,7 +495,7 @@ function handleGamesJson (json) {
     }
 
     selectTheGame();
-
+    }
 }
 
 
