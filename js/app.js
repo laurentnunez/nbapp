@@ -340,25 +340,26 @@ function handleGamesButton () {
     const elements = document.querySelectorAll('*');
     elements.forEach((element)=> {
         element.classList.remove("off");
-        element.classList.remove("select");
+        element.classList.remove('selected');
+        element.classList.remove('no-selected');
     });
-    //console.log("off effacé");
     
-    //console.log("afficher les matchs");
     eastButtonSelector.classList.add("off");
     westButtonSelector.classList.add("off");
 
     sectionSelector.classList.toggle('off');
     thirdSectionSelector.classList.toggle('off');
 
-
-    todayButtonSelector.classList.remove('no-selected');
+    oneLessButtonSelector.classList.add('no-selected');
+    twoLessButtonSelector.classList.add('no-selected');
+    threeLessButtonSelector.classList.add('no-selected');
     todayButtonSelector.classList.add('selected');
+    oneMoreButtonSelector.classList.add('no-selected');
+    twoMoreButtonSelector.classList.add('no-selected');
+    threeMoreButtonSelector.classList.add('no-selected');
 
     getTheDate ();
 
-    todayButtonSelector.classList.remove('no-selected');
-    todayButtonSelector.classList.add('selected');
 
     const todayDate = new Date();
     const theDay = todayDate.getDate();
@@ -399,9 +400,27 @@ function handleGamesButton () {
 
 //fonction qui permet de récupérer les matchs d'hier
 function handleYesterdayButtonGames () {
-
  
+    const elements = document.querySelectorAll('*');
+    elements.forEach((element)=> {
+        element.classList.remove("off");
+        element.classList.remove('selected');
+        element.classList.remove('no-selected');
+    });
     
+    eastButtonSelector.classList.add("off");
+    westButtonSelector.classList.add("off");
+
+    sectionSelector.classList.toggle('off');
+    thirdSectionSelector.classList.toggle('off');
+
+    oneLessButtonSelector.classList.add('selected');
+    twoLessButtonSelector.classList.add('no-selected');
+    threeLessButtonSelector.classList.add('no-selected');
+    todayButtonSelector.classList.add('no-selected');
+    oneMoreButtonSelector.classList.add('no-selected');
+    twoMoreButtonSelector.classList.add('no-selected');
+    threeMoreButtonSelector.classList.add('no-selected');
 
     const todayDate = new Date();
     const theDay = todayDate.getDate()-1;
@@ -440,11 +459,30 @@ function handleYesterdayButtonGames () {
 
 }
 
-
 //fonction qui permet de récupérer les matchs d'avant-hier
 function handleTwoDaysBeforeButtonGames () {
 
 
+    const elements = document.querySelectorAll('*');
+    elements.forEach((element)=> {
+        element.classList.remove("off");
+        element.classList.remove('selected');
+        element.classList.remove('no-selected');
+    });
+    
+    eastButtonSelector.classList.add("off");
+    westButtonSelector.classList.add("off");
+
+    sectionSelector.classList.toggle('off');
+    thirdSectionSelector.classList.toggle('off');
+
+    oneLessButtonSelector.classList.add('no-selected');
+    twoLessButtonSelector.classList.add('selected');
+    threeLessButtonSelector.classList.add('no-selected');
+    todayButtonSelector.classList.add('no-selected');
+    oneMoreButtonSelector.classList.add('no-selected');
+    twoMoreButtonSelector.classList.add('no-selected');
+    threeMoreButtonSelector.classList.add('no-selected');
 
 
     const todayDate = new Date();
@@ -487,7 +525,26 @@ function handleTwoDaysBeforeButtonGames () {
 //fonction qui permet de récupérer les matchs d'avant-avant-hier
 function handleThreeDaysBeforeButtonGames () {
 
+    const elements = document.querySelectorAll('*');
+    elements.forEach((element)=> {
+        element.classList.remove("off");
+        element.classList.remove('selected');
+        element.classList.remove('no-selected');
+    });
     
+    eastButtonSelector.classList.add("off");
+    westButtonSelector.classList.add("off");
+
+    sectionSelector.classList.toggle('off');
+    thirdSectionSelector.classList.toggle('off');
+
+    oneLessButtonSelector.classList.add('no-selected');
+    twoLessButtonSelector.classList.add('no-selected');
+    threeLessButtonSelector.classList.add('selected');
+    todayButtonSelector.classList.add('no-selected');
+    oneMoreButtonSelector.classList.add('no-selected');
+    twoMoreButtonSelector.classList.add('no-selected');
+    threeMoreButtonSelector.classList.add('no-selected');
 
     const todayDate = new Date();
     const theDay = todayDate.getDate()-3;
@@ -526,9 +583,31 @@ function handleThreeDaysBeforeButtonGames () {
 
 }
 
-
 //fonction qui permet de récupérer les matchs de demain
 function handleTomorowButtonGames () {
+
+    const elements = document.querySelectorAll('*');
+    elements.forEach((element)=> {
+        element.classList.remove("off");
+        element.classList.remove('selected');
+        element.classList.remove('no-selected');
+    });
+    
+    eastButtonSelector.classList.add("off");
+    westButtonSelector.classList.add("off");
+
+    sectionSelector.classList.toggle('off');
+    thirdSectionSelector.classList.toggle('off');
+
+    oneLessButtonSelector.classList.add('no-selected');
+    twoLessButtonSelector.classList.add('no-selected');
+    threeLessButtonSelector.classList.add('no-selected');
+    todayButtonSelector.classList.add('no-selected');
+    oneMoreButtonSelector.classList.add('selected');
+    twoMoreButtonSelector.classList.add('no-selected');
+    threeMoreButtonSelector.classList.add('no-selected');
+
+
 
 
     const todayDate = new Date();
@@ -572,10 +651,26 @@ function handleTomorowButtonGames () {
 function handleTwoDaysAfterButtonGames () {
 
     
-    todayButtonSelector.classList.remove('selected');
+    const elements = document.querySelectorAll('*');
+    elements.forEach((element)=> {
+        element.classList.remove("off");
+        element.classList.remove('selected');
+        element.classList.remove('no-selected');
+    });
+    
+    eastButtonSelector.classList.add("off");
+    westButtonSelector.classList.add("off");
+
+    sectionSelector.classList.toggle('off');
+    thirdSectionSelector.classList.toggle('off');
+
+    oneLessButtonSelector.classList.add('no-selected');
+    twoLessButtonSelector.classList.add('no-selected');
+    threeLessButtonSelector.classList.add('no-selected');
     todayButtonSelector.classList.add('no-selected');
-    yesterdayButtonSelector.classList.remove('no-selected');
-    yesterdayButtonSelector.classList.add('selected');
+    oneMoreButtonSelector.classList.add('no-selected');
+    twoMoreButtonSelector.classList.add('selected');
+    threeMoreButtonSelector.classList.add('no-selected');
 
 
     const todayDate = new Date();
@@ -617,6 +712,26 @@ function handleTwoDaysAfterButtonGames () {
 
 //fonction qui permet de récupérer les matchs dans 3 jours
 function handleThreeDaysAfterButtonGames () {
+  
+    const elements = document.querySelectorAll('*');
+    elements.forEach((element)=> {
+        element.classList.remove("off");
+        element.classList.remove('selected');
+        element.classList.remove('no-selected');
+    });
+    
+    eastButtonSelector.classList.add("off");
+    westButtonSelector.classList.add("off");
+    sectionSelector.classList.toggle('off');
+    thirdSectionSelector.classList.toggle('off');
+
+    oneLessButtonSelector.classList.add('no-selected');
+    twoLessButtonSelector.classList.add('no-selected');
+    threeLessButtonSelector.classList.add('no-selected');
+    todayButtonSelector.classList.add('no-selected');
+    oneMoreButtonSelector.classList.add('no-selected');
+    twoMoreButtonSelector.classList.add('no-selected');
+    threeMoreButtonSelector.classList.add('selected');
 
     const todayDate = new Date();
     const theDay = todayDate.getDate()+3;
@@ -673,13 +788,11 @@ function handleGamesJson (json) {
 
     else {
 
+        //const oldGamesCardSelector = document.querySelector(".gameCardButton");
+        //oldGamesCardSelector.remove();
 
-        const noGameCardP = document.querySelector('.no-game');
-        noGameCardP.textContent="Les matchs...";
-
-        const oldGamesCardSelector = document.querySelector(".gameCardButton");
-        oldGamesCardSelector.remove();
-
+        const noGameCard = document.querySelector('.gameCardButton');
+        noGameCard.classList.add('off');
 
     //on lance la boucle sur le tb json.reponse pour récupérer les infos des matchs
     for (const dataGames of json.response)
