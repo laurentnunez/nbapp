@@ -30,14 +30,11 @@ toggleMenu();
 
 
 
-//ici on récupère le classement des équipes
+
 
 //===================================================================
 //QUERY SELECTOR
 //===================================================================
-
-
-
 
 
 
@@ -54,6 +51,8 @@ const gamesElementSelector = document.querySelector('.games');
 const sectionSelector = document.querySelector('.first-section');
 
 const secondSectionSelector = document.querySelector('.second-section');
+
+const thirdSectionSelector = document.querySelector('.third-section');
 
 const dateWrapperSelector = document.querySelector('.dateWrapper');
 
@@ -320,7 +319,10 @@ function handleStandingsButton () {
     oneMoreButtonSelector.classList.add("off");
     twoMoreButtonSelector.classList.add("off");
     threeMoreButtonSelector.classList.add("off");
-    gamesMonthAndYear.classList.add("off");
+
+    secondSectionSelector.classList.toggle('off');
+    thirdSectionSelector.classList.toggle('off');
+
     eastButtonSelector.classList.add("select");
 
     handleEastButton ();
@@ -345,7 +347,13 @@ function handleGamesButton () {
     //console.log("afficher les matchs");
     eastButtonSelector.classList.add("off");
     westButtonSelector.classList.add("off");
-    sectionSelector.classList.add("off");
+
+    sectionSelector.classList.toggle('off');
+    thirdSectionSelector.classList.toggle('off');
+
+
+    todayButtonSelector.classList.remove('no-selected');
+    todayButtonSelector.classList.add('selected');
 
     getTheDate ();
 
@@ -652,11 +660,25 @@ function handleThreeDaysAfterButtonGames () {
 function handleGamesJson (json) {
 
 
+   
 
     console.log(json.response);
 
+    if (json.response.lenght = 0) {
+
+        const noGameCard = document.querySelector('.gameCardButton');
+        noGameCard.classList.remove('off');
+    
+    }
+
+    else {
+
+
+        const noGameCardP = document.querySelector('.no-game');
+        noGameCardP.textContent="Les matchs...";
+
         const oldGamesCardSelector = document.querySelector(".gameCardButton");
-        //oldGamesCardSelector.remove();
+        oldGamesCardSelector.remove();
 
 
     //on lance la boucle sur le tb json.reponse pour récupérer les infos des matchs
@@ -743,7 +765,7 @@ function handleGamesJson (json) {
 
 
     selectTheGame();
-
+    }
 }
 
 
