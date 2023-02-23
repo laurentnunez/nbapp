@@ -12,16 +12,14 @@
     <script src="./js/app.js" defer></script>
 </head>
 <body>
-    
-        <nav class="nav">
-            <h1>NBApp</h1>
-            <div class="navbar">
-                <a class="gamesButton">MATCHS</a>
-                <a class="standingsButton">CLASSEMENTS</a>
-                <a class="teamsButton">EQUIPES</a>
-            </div>
+        <nav class="navbar">
+            <img class="nba-logo" src="./images/nbapp-logo.png">
+            <ul class="navbar__links">
+                <li class ="navbar__link"><a class="gamesButton">MATCHS</a></li>
+                <li class ="navbar__link"><a class="standingsButton">CLASSEMENTS</a></li>
+            </ul>
             <div class="burger">
-                <span></span>
+                <span class="bar"></span>
             </div>
         </nav>
         <div class="dateWrapper">
@@ -40,7 +38,7 @@
             
         </div>
     <main>       
-        <div class="first-section">
+        <div class="first-section off">
             <table class ="standingsTable">
                 <thead class="headTable">
                     <tr class ="headCol">
@@ -57,7 +55,7 @@
                 </tbody>
             </table>    
         </div>
-        <div class="second-section">
+        <div class="second-section off">
             <div class="games">
                 <button type ="button" class="gameCardButton" id="11929">
                     <div class="homeTeam">
@@ -75,7 +73,19 @@
                 </button>
             </div>
         </div>
-        <div class="third-section">
+        <div class="third-section off">
+            <div class="headGame">
+                <div class="headGameHome">
+                    <img class="headGameImageHome" src="https://upload.wikimedia.org/wikipedia/fr/thumb/d/d9/Timberwolves_du_Minnesota_logo_2017.png/200px-Timberwolves_du_Minnesota_logo_2017.png"/>
+                    
+                    <p class="gameHomeTeamScore">112</p>
+                </div>
+                <div class="headGameVisitor">
+                        <img class="headGameImageVisitor" src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f1/Memphis_Grizzlies.svg/1200px-Memphis_Grizzlies.svg.png"/>
+                    
+                    <p class="gameVisitorTeamScore">108</p>
+                </div>       
+            </div>
             <div class="gameContainer">
                 <table class ="oneGameTableHome">
                     <thead class="headGameTable">
@@ -88,6 +98,38 @@
                         </tr> 
                     </thead>
                     <tbody class="bodyGameTable">
+                        <tr class="gameElements">
+                            
+                            <th class="homePlayer1">Giannis Antetokounmpo</th>
+                            <th class="">2</th>
+                            <th class="">7</th>
+                            <th class="">3</th>
+                            
+                        </tr>
+                        <tr class="gameElements">
+                            
+                            <th class="homePlayer1">Brook Lopez</th>
+                            <th class="">33</th>
+                            <th class="">7</th>
+                            <th class="">2</th>
+                            
+                        </tr>
+                        <tr class="gameElements">
+                            
+                            <th class="homePlayer1">Brook Lopez</th>
+                            <th class="">33</th>
+                            <th class="">7</th>
+                            <th class="">2</th>
+                            
+                        </tr>
+                        <tr class="gameElements">
+                            
+                            <th class="homePlayer1">Brook Lopez</th>
+                            <th class="">33</th>
+                            <th class="">7</th>
+                            <th class="">2</th>
+                            
+                        </tr>
                         <tr class="gameElements">
                             
                             <th class="homePlayer1">Brook Lopez</th>
@@ -109,6 +151,38 @@
                         </tr> 
                     </thead>
                     <tbody class="bodyGameTable">
+                        <tr class="gameElements">
+                            
+                            <th class="">Patrick Williams</th>
+                            <th class="">16</th>
+                            <th class="">5</th>
+                            <th class="">2</th>
+                            
+                        </tr>
+                        <tr class="gameElements">
+                            
+                            <th class="">Nikola Vucevic</th>
+                            <th class="">22</th>
+                            <th class="">16</th>
+                            <th class="">3</th>
+                            
+                        </tr>
+                        <tr class="gameElements">
+                            
+                            <th class="">Patrick Williams</th>
+                            <th class="">16</th>
+                            <th class="">5</th>
+                            <th class="">2</th>
+                            
+                        </tr>
+                        <tr class="gameElements">
+                            
+                            <th class="">Patrick Williams</th>
+                            <th class="">16</th>
+                            <th class="">5</th>
+                            <th class="">2</th>
+                            
+                        </tr>
                         <tr class="gameElements">
                             
                             <th class="">Patrick Williams</th>
