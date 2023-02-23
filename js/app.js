@@ -779,23 +779,33 @@ function handleGamesJson (json) {
 
     console.log(json.response);
 
-    if (json.response.lenght = 0) {
+    const allGames = json.response; 
 
-        const noGameCard = document.querySelector('.gameCardButton');
-        noGameCard.classList.remove('off');
+
+    if (allGames.length === 0) {
+
+        console.log("le tableau est vide");
+
+        const noGameCard = document.createElement('div');
+        noGameCard.classList.add('gameCardButton');
+
+        const noGameCardP = document.createElement('p');
+        noGameCardP.classList.add('no-game');
+        noGameCardP.textContent="Pas de matchs actuellement...";
+
+        gamesElementSelector.append(noGameCard);
+        noGameCard.append(noGameCardP);
     
     }
 
     else {
 
-        //const oldGamesCardSelector = document.querySelector(".gameCardButton");
-        //oldGamesCardSelector.remove();
+       const oldGamesCardSelector = document.querySelector(".gameCardButton");
+       oldGamesCardSelector.remove();
 
-        const noGameCard = document.querySelector('.gameCardButton');
-        noGameCard.classList.add('off');
 
     //on lance la boucle sur le tb json.reponse pour récupérer les infos des matchs
-    for (const dataGames of json.response)
+    for (const dataGames of allGames)
     {
         //on crée une card pour chaque matchs
         const newGameCard = document.createElement("button");

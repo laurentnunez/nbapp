@@ -761,7 +761,7 @@ tbody tr:nth-child(even) {
 }
 
 .DET {
-    background: rgb(0, 5, 82);
+    background: rgb(0, 71, 177);
 }
 
 /*CONF OUEST*/
@@ -790,8 +790,12 @@ tbody tr:nth-child(even) {
 }
 
 .LAC {
-    background: rgb(0, 22, 122);
+    background: rgb(0, 14, 75);
 }
+
+.LAC .gameCardImage {
+    width: 60%; 
+ }
 
 .NOP {
     background: rgb(90, 0, 15);
@@ -816,6 +820,10 @@ tbody tr:nth-child(even) {
 .LAL {
     background: rgb(39, 0, 131);
 }
+
+.LAL .gameCardImage {
+    width: 55%; 
+ }
 
 .SAS {
     background: rgb(128, 128, 128);
