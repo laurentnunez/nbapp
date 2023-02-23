@@ -1,15 +1,33 @@
 
+// MATCHS de la navbar
+const gamesButton = document.querySelector('.gamesButton');
+//bouton CLASSEMENTS de la navbar
+const standingsButton = document.querySelector('.standingsButton');
+
 //menu burger
 
-const burgerSelector = document.querySelector('.burger');
-const navbarSelector = document.querySelector('.navbar');
+function toggleMenu () {
+    const navbar = document.querySelector('.navbar');
+    const burger =document.querySelector('.burger');
 
-function handleBurger() {
-    burgerSelector.classList.toggle('active');
-    navbarSelector.classList.toggle('mobile');
+    burger.addEventListener('click', ()=> {
+        navbar.classList.toggle('show-nav');
+    })
+
+    gamesButton.addEventListener('click',()=> {
+        navbar.classList.toggle('show-nav'); 
+    })
+
+    standingsButton.addEventListener('click',()=> {
+        navbar.classList.toggle('show-nav'); 
+    })
+
 }
+toggleMenu();
 
-burgerSelector.addEventListener('click', handleBurger);
+
+
+
 
 
 //ici on récupère le classement des équipes
@@ -18,11 +36,10 @@ burgerSelector.addEventListener('click', handleBurger);
 //QUERY SELECTOR
 //===================================================================
 
-//bouton CLASSEMENTS de la navbar
-const standingsButton = document.querySelector('.standingsButton');
 
-// MATCHS de la navbar
-const gamesButton = document.querySelector('.gamesButton');
+
+
+
 
 //bouton "Conf. Est"
 const eastButtonSelector = document.querySelector(".eastButton");
