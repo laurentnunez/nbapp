@@ -614,6 +614,10 @@ tbody tr:nth-child(even) {
     
 }
 
+.gameCardButton.off {
+    display: none;
+}
+
 .gameCardButton:hover {
     cursor: pointer;
     color: white;

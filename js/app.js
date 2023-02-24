@@ -402,11 +402,6 @@ function handleYesterdayButtonGames () {
         element.classList.remove('selected');
         element.classList.remove('no-selected');
     });
-
-    const oldElements = document.querySelectorAll('.gameCardButton');
-    oldElements.forEach((oldElement)=> {
-        oldElement.classList.add('off');
-    })
     
     eastButtonSelector.classList.add("off");
     westButtonSelector.classList.add("off");
@@ -774,10 +769,21 @@ function handleThreeDaysAfterButtonGames () {
 //fonction qui récupère la liste des matchs
 function handleGamesJson (json) {
   
-
     console.log(json.response);
 
-    const oldGamesCardSelector = document.querySelector(".gameCardButton");
+    const oldElements = document.querySelectorAll('.gameCardButton');
+    const oldElementsP = document.querySelectorAll('.no-game');
+
+    oldElements.forEach((oldElement)=> {
+        oldElement.classList.add('off');
+    })
+
+    oldElementsP.forEach((oldElementP)=> {
+        oldElementP.classList.add('off');
+    })
+
+
+    
     const allGames = json.response; 
 
 
@@ -793,103 +799,7 @@ function handleGamesJson (json) {
     
     }
 
-
-    if (typeof oldGamesCardSelector != 'undefined') {
-
-        //console.log("pas de cartes");
-
-        
-
-        for (const dataGames of allGames)
-        {
-            //on crée une card pour chaque matchs
-            const newGameCard = document.createElement("button");
-            newGameCard.classList.add("gameCardButton");
-              
-    
-            //on crée l'élément pour l'équipe "Home"
-            const newHomeTeamElement = document.createElement("div");
-            newHomeTeamElement.classList.add("homeTeam");
-    
-            const newImageCard = document.createElement("img");
-            newImageCard.classList.add("gameCardImage");
-    
-            const newGameData = document.createElement("div");
-            newGameData.classList.add("gameData");
-    
-            const newHomeTeamName = document.createElement("p");
-            newHomeTeamName.classList.add("homeTeamName");
-    
-            const newHomeTeamScore = document.createElement("p");
-            newHomeTeamScore.classList.add("homeTeamScore");
-    
-           
-            
-             //on crée l'élément pour l'équipe "Visitor"
-            const newVisitorTeamElement = document.createElement("div");
-            newVisitorTeamElement.classList.add("visitorTeam");
-    
-            const newVisitorImageCard = document.createElement("img");
-            newVisitorImageCard.classList.add("gameCardImage");
-    
-            const newVisitorGameData = document.createElement("div");
-            newVisitorGameData.classList.add("gameData");
-    
-            const newVisitorTeamName = document.createElement("p");
-            newVisitorTeamName.classList.add("visitorTeamName");
-    
-            const newVisitorTeamScore = document.createElement("p");
-            newVisitorTeamScore.classList.add("visitorTeamScore");
-
-            const newIdGame = document.createElement("p");
-            newIdGame.classList.add("idGame");
-    
-            //on affecte les données aux éléments de chaque équipe du match
-            newImageCard.src = dataGames.teams.home.logo;
-            newHomeTeamName.textContent = dataGames.teams.home.name;
-            newHomeTeamScore.textContent= dataGames.scores.home.points;
-            const colorHomeTeam= dataGames.teams.home.code;
-            const colorVisitorTeam = dataGames.teams.visitors.code;
-    
-            //on affecte l'id à chaque match
-            const idGame = dataGames.id;
-            newGameCard.setAttribute("id",`${idGame}`);
-            newIdGame.textContent= idGame;
-
-            //on affecte une couleur différente pour chaque équipe
-            newHomeTeamElement.classList.add(`${colorHomeTeam}`);
-            newVisitorTeamElement.classList.add(`${colorVisitorTeam}`);
-            
-            newVisitorImageCard.src = dataGames.teams.visitors.logo;
-            //newVisitorImageCard.style.backgroundImage=dataGames.teams.visitors.logo;
-            newVisitorTeamName.textContent = dataGames.teams.visitors.name;
-            newVisitorTeamScore.textContent= dataGames.scores.visitors.points;
-    
-            //on affiche tous les éléments sur la page
-    
-            gamesElementSelector.append(newGameCard);
-            newGameCard.append(newIdGame);
-            newGameCard.append(newHomeTeamElement);
-            newHomeTeamElement.append(newImageCard);
-            newHomeTeamElement.append(newGameData);
-            //newGameData.append(newHomeTeamName);
-            newGameData.append(newHomeTeamScore);
-    
-    
-            newGameCard.append(newVisitorTeamElement);
-            newVisitorTeamElement.append(newVisitorImageCard);
-            newVisitorTeamElement.append(newVisitorGameData);
-            //newVisitorGameData.append(newVisitorTeamName);
-            newVisitorGameData.append(newVisitorTeamScore);
-    
-    
-    
-        }
-
-
-    }
-
-
+   
     else {
 
    
