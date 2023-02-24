@@ -776,11 +776,11 @@ function handleGamesJson (json) {
 
     oldElements.forEach((oldElement)=> {
         oldElement.classList.add('off');
-    })
+    });
 
     oldElementsP.forEach((oldElementP)=> {
         oldElementP.classList.add('off');
-    })
+    });
 
 
     
