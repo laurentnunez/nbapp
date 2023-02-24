@@ -5,7 +5,7 @@
 
 body {
     font-family: 'Jost', sans-serif;
-    background-color: #1D2C49;
+    background-color: #10192b;
     color: #bdc1c6;
     
 }
@@ -14,7 +14,8 @@ body {
     display: none;
 }
 
-.loader-container.hidden {
+.loader-container.hidden {   
+
     opacity: 0;
     visibility: hidden;
 }
@@ -284,7 +285,7 @@ margin-bottom: 1rem;
 
 .dateWrapperButtons button:hover {
     cursor: pointer;
-    background-color: #1D2C49;
+    background-color: #10192b;
     border-bottom: 1px solid #fb5924;
     ;
     color:white;
@@ -293,7 +294,7 @@ margin-bottom: 1rem;
 
 
 .selected {
-    background-color: #1D2C49;
+    background-color: #10192b;
     border-bottom: 1px solid #fb5924;
     color:white;
 }
@@ -440,7 +441,7 @@ tbody tr:nth-child(even) {
     background-color: #0c121d;
     display: flex;
     justify-content: space-between;
-    width: 63%;
+    width: 40%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 1rem;
@@ -525,20 +526,25 @@ tbody tr:nth-child(even) {
 
 }
 
-.oneGameTableHome{
+.gameTable{
     margin-left: auto;
-    margin-right:1rem ;
+    margin-right:auto ;
     table-layout: fixed;
-    width: 31%;
+    width: 50%;
     border-collapse: collapse;
     border-radius: 7px;
     background-color: #0c121d; 
     font-size: 18px;
 }
 
+.playerLogo {
+    width: 35px;
+    height: auto;
+    margin-left: 0.5rem;
+}
 
 @media screen and (max-width: 768px){
-    .oneGameTableHome{
+    .gameTable{
         margin-left: auto;
         margin-right: auto;
         width: 90%;
@@ -546,78 +552,49 @@ tbody tr:nth-child(even) {
 
 }
 
-.oneGameTableHome th:nth-child(1){
+.gameTable th:nth-child(1){
+    text-align: center;
+}
+
+.gameTable th:nth-child(2){
     text-align: left;
 }
 
-.oneGameTableHome thead th:nth-child(1) {
-    width: 10%;
+.gameTable thead th:nth-child(1) {
+    width: 0.2%;
     
   }
 
-.oneGameTableHome thead th:nth-child(2) {
+.gameTable thead th:nth-child(2) {
+    width: 8%;
+}
+
+.gameTable thead th:nth-child(3) {
     width: 0.5%;
 }
 
-.oneGameTableHome thead th:nth-child(3) {
+.gameTable thead th:nth-child(4) {
     width: 0.5%;
 }
 
-.oneGameTableHome thead th:nth-child(4) {
+.gameTable thead th:nth-child(5) {
     width: 0.5%;
 }
 
-
-
-
-.oneGameTableVisitor{
-    margin-left: 1rem;
-    margin-right:auto ;
-    table-layout: fixed;
-    width: 31%;
-    border-collapse: collapse;
-    border-radius: 7px;
-    background-color:#0c121d;
-    font-size: 18px; 
+.gameTable tbody tr:nth-child(6) {
+    border-bottom: none;
 }
 
-@media screen and (max-width: 768px){
-
-    .oneGameTableVisitor{
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 1rem;
-        width: 90%; 
-    }
-
+.gameTable tbody tr:nth-child(10) {
+    border-bottom: none;
 }
-
-.oneGameTableVisitor th:nth-child(1){
-    text-align: left;
-}
-
-.oneGameTableVisitor thead th:nth-child(1) {
-    width: 10%;
-    
-  }
-
-.oneGameTableVisitor thead th:nth-child(2) {
-    width: 0.5%;
-}
-
-.oneGameTableVisitor thead th:nth-child(3) {
-    width: 0.5%;
-}
-
-.oneGameTableVisitor thead th:nth-child(4) {
-    width: 0.5%;
-}
-
-
-
 
 
 /*=====CSS POUR LES MATCHS=====*/
+
+
+
+
 
 .games {
     display: flex;
@@ -626,6 +603,7 @@ tbody tr:nth-child(even) {
     flex-wrap: wrap;
     margin:0.5rem 5rem 2rem 5rem ;
 }
+
 
 @media screen and (max-width:640px){
     .games {
@@ -667,11 +645,10 @@ tbody tr:nth-child(even) {
 .gameCardButton:hover {
     cursor: pointer;
     color: white;
-    width: 27rem;
     height: auto;
     font-size: 55px;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    border-left: #fb5924 1x solid;
+    
 }
 
 
@@ -742,7 +719,7 @@ tbody tr:nth-child(even) {
     font-size: x-large;
 }
 
-.gameCardImage{
+.gameCardImageVisitor , .gameCardImageHome{
     width: 50%;
     margin: auto;
     padding-left: 0.1rem;

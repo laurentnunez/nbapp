@@ -5,12 +5,15 @@ function selectTheGame () {
 
 const gameCardSelector = document.querySelectorAll('.gameCardButton');
 
-
 //on lance une boucle permettant de faire apparaître la section 'third-section' en cliquant sur un des match de la liste
 for (const game of gameCardSelector) {
 
     game.addEventListener('click', ()=> {
         thirdSectionSelector.classList.remove('off');
+        secondSectionSelector.classList.add('off');
+
+        const gameId = game.id;
+        console.log(game);
 
     //on lance la requête nous permettant de récupérer les stats d'un match
 
@@ -27,12 +30,9 @@ for (const game of gameCardSelector) {
             }
         };
         
-        fetch('https://api-nba-v1.p.rapidapi.com/players/statistics?game=11935', options)
+        fetch(`https://api-nba-v1.p.rapidapi.com/players/statistics?game=${gameId}`, options)
             .then( function (data) {return data.json()})
             .then (handleOneGame);
-
-
-
         
     });
     
@@ -40,7 +40,7 @@ for (const game of gameCardSelector) {
 
 }
 
-
+//fonction permettant d'afficher les stats du match sélectionné
 function handleOneGame (json) {
 
     console.log(json.response);
@@ -71,6 +71,9 @@ function handleOneGame (json) {
             newGameElements.classList.add("gameElements");
 
             //on crée les éléments th pour chaque donnée
+            const newTeamLogo = document.createElement("img");
+            newTeamLogo.classList.add("playerLogo");
+
             const newPlayerName = document.createElement("th");
             newPlayerName.classList.add("playerName");
 
@@ -85,18 +88,23 @@ function handleOneGame (json) {
 
             //on affecte les données à chaque élément créé
 
+            newTeamLogo.src=playerData.team.logo;
             newPlayerName.textContent = playerData.player.firstname+" "+playerData.player.lastname;
             newPlayerPoints.textContent = playerData.points;
             newPlayerRbd.textContent = playerData.totReb;
             newPlayerAst.textContent= playerData.assists;
 
             //on organise les éléments dans le tableau
-            bodyGameTableSelector.append(newGameElements);
+            
+            newBodyGameTable.append(newGameElements);
+            newGameElements.append(newTeamLogo);
             newGameElements.append(newPlayerName);
             newGameElements.append(newPlayerPoints);
             newGameElements.append(newPlayerRbd);
             newGameElements.append(newPlayerAst);
 
         }
+
+
 
 };
