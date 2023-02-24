@@ -592,7 +592,8 @@ tbody tr:nth-child(even) {
 }
 
 .no-game{
-    font-size: 20px;
+    font-family: 'Jost', sans-serif;
+    font-size: 30px;
 }
 
 

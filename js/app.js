@@ -402,6 +402,11 @@ function handleYesterdayButtonGames () {
         element.classList.remove('selected');
         element.classList.remove('no-selected');
     });
+
+    const oldElements = document.querySelectorAll('.gameCardButton');
+    oldElements.forEach((oldElement)=> {
+        oldElement.classList.add('off');
+    })
     
     eastButtonSelector.classList.add("off");
     westButtonSelector.classList.add("off");
@@ -780,15 +785,11 @@ function handleGamesJson (json) {
 
         console.log("le tableau est vide");
 
-        const noGameCard = document.createElement('div');
-        noGameCard.classList.add('gameCardButton');
-
         const noGameCardP = document.createElement('p');
         noGameCardP.classList.add('no-game');
         noGameCardP.textContent="Pas de matchs ce jour-là...";
 
-        gamesElementSelector.append(noGameCard);
-        noGameCard.append(noGameCardP);
+        gamesElementSelector.append(noGameCardP);
     
     }
 
