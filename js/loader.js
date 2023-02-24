@@ -4,4 +4,4 @@ function showLoader () {
     handleGamesButton();
 }
 
-setTimeout(showLoader, 3000);
+setTimeout(showLoader, 2000);

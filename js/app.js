@@ -816,7 +816,7 @@ function handleGamesJson (json) {
             newHomeTeamElement.classList.add("homeTeam");
 
             const newImageCard = document.createElement("img");
-            newImageCard.classList.add("gameCardImage");
+            newImageCard.classList.add("gameCardImageHome");
 
             const newGameData = document.createElement("div");
             newGameData.classList.add("gameData");
@@ -834,7 +834,7 @@ function handleGamesJson (json) {
             newVisitorTeamElement.classList.add("visitorTeam");
 
             const newVisitorImageCard = document.createElement("img");
-            newVisitorImageCard.classList.add("gameCardImage");
+            newVisitorImageCard.classList.add("gameCardImageVisitor");
 
             const newVisitorGameData = document.createElement("div");
             newVisitorGameData.classList.add("gameData");
