@@ -353,7 +353,7 @@ tbody tr:nth-child(even) {
     color:white;
     transition: ease-in-out 0.3s;
     cursor: pointer;
-    background-color:#121b2e;
+    background-color:#05070c;
   }
 
 .cardElements{
@@ -587,6 +587,9 @@ tbody tr:nth-child(even) {
     }
 }
 
+.idGame {
+  display: none;     
+}
 
 .no-game{
     font-size: 20px;
@@ -595,20 +598,29 @@ tbody tr:nth-child(even) {
 
 
 .gameCardButton {
-    border-radius: 5px;
+    border-radius: 8px;
     background-color: transparent;
     border: none;
     display: flex;
     flex-direction: center;
-    color:#bbbbbb;
+    color:#d8d8d8;
     letter-spacing: 2px;
     margin: 0.5rem;
     font-family: 'Anton', sans-serif;
     width: 25rem;
+    transition: all ease-in-out 0.3s;
+   
+    
 }
 
 .gameCardButton:hover {
     cursor: pointer;
+    color: white;
+    width: 27rem;
+    height: auto;
+    font-size: 55px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    border-left: #fb5924 1x solid;
 }
 
 
@@ -619,8 +631,8 @@ tbody tr:nth-child(even) {
     text-align: center;
     width: 50%;
     height: 12rem;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
     background: rgb(44, 0, 0);
 }
 
@@ -636,8 +648,8 @@ tbody tr:nth-child(even) {
     justify-content: center;
     width: 50%;
     height: 12rem;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
     background: rgb(0, 108, 209);
 }
 
@@ -670,8 +682,9 @@ tbody tr:nth-child(even) {
 
 
 .homeTeamScore {
-    font-size: x-large;
+    font-size: 50px;
 }
+
 
 
 .visitorTeamScore {
@@ -753,7 +766,7 @@ tbody tr:nth-child(even) {
 }
 
 .ORL{
-    background: rgb(0, 108, 209);
+    background: rgb(72, 196, 253);
 }
 
 .CHA {
@@ -766,7 +779,7 @@ tbody tr:nth-child(even) {
 
 /*CONF OUEST*/
 .MEM {
-    background: rgb(0, 26, 73);
+    background: rgb(0, 42, 121);
 }
 
 .MIN {
@@ -810,7 +823,7 @@ tbody tr:nth-child(even) {
 }
 
 .UTA {
-    background: rgb(0, 53, 26);
+    background: rgb(0, 92, 54);
 }
 
 .POR {
