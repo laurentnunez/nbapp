@@ -345,29 +345,21 @@ function handleGamesButton () {
     sectionSelector.classList.toggle('off');
     thirdSectionSelector.classList.toggle('off');
 
-    oneLessButtonSelector.classList.add('no-selected');
-    twoLessButtonSelector.classList.add('no-selected');
-    threeLessButtonSelector.classList.add('no-selected');
-    todayButtonSelector.classList.add('selected');
-    oneMoreButtonSelector.classList.add('no-selected');
-    twoMoreButtonSelector.classList.add('no-selected');
-    threeMoreButtonSelector.classList.add('no-selected');
-
+     
     getTheDate ();
 
     const dateButtonSelector = document.querySelectorAll(".dateButton");
+
 
     for (const date of dateButtonSelector) {
 
         date.addEventListener('click', ()=> {
             const dayNumber = date.textContent;
 
-
             const todayDate = new Date();
 
             const theYear = todayDate.getFullYear();
             const theMonth = todayDate.getMonth() + 1;
-
 
 
             function dayConvert () {
@@ -385,9 +377,10 @@ function handleGamesButton () {
 
     const theDate = theYear+"-"+month+"-"+day;
 
-    console.log(theDate);
+    console.log(date);
 
-      
+        date.classList.toggle('no-selected');
+        date.classList.toggle('selected');
 
   const options = {
         method: 'GET',
@@ -547,11 +540,3 @@ eastButtonSelector.addEventListener('click', handleEastButton);
 westButtonSelector.addEventListener('click', handleWestButton);
 standingsButton.addEventListener('click', handleStandingsButton);
 
-todayButtonSelector.addEventListener('click', handleGamesButton )
-yesterdayButtonSelector.addEventListener('click',handleYesterdayButtonGames );
-twoDaysBeforeButtonSelector.addEventListener('click',handleTwoDaysBeforeButtonGames);
-threeDaysBeforeButtonSelector.addEventListener('click',handleThreeDaysBeforeButtonGames);
-gamesButton.addEventListener('click', handleGamesButton);
-tomorowButtonSelector.addEventListener('click',handleTomorowButtonGames );
-twoDaysAfterButtonSelector.addEventListener('click',handleTwoDaysAfterButtonGames);
-threeDaysAfterButtonSelector.addEventListener('click',handleThreeDaysAfterButtonGames);
