@@ -2,12 +2,12 @@
 //QUERY SELECTOR
 //===================================================================
 
-const oneLessButtonSelector = document.querySelector('.oneLessButton');
-const twoLessButtonSelector = document.querySelector('.twoLessButton');
-const threeLessButtonSelector = document.querySelector('.threeLessButton');
-const oneMoreButtonSelector = document.querySelector('.oneMoreButton');
-const twoMoreButtonSelector = document.querySelector('.twoMoreButton');
-const threeMoreButtonSelector = document.querySelector('.threeMoreButton');
+const oneLessButtonSelector = document.querySelector('#oneLessButton');
+const twoLessButtonSelector = document.querySelector('#twoLessButton');
+const threeLessButtonSelector = document.querySelector('#threeLessButton');
+const oneMoreButtonSelector = document.querySelector('#oneMoreButton');
+const twoMoreButtonSelector = document.querySelector('#twoMoreButton');
+const threeMoreButtonSelector = document.querySelector('#threeMoreButton');
 const gamesMonthAndYear = document.querySelector('.gamesMonthAndYear');
 
 const dateButtonSelector = document.querySelectorAll("#dateButton");
@@ -61,4 +61,3 @@ function getTheDate () {
 
 
 gamesMonthAndYear.addEventListener('click', getTheDate)
-//dateButtonSelector.addEventListener('click', handleDateButton);

@@ -1,6 +1,7 @@
 
 // MATCHS de la navbar
 const gamesButton = document.querySelector('.gamesButton');
+
 //bouton CLASSEMENTS de la navbar
 const standingsButton = document.querySelector('.standingsButton');
 
@@ -51,14 +52,13 @@ const thirdSectionSelector = document.querySelector('.third-section');
 
 const dateWrapperSelector = document.querySelector('.dateWrapper');
 
-const todayButtonSelector = document.querySelector ('.todayButton');
-const yesterdayButtonSelector = document.querySelector ('.oneLessButton');
-const twoDaysBeforeButtonSelector = document.querySelector ('.twoLessButton');
-const threeDaysBeforeButtonSelector = document.querySelector ('.threeLessButton');
-const tomorowButtonSelector = document.querySelector('.oneMoreButton');
-const twoDaysAfterButtonSelector = document.querySelector('.twoMoreButton');
-const threeDaysAfterButtonSelector = document.querySelector('.threeMoreButton');
-
+const todayButtonSelector = document.querySelector ('#todayButton');
+const yesterdayButtonSelector = document.querySelector ('#oneLessButton');
+const twoDaysBeforeButtonSelector = document.querySelector ('#twoLessButton');
+const threeDaysBeforeButtonSelector = document.querySelector ('#threeLessButton');
+const tomorowButtonSelector = document.querySelector('#oneMoreButton');
+const twoDaysAfterButtonSelector = document.querySelector('#twoMoreButton');
+const threeDaysAfterButtonSelector = document.querySelector('#threeMoreButton');
 
 const standingsTableSelector = document.querySelector('.standingsTable');
 
@@ -355,27 +355,39 @@ function handleGamesButton () {
 
     getTheDate ();
 
+    const dateButtonSelector = document.querySelectorAll(".dateButton");
 
-    const todayDate = new Date();
-    const theDay = todayDate.getDate();
-    const theMonth = todayDate.getMonth() + 1;
-    const theYear = todayDate.getFullYear();
+    for (const date of dateButtonSelector) {
 
-    function dayConvert () {
-        return (theDay<10 ? "0" : "")+theDay;
-    };
-    const day = dayConvert();
+        date.addEventListener('click', ()=> {
+            const dayNumber = date.textContent;
 
-    function monthConvert () {
-        return (theMonth<10 ? "0" : "")+theMonth;
-    };
-    const month = monthConvert();
-    
-    const today = theYear+"-"+month+"-"+day ;
-    
-    
 
-    //console.log(befortoday);
+            const todayDate = new Date();
+
+            const theYear = todayDate.getFullYear();
+            const theMonth = todayDate.getMonth() + 1;
+
+
+
+            function dayConvert () {
+                return (dayNumber<10 ? "0" : "")+dayNumber;
+            };
+            const day = dayConvert();
+
+
+            function monthConvert () {
+                return (theMonth<10 ? "0" : "")+theMonth;
+            };
+            const month = monthConvert();
+
+           
+
+    const theDate = theYear+"-"+month+"-"+day;
+
+    console.log(theDate);
+
+      
 
   const options = {
         method: 'GET',
@@ -386,385 +398,15 @@ function handleGamesButton () {
     };
 
     //on lance la requête
-    const gamesRequest = fetch (`https://api-nba-v1.p.rapidapi.com/games?date=${today}`, options)
+    const gamesRequest = fetch (`https://api-nba-v1.p.rapidapi.com/games?date=${theDate}`, options)
     //on récupère la réponse de la requete au format json
     .then( function (data) {return data.json()})
     //on lance la fonction handleGamesJson
     .then( handleGamesJson );
+
+    })
+    }
 };
-
-//fonction qui permet de récupérer les matchs d'hier
-function handleYesterdayButtonGames () {
- 
-    const elements = document.querySelectorAll('*');
-    elements.forEach((element)=> {
-        element.classList.remove("off");
-        element.classList.remove('selected');
-        element.classList.remove('no-selected');
-    });
-    
-    eastButtonSelector.classList.add("off");
-    westButtonSelector.classList.add("off");
-
-    sectionSelector.classList.toggle('off');
-    thirdSectionSelector.classList.toggle('off');
-
-    oneLessButtonSelector.classList.add('selected');
-    twoLessButtonSelector.classList.add('no-selected');
-    threeLessButtonSelector.classList.add('no-selected');
-    todayButtonSelector.classList.add('no-selected');
-    oneMoreButtonSelector.classList.add('no-selected');
-    twoMoreButtonSelector.classList.add('no-selected');
-    threeMoreButtonSelector.classList.add('no-selected');
-
-    const todayDate = new Date();
-    const theDay = todayDate.getDate()-1;
-    const theMonth = todayDate.getMonth() + 1;
-    const theYear = todayDate.getFullYear();
-
-    function dayConvert () {
-        return (theDay<10 ? "0" : "")+theDay;
-    };
-    const day = dayConvert();
-
-    function monthConvert () {
-        return (theMonth<10 ? "0" : "")+theMonth;
-    };
-    const month = monthConvert();
-    
-    const yesterday = theYear+"-"+month+"-"+day ;
-    
-
-  const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '2e2457b816msh7b4f76d57eb1fd9p1b092ajsnee5aa756253f',
-            'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
-        }
-    };
-
-    //on lance la requête
-    const gamesRequest = fetch (`https://api-nba-v1.p.rapidapi.com/games?date=${yesterday}`, options)
-    //on récupère la réponse de la requete au format json
-    .then( function (data) {return data.json()})
-    //on lance la fonction handleGamesJson
-    .then( handleGamesJson );
-
-
-
-}
-
-//fonction qui permet de récupérer les matchs d'avant-hier
-function handleTwoDaysBeforeButtonGames () {
-
-
-    const elements = document.querySelectorAll('*');
-    elements.forEach((element)=> {
-        element.classList.remove("off");
-        element.classList.remove('selected');
-        element.classList.remove('no-selected');
-    });
-    
-    eastButtonSelector.classList.add("off");
-    westButtonSelector.classList.add("off");
-
-    sectionSelector.classList.toggle('off');
-    thirdSectionSelector.classList.toggle('off');
-
-    oneLessButtonSelector.classList.add('no-selected');
-    twoLessButtonSelector.classList.add('selected');
-    threeLessButtonSelector.classList.add('no-selected');
-    todayButtonSelector.classList.add('no-selected');
-    oneMoreButtonSelector.classList.add('no-selected');
-    twoMoreButtonSelector.classList.add('no-selected');
-    threeMoreButtonSelector.classList.add('no-selected');
-
-
-    const todayDate = new Date();
-    const theDay = todayDate.getDate()-2;
-    const theMonth = todayDate.getMonth() + 1;
-    const theYear = todayDate.getFullYear();
-
-    function dayConvert () {
-        return (theDay<10 ? "0" : "")+theDay;
-    };
-    const day = dayConvert();
-
-    function monthConvert () {
-        return (theMonth<10 ? "0" : "")+theMonth;
-    };
-    const month = monthConvert();
-    
-    const twodaysbefore = theYear+"-"+month+"-"+day ;
-    
-
-  const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '2e2457b816msh7b4f76d57eb1fd9p1b092ajsnee5aa756253f',
-            'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
-        }
-    };
-
-    //on lance la requête
-    const gamesRequest = fetch (`https://api-nba-v1.p.rapidapi.com/games?date=${twodaysbefore}`, options)
-    //on récupère la réponse de la requete au format json
-    .then( function (data) {return data.json()})
-    //on lance la fonction handleGamesJson
-    .then( handleGamesJson );
-
-
-
-}
-
-//fonction qui permet de récupérer les matchs d'avant-avant-hier
-function handleThreeDaysBeforeButtonGames () {
-
-    const elements = document.querySelectorAll('*');
-    elements.forEach((element)=> {
-        element.classList.remove("off");
-        element.classList.remove('selected');
-        element.classList.remove('no-selected');
-    });
-    
-    eastButtonSelector.classList.add("off");
-    westButtonSelector.classList.add("off");
-
-    sectionSelector.classList.toggle('off');
-    thirdSectionSelector.classList.toggle('off');
-
-    oneLessButtonSelector.classList.add('no-selected');
-    twoLessButtonSelector.classList.add('no-selected');
-    threeLessButtonSelector.classList.add('selected');
-    todayButtonSelector.classList.add('no-selected');
-    oneMoreButtonSelector.classList.add('no-selected');
-    twoMoreButtonSelector.classList.add('no-selected');
-    threeMoreButtonSelector.classList.add('no-selected');
-
-    const todayDate = new Date();
-    const theDay = todayDate.getDate()-3;
-    const theMonth = todayDate.getMonth() + 1;
-    const theYear = todayDate.getFullYear();
-
-    function dayConvert () {
-        return (theDay<10 ? "0" : "")+theDay;
-    };
-    const day = dayConvert();
-
-    function monthConvert () {
-        return (theMonth<10 ? "0" : "")+theMonth;
-    };
-    const month = monthConvert();
-    
-    const threedaysbefore = theYear+"-"+month+"-"+day ;
-    
-
-  const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '2e2457b816msh7b4f76d57eb1fd9p1b092ajsnee5aa756253f',
-            'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
-        }
-    };
-
-    //on lance la requête
-    const gamesRequest = fetch (`https://api-nba-v1.p.rapidapi.com/games?date=${threedaysbefore}`, options)
-    //on récupère la réponse de la requete au format json
-    .then( function (data) {return data.json()})
-    //on lance la fonction handleGamesJson
-    .then( handleGamesJson );
-
-
-
-}
-
-//fonction qui permet de récupérer les matchs de demain
-function handleTomorowButtonGames () {
-
-    const elements = document.querySelectorAll('*');
-    elements.forEach((element)=> {
-        element.classList.remove("off");
-        element.classList.remove('selected');
-        element.classList.remove('no-selected');
-    });
-    
-    eastButtonSelector.classList.add("off");
-    westButtonSelector.classList.add("off");
-
-    sectionSelector.classList.toggle('off');
-    thirdSectionSelector.classList.toggle('off');
-
-    oneLessButtonSelector.classList.add('no-selected');
-    twoLessButtonSelector.classList.add('no-selected');
-    threeLessButtonSelector.classList.add('no-selected');
-    todayButtonSelector.classList.add('no-selected');
-    oneMoreButtonSelector.classList.add('selected');
-    twoMoreButtonSelector.classList.add('no-selected');
-    threeMoreButtonSelector.classList.add('no-selected');
-
-
-
-
-    const todayDate = new Date();
-    const theDay = todayDate.getDate()+1;
-    const theMonth = todayDate.getMonth() + 1;
-    const theYear = todayDate.getFullYear();
-
-    function dayConvert () {
-        return (theDay<10 ? "0" : "")+theDay;
-    };
-    const day = dayConvert();
-
-    function monthConvert () {
-        return (theMonth<10 ? "0" : "")+theMonth;
-    };
-    const month = monthConvert();
-    
-    const tomorow = theYear+"-"+month+"-"+day ;
-    
-
-  const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '2e2457b816msh7b4f76d57eb1fd9p1b092ajsnee5aa756253f',
-            'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
-        }
-    };
-
-    //on lance la requête
-    const gamesRequest = fetch (`https://api-nba-v1.p.rapidapi.com/games?date=${tomorow}`, options)
-    //on récupère la réponse de la requete au format json
-    .then( function (data) {return data.json()})
-    //on lance la fonction handleGamesJson
-    .then( handleGamesJson );
-
-
-
-}
-
-//fonction qui permet de récupérer les matchs dans 2 jours
-function handleTwoDaysAfterButtonGames () {
-
-    
-    const elements = document.querySelectorAll('*');
-    elements.forEach((element)=> {
-        element.classList.remove("off");
-        element.classList.remove('selected');
-        element.classList.remove('no-selected');
-    });
-    
-    eastButtonSelector.classList.add("off");
-    westButtonSelector.classList.add("off");
-
-    sectionSelector.classList.toggle('off');
-    thirdSectionSelector.classList.toggle('off');
-
-    oneLessButtonSelector.classList.add('no-selected');
-    twoLessButtonSelector.classList.add('no-selected');
-    threeLessButtonSelector.classList.add('no-selected');
-    todayButtonSelector.classList.add('no-selected');
-    oneMoreButtonSelector.classList.add('no-selected');
-    twoMoreButtonSelector.classList.add('selected');
-    threeMoreButtonSelector.classList.add('no-selected');
-
-
-    const todayDate = new Date();
-    const theDay = todayDate.getDate()+2;
-    const theMonth = todayDate.getMonth() + 1;
-    const theYear = todayDate.getFullYear();
-
-    function dayConvert () {
-        return (theDay<10 ? "0" : "")+theDay;
-    };
-    const day = dayConvert();
-
-    function monthConvert () {
-        return (theMonth<10 ? "0" : "")+theMonth;
-    };
-    const month = monthConvert();
-    
-    const twodaysafter = theYear+"-"+month+"-"+day ;
-    
-
-  const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '2e2457b816msh7b4f76d57eb1fd9p1b092ajsnee5aa756253f',
-            'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
-        }
-    };
-
-    //on lance la requête
-    const gamesRequest = fetch (`https://api-nba-v1.p.rapidapi.com/games?date=${twodaysafter}`, options)
-    //on récupère la réponse de la requete au format json
-    .then( function (data) {return data.json()})
-    //on lance la fonction handleGamesJson
-    .then( handleGamesJson );
-
-
-
-}
-
-//fonction qui permet de récupérer les matchs dans 3 jours
-function handleThreeDaysAfterButtonGames () {
-  
-    const elements = document.querySelectorAll('*');
-    elements.forEach((element)=> {
-        element.classList.remove("off");
-        element.classList.remove('selected');
-        element.classList.remove('no-selected');
-    });
-    
-    eastButtonSelector.classList.add("off");
-    westButtonSelector.classList.add("off");
-    sectionSelector.classList.toggle('off');
-    thirdSectionSelector.classList.toggle('off');
-
-    oneLessButtonSelector.classList.add('no-selected');
-    twoLessButtonSelector.classList.add('no-selected');
-    threeLessButtonSelector.classList.add('no-selected');
-    todayButtonSelector.classList.add('no-selected');
-    oneMoreButtonSelector.classList.add('no-selected');
-    twoMoreButtonSelector.classList.add('no-selected');
-    threeMoreButtonSelector.classList.add('selected');
-
-    const todayDate = new Date();
-    const theDay = todayDate.getDate()+3;
-    const theMonth = todayDate.getMonth() + 1;
-    const theYear = todayDate.getFullYear();
-
-    function dayConvert () {
-        return (theDay<10 ? "0" : "")+theDay;
-    };
-    const day = dayConvert();
-
-    function monthConvert () {
-        return (theMonth<10 ? "0" : "")+theMonth;
-    };
-    const month = monthConvert();
-    
-    const threedaysafter = theYear+"-"+month+"-"+day ;
-    
-
-  const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '2e2457b816msh7b4f76d57eb1fd9p1b092ajsnee5aa756253f',
-            'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
-        }
-    };
-
-    //on lance la requête
-    const gamesRequest = fetch (`https://api-nba-v1.p.rapidapi.com/games?date=${threedaysafter}`, options)
-    //on récupère la réponse de la requete au format json
-    .then( function (data) {return data.json()})
-    //on lance la fonction handleGamesJson
-    .then( handleGamesJson );
-
-
-
-}
-
 
 //fonction qui récupère la liste des matchs
 function handleGamesJson (json) {
@@ -890,8 +532,10 @@ function handleGamesJson (json) {
     }
 
     selectTheGame();
-}
 
+  
+
+}
 
 
 
@@ -902,12 +546,12 @@ function handleGamesJson (json) {
 eastButtonSelector.addEventListener('click', handleEastButton);
 westButtonSelector.addEventListener('click', handleWestButton);
 standingsButton.addEventListener('click', handleStandingsButton);
-gamesButton.addEventListener('click', handleGamesButton);
+
 todayButtonSelector.addEventListener('click', handleGamesButton )
 yesterdayButtonSelector.addEventListener('click',handleYesterdayButtonGames );
 twoDaysBeforeButtonSelector.addEventListener('click',handleTwoDaysBeforeButtonGames);
 threeDaysBeforeButtonSelector.addEventListener('click',handleThreeDaysBeforeButtonGames);
-
+gamesButton.addEventListener('click', handleGamesButton);
 tomorowButtonSelector.addEventListener('click',handleTomorowButtonGames );
 twoDaysAfterButtonSelector.addEventListener('click',handleTwoDaysAfterButtonGames);
 threeDaysAfterButtonSelector.addEventListener('click',handleThreeDaysAfterButtonGames);
