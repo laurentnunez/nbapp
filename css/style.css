@@ -770,7 +770,7 @@ tbody tr:nth-child(even) {
     background: rgb(44, 0, 0);
 }
 
-.CLE .gameCardImage {
+.CLE img {
    width: 40%; 
 }
 
@@ -779,7 +779,7 @@ tbody tr:nth-child(even) {
     background: rgb(39, 39, 39);
 }
 
-.BKN .gameCardImage {
+.BKN img {
     width: 40%; 
  }
 

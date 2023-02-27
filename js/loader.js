@@ -1,6 +1,5 @@
 
 
-
 function showLoader () {
     document.querySelector('.loader-container').classList.add('hidden');
 
