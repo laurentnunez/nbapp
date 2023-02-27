@@ -531,16 +531,26 @@ function handleGamesJson (json) {
            
 
             if (status === "Scheduled") {
-                console.log(hour);
+                //console.log(hour);
 
 
             const gameHour = document.createElement('div');
             gameHour.classList.add('gameHour');
             const gameHourP=document.createElement('p');
    
+            const hourToConvert = new Date (dataGames.date.start);
             
+            
+            const theMinutes = hourToConvert.getMinutes();
+             
+            function mminutesConvert () {
+                return (theMinutes<10 ? "0" : "")+theMinutes;
+            };
+            const minutes = mminutesConvert();
 
-            gameHourP.textContent=dataGames.date.start;
+            const justHour = hourToConvert.getHours()+":"+minutes;
+
+            gameHourP.textContent=justHour;
 
             newHomeTeamElement.after(gameHour);
             gameHour.append(gameHourP);   
