@@ -14,6 +14,10 @@ body {
     display: none;
 }
 
+h3{
+    margin-top: 1rem;
+}
+
 .loader-container.hidden {   
 
     opacity: 0;
@@ -71,6 +75,7 @@ body {
     width: 100%;
     padding-top: 1rem;
     padding-bottom: 1rem;
+    
     background-color: #fb5924;
     color: #1D2C49;
 }
@@ -248,7 +253,7 @@ align-items: center;
 background-color:#0c121d;
 height: 4.5rem;
 width: 100%;
-margin-bottom: 1rem;
+margin-bottom: 0.5rem;
 }
 
 .dateWrapperButtons {
@@ -331,7 +336,7 @@ margin-bottom: 1rem;
     width: 60%;
     border-collapse: collapse;
     border-radius: 7px;
-    background-color: #1D2C49;  
+    background-color: #05070c;  
 }
 
 @media screen and (max-width: 768px){
@@ -343,7 +348,7 @@ margin-bottom: 1rem;
 
 
 thead th:nth-child(1) {
-    width: 1%;
+    width: 0.5%;
   }
   
   thead th:nth-child(2) {
@@ -352,21 +357,22 @@ thead th:nth-child(1) {
   }
   
   thead th:nth-child(3) {
-    width: 6%;
+    width: 12%;
+    
   }
 
   thead th:nth-child(4) {
-    width: 4%;
+    width: 1%;
   }
   thead th:nth-child(5) {
-    width: 4%;
+    width: 1%;
   }
   thead th:nth-child(6) {
-    width: 4%;
+    width: 1%;
   }
 
   thead th:nth-child(7) {
-    width: 4%;
+    width: 1%;
   }
 
   th, td {
@@ -382,18 +388,13 @@ tbody tr:nth-child(10) {
     border-bottom: #bdc1c6 1px solid;
 }
 
-tbody tr:nth-child(15) {
-    border-bottom-left-radius: 7px;
-    border-bottom-right-radius: 7px;
- }
-
 tbody tr:nth-child(odd) {
-    background-color: #121b2e;    
+    background-color: #1d2c49;    
   }
   
 tbody tr:nth-child(even) {
     
-    background-color: #0c121d;
+    background-color: #19263d;
   }
 
   tbody tr:hover {
@@ -408,6 +409,10 @@ tbody tr:nth-child(even) {
     font-size: 20px;
 }
 
+.cardName {
+    text-align: left;
+}
+
 @media screen and (max-width: 640px){
     .cardRank {
         font-size: 14px;
@@ -415,6 +420,8 @@ tbody tr:nth-child(even) {
     
     .cardName {
         font-size: 14px;
+        font-weight: normal;
+        text-align: left;
     }
 
     .cardWin {
@@ -548,6 +555,8 @@ tbody tr:nth-child(even) {
         margin-left: auto;
         margin-right: auto;
         width: 90%;
+        font-size: 12px;
+        font-weight: normal;
     }
 
 }
@@ -646,11 +655,21 @@ tbody tr:nth-child(even) {
     cursor: pointer;
     color: white;
     height: auto;
-    font-size: 55px;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     
 }
 
+.gameHour{
+    font-size: 30px;
+    padding: 4rem 0.5rem 3rem 0.5rem;
+
+}
+
+@media screen and (max-width:640px){
+    .gameHour {
+        padding: 2.5rem 0.5rem 1rem 0.5rem;
+    }
+}
 
 .homeTeam {
     display: flex;
@@ -658,7 +677,7 @@ tbody tr:nth-child(even) {
     justify-content: center;
     text-align: center;
     width: 50%;
-    height: 12rem;
+    height: 10rem;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
     background: rgb(44, 0, 0);
@@ -675,7 +694,7 @@ tbody tr:nth-child(even) {
     flex-direction: row-reverse;
     justify-content: center;
     width: 50%;
-    height: 12rem;
+    height: 10rem;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
     background: rgb(0, 108, 209);
@@ -688,10 +707,10 @@ tbody tr:nth-child(even) {
 }
 
 
-
 .gameData {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     margin: auto;
     padding: 0.2rem;
 }
@@ -701,6 +720,7 @@ tbody tr:nth-child(even) {
     font-weight: bold;
     font-size: 50px;
 }
+
 
 @media screen and (max-width: 640px){
     .gameData p {
@@ -778,7 +798,7 @@ tbody tr:nth-child(even) {
 }
 
 .WAS{
-    background: rgb(255, 255, 255);
+    background: rgb(189, 189, 189);
 }
 
 .TOR{
@@ -872,6 +892,7 @@ tbody tr:nth-child(even) {
 
 .HOU {
     background: rgb(46, 0, 0);
+    width: 50%;
 }
 
 .HOU .gameCardImage {

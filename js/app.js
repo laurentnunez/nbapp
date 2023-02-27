@@ -1,4 +1,5 @@
 
+
 // MATCHS de la navbar
 const gamesButton = document.querySelector('.gamesButton');
 
@@ -327,8 +328,7 @@ function handleStandingsButton () {
 }
 
 
-
-//fonction qui permet de récupérer les matchs d'aujourdhui
+//fonction qui permet de récupérer les matchs
 function handleGamesButton () {
     
     
@@ -438,6 +438,8 @@ function handleGamesJson (json) {
         noGameCardP.textContent="Pas de matchs ce jour-là...";
 
         gamesElementSelector.append(noGameCardP);
+
+    
     
     }
 
@@ -524,16 +526,36 @@ function handleGamesJson (json) {
             newVisitorGameData.append(newVisitorTeamScore);
 
 
+            const status = dataGames.status.long;
+            const hour = dataGames.date.start;
+           
+
+            if (status === "Scheduled") {
+                console.log(hour);
+
+
+            const gameHour = document.createElement('div');
+            gameHour.classList.add('gameHour');
+            const gameHourP=document.createElement('p');
+   
+            
+
+            gameHourP.textContent=dataGames.date.start;
+
+            newHomeTeamElement.after(gameHour);
+            gameHour.append(gameHourP);   
+
+            }
+           
+
 
         }
-
 
     
     }
 
     selectTheGame();
 
-  
 
 }
 
