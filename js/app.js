@@ -344,6 +344,13 @@ function handleGamesButton () {
 
     sectionSelector.classList.toggle('off');
     thirdSectionSelector.classList.toggle('off');
+    oneLessButtonSelector.classList.add('no-selected');
+    twoLessButtonSelector.classList.add('no-selected');
+    threeLessButtonSelector.classList.add('no-selected');
+    oneMoreButtonSelector.classList.add('no-selected');
+    twoMoreButtonSelector.classList.add('no-selected');
+    threeMoreButtonSelector.classList.add('no-selected');
+    todayButtonSelector.classList.add('selected');
 
      
     getTheDate ();
@@ -379,8 +386,8 @@ function handleGamesButton () {
 
     console.log(date);
 
-        date.classList.toggle('no-selected');
-        date.classList.toggle('selected');
+        date.classList.remove('no-selected');
+        date.classList.add('selected');
 
   const options = {
         method: 'GET',
