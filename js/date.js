@@ -15,7 +15,6 @@ const dateButtonSelector = document.querySelectorAll("#dateButton");
 function getTheDate () {
 
    const todayDate = new Date();
-    
 
     const theYear = todayDate.getFullYear();
     const theMonth = todayDate.getMonth() + 1;
@@ -60,4 +59,4 @@ function getTheDate () {
 
 
 
-gamesMonthAndYear.addEventListener('click', getTheDate)
+

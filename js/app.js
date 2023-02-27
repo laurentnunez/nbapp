@@ -212,7 +212,6 @@ function deleteElements () {
         oldCardElements.remove();
 }
   
-
 //Boucle qui pose un écouteur d'évènement sur chaque équipe du classement
 for ( const team of cardTeamSelector){
     team.addEventListener('click', handleTeam);
@@ -325,8 +324,8 @@ function handleStandingsButton () {
 
     console.log("classement EST affiché");
 
-}
 
+}
 
 //fonction qui permet de récupérer les matchs
 function handleGamesButton () {
@@ -386,6 +385,7 @@ function handleGamesButton () {
 
     console.log(date);
 
+        todayButtonSelector.classList.remove('no-selected');
         date.classList.remove('no-selected');
         date.classList.add('selected');
 
@@ -407,6 +407,66 @@ function handleGamesButton () {
     })
     }
 };
+
+//fonction pour lancer l'application
+function lunchGames () {
+
+    const elements = document.querySelectorAll('*');
+    elements.forEach((element)=> {
+        element.classList.remove("off");
+        element.classList.remove('selected');
+        element.classList.remove('no-selected');
+    });
+    
+    eastButtonSelector.classList.add("off");
+    westButtonSelector.classList.add("off");
+
+    sectionSelector.classList.toggle('off');
+    thirdSectionSelector.classList.toggle('off');
+    oneLessButtonSelector.classList.add('no-selected');
+    twoLessButtonSelector.classList.add('no-selected');
+    threeLessButtonSelector.classList.add('no-selected');
+    oneMoreButtonSelector.classList.add('no-selected');
+    twoMoreButtonSelector.classList.add('no-selected');
+    threeMoreButtonSelector.classList.add('no-selected');
+    todayButtonSelector.classList.add('selected');
+
+    secondSectionSelector.classList.remove('off');
+
+    const today = new Date ();
+    const day = today.getDate();
+    const year = today.getFullYear();
+    const month = today.getMonth() + 1;
+
+    function dayConvert () {
+        return (day<10 ? "0" : "")+day;
+    };
+    const dayConverted = dayConvert();
+
+
+    function monthConvert () {
+        return (month<10 ? "0" : "")+month;
+    };
+    const monthConverted = monthConvert();
+
+const lunchDate = year+"-"+monthConverted+"-"+dayConverted;
+
+const options = {
+    method: 'GET',
+    headers: {
+        'X-RapidAPI-Key': '2e2457b816msh7b4f76d57eb1fd9p1b092ajsnee5aa756253f',
+        'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
+    }
+};
+
+//on lance la requête
+const gamesRequest = fetch (`https://api-nba-v1.p.rapidapi.com/games?date=${lunchDate}`, options)
+//on récupère la réponse de la requete au format json
+.then( function (data) {return data.json()})
+//on lance la fonction handleGamesJson
+.then( handleGamesJson );
+
+}
 
 //fonction qui récupère la liste des matchs
 function handleGamesJson (json) {
@@ -570,12 +630,10 @@ function handleGamesJson (json) {
 }
 
 
-
-
 //===================================================================
 //ECOUTEURS D'EVENEMENTS
 //===================================================================
 eastButtonSelector.addEventListener('click', handleEastButton);
 westButtonSelector.addEventListener('click', handleWestButton);
 standingsButton.addEventListener('click', handleStandingsButton);
-
+gamesButton.addEventListener('click', handleGamesButton);

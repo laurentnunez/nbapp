@@ -1,7 +1,12 @@
+
+
+
 function showLoader () {
     document.querySelector('.loader-container').classList.add('hidden');
 
-    handleGamesButton();
+    getTheDate ();
+    lunchGames();
 }
 
-setTimeout(showLoader, 2000);
+setTimeout(showLoader, 2500);
+

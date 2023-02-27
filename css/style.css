@@ -14,14 +14,18 @@ body {
     display: none;
 }
 
-h3{
-    margin-top: 1rem;
-}
-
 .loader-container.hidden {   
 
     opacity: 0;
     visibility: hidden;
+}
+
+.gamesMonthAndYear{
+    font-family: 'Anton', sans-serif;
+    font-weight: normal;
+    font-size: 22px;
+    color: white;
+    padding-top: 1.5rem;
 }
 
 
@@ -241,7 +245,6 @@ main {
 
    } 
 }
-
 
 
 
@@ -633,7 +636,7 @@ tbody tr:nth-child(even) {
 
 .gameCardButton {
     border-radius: 8px;
-    background-color: transparent;
+    background-color: #0c121d;
     border: none;
     display: flex;
     flex-direction: center;
