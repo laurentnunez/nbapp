@@ -636,4 +636,4 @@ function handleGamesJson (json) {
 eastButtonSelector.addEventListener('click', handleEastButton);
 westButtonSelector.addEventListener('click', handleWestButton);
 standingsButton.addEventListener('click', handleStandingsButton);
-gamesButton.addEventListener('click', handleGamesButton);
+gamesButton.addEventListener('click', lunchGames);
