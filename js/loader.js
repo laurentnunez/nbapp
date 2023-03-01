@@ -1,11 +1,24 @@
 
 
+    function closeLoader () {
+        document.querySelector('.loader-container').classList.add('hidden');
+
+        handleGamesButton ();
+    }
+
+    setTimeout(closeLoader, 2500); 
+
+
+
+
 function showLoader () {
-    document.querySelector('.loader-container').classList.add('hidden');
+    function closeLoader () {
+        document.querySelector('.loader-container').classList.add('hidden');
 
-   // getTheDate ();
-   // handleStandingsButton();
+    }
+
+    setTimeout(closeLoader, 2500);
+
+    document.querySelector('.loader-container').classList.remove('hidden');
 }
-
-setTimeout(showLoader, 2500);
 

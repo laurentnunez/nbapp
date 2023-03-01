@@ -10,7 +10,7 @@ const twoMoreButtonSelector = document.querySelector('#twoMoreButton');
 const threeMoreButtonSelector = document.querySelector('#threeMoreButton');
 const gamesMonthAndYear = document.querySelector('.gamesMonthAndYear');
 
-const dateButtonSelector = document.querySelectorAll("#dateButton");
+
 
 function getTheDate () {
 

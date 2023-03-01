@@ -53,6 +53,8 @@ const thirdSectionSelector = document.querySelector('.third-section');
 
 const dateWrapperSelector = document.querySelector('.dateWrapper');
 
+const dateButtonSelector = document.querySelectorAll(".dateButton");
+
 const todayButtonSelector = document.querySelector ('#todayButton');
 const yesterdayButtonSelector = document.querySelector ('#oneLessButton');
 const twoDaysBeforeButtonSelector = document.querySelector ('#twoLessButton');
@@ -299,7 +301,11 @@ function deletePlayersElements () {
 
 //fonction sur le bouton "CLASSEMENTS" de la navbar
 function handleStandingsButton () {
-    console.log("afficher classements");
+    //console.log("afficher classements");
+
+    showLoader ();
+    
+
     
     const elements = document.querySelectorAll('*');
     elements.forEach((element)=> {
@@ -322,95 +328,17 @@ function handleStandingsButton () {
 
     handleEastButton ();
 
-    console.log("classement EST affiché");
+
 
 
 }
 
-//fonction qui permet de récupérer les matchs
-function handleGamesButton () {
-    
-    
-    const elements = document.querySelectorAll('*');
-    elements.forEach((element)=> {
-        element.classList.remove("off");
-        element.classList.remove('selected');
-        element.classList.remove('no-selected');
-    });
-    
-    eastButtonSelector.classList.add("off");
-    westButtonSelector.classList.add("off");
 
-    sectionSelector.classList.toggle('off');
-    thirdSectionSelector.classList.toggle('off');
-    oneLessButtonSelector.classList.add('no-selected');
-    twoLessButtonSelector.classList.add('no-selected');
-    threeLessButtonSelector.classList.add('no-selected');
-    oneMoreButtonSelector.classList.add('no-selected');
-    twoMoreButtonSelector.classList.add('no-selected');
-    threeMoreButtonSelector.classList.add('no-selected');
-    todayButtonSelector.classList.add('selected');
-
-     
-    getTheDate ();
-
-    const dateButtonSelector = document.querySelectorAll(".dateButton");
-
-
-    for (const date of dateButtonSelector) {
-
-        date.addEventListener('click', ()=> {
-            const dayNumber = date.textContent;
-
-            const todayDate = new Date();
-
-            const theYear = todayDate.getFullYear();
-            const theMonth = todayDate.getMonth() + 1;
-
-
-            function dayConvert () {
-                return (dayNumber<10 ? "0" : "")+dayNumber;
-            };
-            const day = dayConvert();
-
-
-            function monthConvert () {
-                return (theMonth<10 ? "0" : "")+theMonth;
-            };
-            const month = monthConvert();
-
-           
-
-    const theDate = theYear+"-"+month+"-"+day;
-    
-
-    console.log(yesterday);
-
-        todayButtonSelector.classList.remove('no-selected');
-        date.classList.remove('no-selected');
-        date.classList.add('selected');
-
-  const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '2e2457b816msh7b4f76d57eb1fd9p1b092ajsnee5aa756253f',
-            'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
-        }
-    };
-
-    //on lance la requête
-    const gamesRequest = fetch (`https://api-nba-v1.p.rapidapi.com/games?date=${theDate}`, options)
-    //on récupère la réponse de la requete au format json
-    .then( function (data) {return data.json()})
-    //on lance la fonction handleGamesJson
-    .then( handleGamesJson );
-
-    })
-    }
-};
 
 //fonction pour lancer l'application
-function lunchGames () {
+function handleGames () {
+
+    showLoader ();
 
     const elements = document.querySelectorAll('*');
     elements.forEach((element)=> {
@@ -436,40 +364,123 @@ function lunchGames () {
 
     getTheDate ();
 
-    const today = new Date ();
-    const day = today.getDate();
-    const year = today.getFullYear();
-    const month = today.getMonth() + 1;
 
-    function dayConvert () {
-        return (day<10 ? "0" : "")+day;
-    };
-    const dayConverted = dayConvert();
+    for (const date of dateButtonSelector) {
+        date.addEventListener('click', ()=> {
+        const day = date.textContent;
+
+        const today = new Date ();
+
+        const year = today.getFullYear();
+        const month = today.getMonth() + 1;
 
 
-    function monthConvert () {
-        return (month<10 ? "0" : "")+month;
-    };
-    const monthConverted = monthConvert();
+        function dayConvert () {
+            return (day<10 ? "0" : "")+day;
+        };
+        const dayConverted = dayConvert();
 
-const lunchDate = year+"-"+monthConverted+"-"+dayConverted;
 
-const options = {
-    method: 'GET',
-    headers: {
-        'X-RapidAPI-Key': '2e2457b816msh7b4f76d57eb1fd9p1b092ajsnee5aa756253f',
-        'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
+        function monthConvert () {
+            return (month<10 ? "0" : "")+month;
+        };
+        const monthConverted = monthConvert();
+            
+            todayButtonSelector.classList.remove('no-selected');
+            date.classList.add('selected');
+
+
+        const theDate = year+"-"+monthConverted+"-"+dayConverted;
+
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': '2e2457b816msh7b4f76d57eb1fd9p1b092ajsnee5aa756253f',
+                'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
+            }
+        };
+
+            //on lance la requête
+            const gamesRequest = fetch (`https://api-nba-v1.p.rapidapi.com/games?date=${theDate}`, options)
+            //on récupère la réponse de la requete au format json
+            .then( function (data) {return data.json()})
+            //on lance la fonction handleGamesJson
+            .then( handleGamesJson );
+
+        })
     }
+
 };
 
-//on lance la requête
-const gamesRequest = fetch (`https://api-nba-v1.p.rapidapi.com/games?date=${lunchDate}`, options)
-//on récupère la réponse de la requete au format json
-.then( function (data) {return data.json()})
-//on lance la fonction handleGamesJson
-.then( handleGamesJson );
+//fonction qui permet de récupérer les matchs d'aujourd'hui
+function handleGamesButton () {
+    
+    const elements = document.querySelectorAll('*');
+    elements.forEach((element)=> {
+        element.classList.remove("off");
+        element.classList.remove('selected');
+        element.classList.remove('no-selected');
+    });
+    
+    eastButtonSelector.classList.add("off");
+    westButtonSelector.classList.add("off");
 
-}
+    sectionSelector.classList.toggle('off');
+    thirdSectionSelector.classList.toggle('off');
+    oneLessButtonSelector.classList.add('no-selected');
+    twoLessButtonSelector.classList.add('no-selected');
+    threeLessButtonSelector.classList.add('no-selected');
+    oneMoreButtonSelector.classList.add('no-selected');
+    twoMoreButtonSelector.classList.add('no-selected');
+    threeMoreButtonSelector.classList.add('no-selected');
+    todayButtonSelector.classList.add('selected');
+
+     
+    getTheDate ();
+
+
+   
+            const dayNumber = todayButtonSelector.textContent;
+
+            const todayDate = new Date();
+
+            const theYear = todayDate.getFullYear();
+            const theMonth = todayDate.getMonth() + 1;
+
+
+            function dayConvert () {
+                return (dayNumber<10 ? "0" : "")+dayNumber;
+            };
+            const day = dayConvert();
+
+
+            function monthConvert () {
+                return (theMonth<10 ? "0" : "")+theMonth;
+            };
+            const month = monthConvert();
+
+           
+
+            const today = theYear+"-"+month+"-"+day;
+        
+
+            const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': '2e2457b816msh7b4f76d57eb1fd9p1b092ajsnee5aa756253f',
+                'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
+            }
+                };
+
+            //on lance la requête
+            const gamesRequest = fetch (`https://api-nba-v1.p.rapidapi.com/games?date=${today}`, options)
+            //on récupère la réponse de la requete au format json
+            .then( function (data) {return data.json()})
+            //on lance la fonction handleGamesJson
+            .then( handleGamesJson );
+
+        
+};
 
 //fonction qui récupère la liste des matchs
 function handleGamesJson (json) {
@@ -643,4 +654,4 @@ function handleGamesJson (json) {
 eastButtonSelector.addEventListener('click', handleEastButton);
 westButtonSelector.addEventListener('click', handleWestButton);
 standingsButton.addEventListener('click', handleStandingsButton);
-gamesButton.addEventListener('click', lunchGames);
+gamesButton.addEventListener('click', handleGamesButton);
