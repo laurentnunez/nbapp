@@ -326,6 +326,14 @@ margin-bottom: 0.5rem;
     font-family: 'Jost', sans-serif;
     font-size: 30px;
     color:#bdc1c6;
+    border-radius: 8px;
+}
+
+
+.teamSelected{
+    margin: 1rem;
+    background-color: #000000c9;
+    padding: 0.5rem;
 }
 
 @media screen and (max-width: 640px){
@@ -766,76 +774,123 @@ tbody tr:nth-child(even) {
 /*CONF EST*/
 .BOS {
     background: rgb(0, 129, 11);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/e/ee/Hawks_2016.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .MIL {
     background: rgb(0, 75, 16);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/3/34/Bucks2015.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .PHI{
     background: rgb(29, 116, 216);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/4/48/76ers_2016.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .CLE{
     background: rgb(44, 0, 0);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/0/06/Cavs_de_Cleveland_logo_2017.png/150px-Cavs_de_Cleveland_logo_2017.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
-
-.CLE img {
-   width: 40%; 
-}
-
 
 .BKN{
     background: rgb(39, 39, 39);
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Brooklyn_Nets_newlogo.svg/130px-Brooklyn_Nets_newlogo.svg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
-
-.BKN img {
-    width: 40%; 
- }
 
 
 .MIA{
     background: rgb(77, 0, 0);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/1/1c/Miami_Heat_-_Logo.svg/1200px-Miami_Heat_-_Logo.svg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .NYK{
     background: rgb(216, 86, 0);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/3/34/Knicks_de_NY.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
-
-.NKK .gameCardImage {
-    width: 90%; 
- }
 
 .ATL{
     background: rgb(255, 40, 40);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/e/ee/Hawks_2016.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .WAS{
     background: rgb(231, 231, 231);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/archive/d/d6/20161212034849%21Wizards2015.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .TOR{
     background: rgb(24, 24, 24);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/8/89/Raptors2015.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .CHI{
     background: rgb(165, 0, 0);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/d/d1/Bulls_de_Chicago_logo.svg/1200px-Bulls_de_Chicago_logo.svg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .IND {
     background: rgb(212, 156, 0);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/c/cf/Pacers_de_l%27Indiana_logo.svg/1180px-Pacers_de_l%27Indiana_logo.svg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .ORL{
     background: rgb(72, 196, 253);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/b/bd/Orlando_Magic_logo_2010.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .CHA {
     background: rgb(0, 160, 172);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/f/f3/Hornets_de_Charlotte_logo.svg/1200px-Hornets_de_Charlotte_logo.svg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .DET {
     background: rgb(0, 71, 177);
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Detroit_Pistons_primary_logo_2017.png/150px-Detroit_Pistons_primary_logo_2017.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 /*CONF OUEST*/

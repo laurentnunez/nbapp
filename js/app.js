@@ -218,77 +218,23 @@ function deleteElements () {
 for ( const team of cardTeamSelector){
     team.addEventListener('click', handleTeam);
     teamName = team.textContent;
-    //console.log(teamName);
+    console.log(teamName);
 }
 
 //fonction pour sélectionner une équipe dans le classement
 function handleTeam (teamName) {
 
-        const teamNameSelected = teamName.target.id;
+        const teamNameSelected = teamName.target;
         console.log(teamNameSelected);
 
 
-        const options = {
-            method: 'GET',
-            headers: {
-                'X-RapidAPI-Key': '2e2457b816msh7b4f76d57eb1fd9p1b092ajsnee5aa756253f',
-                'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
-            }
-        };      
-
-        const teamSelect = fetch(`https://api-nba-v1.p.rapidapi.com/players?team=${teamNameSelected}&season=2022`, options)
-        .then( function (data) {return data.json()})
-        .then (handleTeamJson);
     
 };
     
 //fonction qui récupère la liste des joueurs d'une équipe sélectionnée
 function handleTeamJson (json){
 
-        deletePlayersElements();
-
-        const standingdsSelectElement = document.querySelector('.standings');
-        const newPlayersList = document.createElement("div");
-        newPlayersList.classList.add("teamPlayers");
-        standingdsSelectElement.append(newPlayersList);
-
-        //console.log(json.response)
-
-        for( const teamPlayer of json.response)
-        {
-            const cardSelectElement = document.querySelector('.teamPlayers');
-
-            const playerCard = document.createElement("div");
-            playerCard.classList.add("playersCard");
-
-            const playerFirstName = document.createElement("p");
-            playerFirstName.classList.add("player-firstname");
-
-            const playerLastName = document.createElement("p");
-            playerLastName.classList.add("player-lastname");
-
-            const playerBirth = document.createElement("p");
-            playerBirth.classList.add("player-birth");
-
-            const playerHeight = document.createElement("p");
-            playerHeight.classList.add("player-height");
-
-            const playerCountry = document.createElement("p");
-            playerCountry.classList.add("player-country");
-
-            playerFirstName.textContent = teamPlayer.firstname;
-            playerLastName.textContent = teamPlayer.lastname;
-            playerBirth.textContent = teamPlayer.birth.date;
-            playerHeight.textContent = teamPlayer.height.meters;
-            playerCountry.textContent = teamPlayer.birth.country;
-
-            cardSelectElement.append(playerCard);
-            playerCard.append(playerFirstName);
-            playerCard.append(playerLastName);
-            playerCard.append(playerBirth);
-            playerCard.append(playerHeight);
-            playerCard.append(playerCountry);
-        }
+       
 
 
 }
