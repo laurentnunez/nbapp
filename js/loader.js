@@ -3,8 +3,8 @@
 function showLoader () {
     document.querySelector('.loader-container').classList.add('hidden');
 
-    getTheDate ();
-    handleStandingsButton();
+   // getTheDate ();
+   // handleStandingsButton();
 }
 
 setTimeout(showLoader, 2500);

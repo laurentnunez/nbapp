@@ -382,8 +382,9 @@ function handleGamesButton () {
            
 
     const theDate = theYear+"-"+month+"-"+day;
+    
 
-    console.log(date);
+    console.log(yesterday);
 
         todayButtonSelector.classList.remove('no-selected');
         date.classList.remove('no-selected');
@@ -432,6 +433,8 @@ function lunchGames () {
     todayButtonSelector.classList.add('selected');
 
     secondSectionSelector.classList.remove('off');
+
+    getTheDate ();
 
     const today = new Date ();
     const day = today.getDate();
@@ -598,7 +601,7 @@ function handleGamesJson (json) {
             gameHour.classList.add('gameHour');
             const gameHourP=document.createElement('p');
    
-            const hourToConvert = new Date (dataGames.date.start);
+            const hourToConvert = new Date (hour);
             
             
             const theMinutes = hourToConvert.getMinutes();
@@ -628,6 +631,10 @@ function handleGamesJson (json) {
 
 
 }
+
+
+
+
 
 
 //===================================================================

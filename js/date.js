@@ -18,24 +18,39 @@ function getTheDate () {
 
     const theYear = todayDate.getFullYear();
     const theMonth = todayDate.getMonth() + 1;
-
-    const theOneMoreDay = todayDate.getDate()+1;
-    const theTwoMoreDay = todayDate.getDate()+2;
-    const theThreeMoreDay = todayDate.getDate()+3;
+   
     const theDay = todayDate.getDate();
-    const theOneLessDay = todayDate.getDate()-1;
-    const theTwoLessDay = todayDate.getDate()-2;
-    const theThreeLessDay = todayDate.getDate()-3;
-
+       
   
     //On inscrit les jours sur les boutons de haut de page
     todayButtonSelector.textContent=theDay;
-    oneLessButtonSelector.textContent=theOneLessDay;
-    twoLessButtonSelector.textContent=theTwoLessDay;
-    threeLessButtonSelector.textContent=theThreeLessDay;
+    
+    
+    //on définit la date des autres jours
+    //la date d'hier
+    const millisecYesterday = new Date ()- (1000*60*60*24);
+    const yesterday = new Date(millisecYesterday);
+    const yesterdayNumber = yesterday.getDate();
+    oneLessButtonSelector.textContent=yesterdayNumber;
+
+    //la date d'avant-hier
+    const millisecDaybefore = new Date ()- (1000*60*60*48);
+    const dayBefore = new Date(millisecDaybefore);
+    const dayBeforeNumber = dayBefore.getDate();
+    twoLessButtonSelector.textContent=dayBeforeNumber;
+
+   //la date d'avant-avant-hier
+    threeLessButtonSelector.textContent=dayBeforeNumber-1;
+    
+    const theOneMoreDay = todayDate.getDate()+1;
+    const theTwoMoreDay = todayDate.getDate()+2;
+    const theThreeMoreDay = todayDate.getDate()+3;
+
     oneMoreButtonSelector.textContent=theOneMoreDay;
     twoMoreButtonSelector.textContent=theTwoMoreDay;
     threeMoreButtonSelector.textContent=theThreeMoreDay;
+
+
 
     //On inscrit le mois et l'année actuels sur la page
     const tabMonth = new Array ("JANVIER","FEVRIER","MARS","AVRIL","MAI","JUIN","JUILLET","AOUT","SEPTEMBRE","OCTOBRE","NOVEMBRE","DECEMBRE");

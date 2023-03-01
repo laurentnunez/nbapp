@@ -25,7 +25,7 @@ body {
     font-weight: normal;
     font-size: 22px;
     color: white;
-    padding-top: 1.5rem;
+    padding-top: 0.5rem;
 }
 
 
@@ -254,7 +254,6 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 background-color:#0c121d;
-height: 4.5rem;
 width: 100%;
 margin-bottom: 0.5rem;
 }
@@ -801,7 +800,7 @@ tbody tr:nth-child(even) {
 }
 
 .WAS{
-    background: rgb(189, 189, 189);
+    background: rgb(231, 231, 231);
 }
 
 .TOR{
@@ -882,7 +881,7 @@ tbody tr:nth-child(even) {
 }
 
 .LAL {
-    background: rgb(39, 0, 131);
+    background: rgb(61, 9, 182);
 }
 
 .LAL .gameCardImage {
