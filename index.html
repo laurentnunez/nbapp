@@ -33,37 +33,75 @@
 
                 <button type="button" class="eastButton selected off">Conf. Est</button>
                 <button type="button" class="westButton no-selected off">Conf. Ouest</button>
-                <button type="button" class="threeLessButton no-selected off"></button>
-                <button type="button" class="twoLessButton no-selected off"></button>
-                <button type="button" class="oneLessButton no-selected off"></button>
-                <button type="button"  class="todayButton no-selected off"><p></p></button>
-                <button type="button" class="oneMoreButton no-selected off"></button>
-                <button type="button" class="twoMoreButton no-selected off"></button>
-                <button type="button" class="threeMoreButton no-selected off"></button>
+                <button type="button" id="threeLessButton" class="dateButton no-selected off"></button>
+                <button type="button" id="twoLessButton" class="dateButton no-selected off"></button>
+                <button type="button" id="oneLessButton" class="dateButton no-selected"></button>
+                <button type="button"  id="todayButton" class="dateButton selected off"><p>55</p></button>
+                <button type="button" id="oneMoreButton" class="dateButton no-selected off"></button>
+                <button type="button" id="twoMoreButton" class="dateButton no-selected"></button>
+                <button type="button" id="threeMoreButton" class="dateButton no-selected off"></button>
 
             </div>
             
         </div>
     <main>       
-        <div class="first-section off">
+        <div class="first-section">
             <table class ="standingsTable">
                 <thead class="headTable">
                     <tr class ="headCol">
                         <th scope="col"></th>
                         <th scope="col"></th>
-                        <th scope="col">TEAM</th>
+                        <th scope="col">EQUIPE</th>
                         <th scope="col">V</th>
                         <th scope="col">D</th>
                         <th scope="col">%V</th>
                     </tr> 
                 </thead>
                 <tbody class="bodyTable">
-                    <tr class="cardElements"></tr>
+                    <tr class="cardElements">
+                        <th class="cardRank">1</th>
+                        <th class="cardImageTh"><img class="cardImage" src="https://upload.wikimedia.org/wikipedia/fr/3/34/Bucks2015.png"></th>
+                        <th class="cardName" id="21">Milwaukee Bucks</th>
+                        <th class="cardWin">44</th>
+                        <th class="cardLost">17</th>
+                        <th class="cardPercentage">0.721</th>
+                    </tr>
+                    <tr class="cardElements">
+                        <th class="cardRank">2</th>
+                        <th class="cardImageTh"><img class="cardImage" src="https://upload.wikimedia.org/wikipedia/fr/3/34/Bucks2015.png"></th>
+                        <th class="cardName" id="2">Boston Celtics</th>
+                        <th class="cardWin">44</th>
+                        <th class="cardLost">18</th>
+                        <th class="cardPercentage">0.710</th>
+                    </tr>
+                    <tr class="cardElements">
+                        <th class="cardRank">3</th>
+                        <th class="cardImageTh"><img class="cardImage" src="https://upload.wikimedia.org/wikipedia/fr/3/34/Bucks2015.png"></th>
+                        <th class="cardName" id="27">Philadelphia 76ers</th>
+                        <th class="cardWin">39</th>
+                        <th class="cardLost">21</th>
+                        <th class="cardPercentage">0.650</th>
+                    </tr>
                 </tbody>
             </table>    
         </div>
         <div class="second-section off">
             <div class="games">
+                <button class="gameCardButton off" id="11968">
+                    <div class="homeTeam CHA">
+                        <img class="gameCardImageHome" src="https://upload.wikimedia.org/wikipedia/fr/thumb/f/f3/Hornets_de_Charlotte_logo.svg/1200px-Hornets_de_Charlotte_logo.svg.png">
+                        <div class="gameData">
+                            <p class="homeTeamScore"></p>
+                        </div>
+                    </div>
+                    <div class="gameHour"><p>1:30</p></div>   
+                    <div class="visitorTeam DET">
+                        <img class="gameCardImageVisitor" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Detroit_Pistons_primary_logo_2017.png/150px-Detroit_Pistons_primary_logo_2017.png">
+                        <div class="gameData">
+                            <p class="visitorTeamScore"></p>
+                        </div>
+                    </div>
+                </button>
             </div>
         </div>
         <div class="third-section off">
@@ -88,9 +126,54 @@
                 </table>
             </div>    
         </div>
+        <div class="fourth-section off">
+            <div class="fourth-section__container MIL">
+                <div class="teamSelected">
+                    <p class="teamSelected__name">Milwaukee Bucks</p>
+                    <p class="teamSelected__rank">#1 dans la Conférence Est</p>
+                    <p class="teamSelected__win">44v</p>
+                    <p class="teamSelected__loss">17d</p>
+                </div>
+                <table class ="teamTable">
+                    <thead class="headTeamTable">
+                        <tr class ="headTeamCol">
+                            <th scope="col">JOUEURS</th>
+                            <th scope="col"></th>
+                            <th scope="col">DATE DE NAISSANCE</th>
+                            <th scope="col">PAYS</th>
+                        </tr> 
+                    </thead>
+                    <tbody class="bodyTeamTable">
+                        <tr class="cardTeamElements">
+                            <th class="cardTeamFirstName">John</th>
+                            <th class="cardTeamLastName">Collins</th>
+                            <th class="cardTeamBirth">16-2-1997</th>
+                            <th class="cardTeamCountry">USA</th>
+                            
+                        </tr>
+                        <tr class="cardTeamElements">
+                            <th class="cardTeamFirstName">John</th>
+                            <th class="cardTeamLastName">Collins</th>
+                            <th class="cardTeamBirth">16-2-1997</th>
+                            <th class="cardTeamCountry">USA</th>
+                            
+                        </tr>
+                        <tr class="cardTeamElements">
+                            <th class="cardTeamFirstName">John</th>
+                            <th class="cardTeamLastName">Collins</th>
+                            <th class="cardTeamBirth">16-2-1997</th>
+                            <th class="cardTeamCountry">USA</th>
+                            
+                        </tr>
+                    </tbody>
+                </table> 
+            </div>    
+        </div>
     </main>
     <script src="./js/date.js" ></script>
     <script src="./js/oneGame.js" ></script>
+    <script src="./js/team.js" ></script>
     
+
 </body>
 </html>

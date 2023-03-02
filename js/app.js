@@ -1,6 +1,8 @@
 
+
 // MATCHS de la navbar
 const gamesButton = document.querySelector('.gamesButton');
+
 //bouton CLASSEMENTS de la navbar
 const standingsButton = document.querySelector('.standingsButton');
 
@@ -49,16 +51,19 @@ const secondSectionSelector = document.querySelector('.second-section');
 
 const thirdSectionSelector = document.querySelector('.third-section');
 
+const fourthSectionSelector = document.querySelector('.fourth-section');
+
 const dateWrapperSelector = document.querySelector('.dateWrapper');
 
-const todayButtonSelector = document.querySelector ('.todayButton');
-const yesterdayButtonSelector = document.querySelector ('.oneLessButton');
-const twoDaysBeforeButtonSelector = document.querySelector ('.twoLessButton');
-const threeDaysBeforeButtonSelector = document.querySelector ('.threeLessButton');
-const tomorowButtonSelector = document.querySelector('.oneMoreButton');
-const twoDaysAfterButtonSelector = document.querySelector('.twoMoreButton');
-const threeDaysAfterButtonSelector = document.querySelector('.threeMoreButton');
+const dateButtonSelector = document.querySelectorAll(".dateButton");
 
+const todayButtonSelector = document.querySelector ('#todayButton');
+const yesterdayButtonSelector = document.querySelector ('#oneLessButton');
+const twoDaysBeforeButtonSelector = document.querySelector ('#twoLessButton');
+const threeDaysBeforeButtonSelector = document.querySelector ('#threeLessButton');
+const tomorowButtonSelector = document.querySelector('#oneMoreButton');
+const twoDaysAfterButtonSelector = document.querySelector('#twoMoreButton');
+const threeDaysAfterButtonSelector = document.querySelector('#threeMoreButton');
 
 const standingsTableSelector = document.querySelector('.standingsTable');
 
@@ -188,6 +193,9 @@ function handleJson (json){
             newPercentage.textContent = dataTeam.win.percentage;
             newWin.textContent = dataTeam.win.total;
             newLost.textContent = dataTeam.loss.total;
+
+            const idTeam = dataTeam.team.id;
+            newName.setAttribute("id",`${idGame}`);
     
             //on organise les éléments créés dans le tableau
 
@@ -212,85 +220,8 @@ function deleteElements () {
 }
   
 
-//Boucle qui pose un écouteur d'évènement sur chaque équipe du classement
-for ( const team of cardTeamSelector){
-    team.addEventListener('click', handleTeam);
-    teamName = team.textContent;
-    //console.log(teamName);
-}
-
-//fonction pour sélectionner une équipe dans le classement
-function handleTeam (teamName) {
-
-        const teamNameSelected = teamName.target.id;
-        console.log(teamNameSelected);
-
-
-        const options = {
-            method: 'GET',
-            headers: {
-                'X-RapidAPI-Key': '2e2457b816msh7b4f76d57eb1fd9p1b092ajsnee5aa756253f',
-                'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
-            }
-        };      
-
-        const teamSelect = fetch(`https://api-nba-v1.p.rapidapi.com/players?team=${teamNameSelected}&season=2022`, options)
-        .then( function (data) {return data.json()})
-        .then (handleTeamJson);
     
-};
-    
-//fonction qui récupère la liste des joueurs d'une équipe sélectionnée
-function handleTeamJson (json){
 
-        deletePlayersElements();
-
-        const standingdsSelectElement = document.querySelector('.standings');
-        const newPlayersList = document.createElement("div");
-        newPlayersList.classList.add("teamPlayers");
-        standingdsSelectElement.append(newPlayersList);
-
-        //console.log(json.response)
-
-        for( const teamPlayer of json.response)
-        {
-            const cardSelectElement = document.querySelector('.teamPlayers');
-
-            const playerCard = document.createElement("div");
-            playerCard.classList.add("playersCard");
-
-            const playerFirstName = document.createElement("p");
-            playerFirstName.classList.add("player-firstname");
-
-            const playerLastName = document.createElement("p");
-            playerLastName.classList.add("player-lastname");
-
-            const playerBirth = document.createElement("p");
-            playerBirth.classList.add("player-birth");
-
-            const playerHeight = document.createElement("p");
-            playerHeight.classList.add("player-height");
-
-            const playerCountry = document.createElement("p");
-            playerCountry.classList.add("player-country");
-
-            playerFirstName.textContent = teamPlayer.firstname;
-            playerLastName.textContent = teamPlayer.lastname;
-            playerBirth.textContent = teamPlayer.birth.date;
-            playerHeight.textContent = teamPlayer.height.meters;
-            playerCountry.textContent = teamPlayer.birth.country;
-
-            cardSelectElement.append(playerCard);
-            playerCard.append(playerFirstName);
-            playerCard.append(playerLastName);
-            playerCard.append(playerBirth);
-            playerCard.append(playerHeight);
-            playerCard.append(playerCountry);
-        }
-
-
-}
- 
 //fonction pour effacer les anciennes données des joueurs    
 function deletePlayersElements () {
         const oldPlayers = document.querySelector(".teamPlayers");
@@ -299,7 +230,11 @@ function deletePlayersElements () {
 
 //fonction sur le bouton "CLASSEMENTS" de la navbar
 function handleStandingsButton () {
-    console.log("afficher classements");
+    //console.log("afficher classements");
+
+    showLoader ();
+    
+
     
     const elements = document.querySelectorAll('*');
     elements.forEach((element)=> {
@@ -322,16 +257,61 @@ function handleStandingsButton () {
 
     handleEastButton ();
 
-    console.log("classement EST affiché");
+    selectTeam ();
+
 
 }
 
 
 
-//fonction qui permet de récupérer les matchs d'aujourdhui
-function handleGamesButton () {
+
+
+for (const date of dateButtonSelector) {
+    date.addEventListener('click', ()=> {
+    const day = date.textContent;
+
+    const today = new Date ();
+
+    const year = today.getFullYear();
+    const month = today.getMonth() + 1;
+
+
+    function dayConvert () {
+        return (day<10 ? "0" : "")+day;
+    };
+    const dayConverted = dayConvert();
+
+
+    function monthConvert () {
+        return (month<10 ? "0" : "")+month;
+    };
+    const monthConverted = monthConvert();
+        
+        todayButtonSelector.classList.remove('no-selected');
+        date.classList.add('selected');
+
+
+    const theDate = year+"-"+monthConverted+"-"+dayConverted;
     
+
+    console.log(theDate);
+    handleGames (theDate);
+    });
+
     
+}
+
+
+
+
+
+//fonction pour lancer l'application
+function handleGames (theDate) {
+
+    console.log ("handleGames");
+
+    showLoader ();
+
     const elements = document.querySelectorAll('*');
     elements.forEach((element)=> {
         element.classList.remove("off");
@@ -344,119 +324,49 @@ function handleGamesButton () {
 
     sectionSelector.classList.toggle('off');
     thirdSectionSelector.classList.toggle('off');
-
+    fourthSectionSelector.classList.toggle('off');
     oneLessButtonSelector.classList.add('no-selected');
     twoLessButtonSelector.classList.add('no-selected');
     threeLessButtonSelector.classList.add('no-selected');
-    todayButtonSelector.classList.add('selected');
     oneMoreButtonSelector.classList.add('no-selected');
     twoMoreButtonSelector.classList.add('no-selected');
     threeMoreButtonSelector.classList.add('no-selected');
+    todayButtonSelector.classList.add('selected');
+
+    secondSectionSelector.classList.remove('off');
 
     getTheDate ();
 
 
-    const todayDate = new Date();
-    const theDay = todayDate.getDate();
-    const theMonth = todayDate.getMonth() + 1;
-    const theYear = todayDate.getFullYear();
-
-    function dayConvert () {
-        return (theDay<10 ? "0" : "")+theDay;
-    };
-    const day = dayConvert();
-
-    function monthConvert () {
-        return (theMonth<10 ? "0" : "")+theMonth;
-    };
-    const month = monthConvert();
-    
-    const today = theYear+"-"+month+"-"+day ;
-    
     
 
-    //console.log(befortoday);
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': '2e2457b816msh7b4f76d57eb1fd9p1b092ajsnee5aa756253f',
+                'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
+            }
+        };
 
-  const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '2e2457b816msh7b4f76d57eb1fd9p1b092ajsnee5aa756253f',
-            'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
-        }
-    };
+            //on lance la requête
+            const gamesRequest = fetch (`https://api-nba-v1.p.rapidapi.com/games?date=${theDate}`, options)
+            //on récupère la réponse de la requete au format json
+            .then( function (data) {return data.json()})
+            //on lance la fonction handleGamesJson
+            .then( handleGamesJson );
 
-    //on lance la requête
-    const gamesRequest = fetch (`https://api-nba-v1.p.rapidapi.com/games?date=${today}`, options)
-    //on récupère la réponse de la requete au format json
-    .then( function (data) {return data.json()})
-    //on lance la fonction handleGamesJson
-    .then( handleGamesJson );
+        
+    
+
 };
 
-//fonction qui permet de récupérer les matchs d'hier
-function handleYesterdayButtonGames () {
- 
-    const elements = document.querySelectorAll('*');
-    elements.forEach((element)=> {
-        element.classList.remove("off");
-        element.classList.remove('selected');
-        element.classList.remove('no-selected');
-    });
+
+//fonction qui permet de récupérer les matchs d'aujourd'hui
+function handleGamesButton () {
     
-    eastButtonSelector.classList.add("off");
-    westButtonSelector.classList.add("off");
+    showLoader ();
 
-    sectionSelector.classList.toggle('off');
-    thirdSectionSelector.classList.toggle('off');
-
-    oneLessButtonSelector.classList.add('selected');
-    twoLessButtonSelector.classList.add('no-selected');
-    threeLessButtonSelector.classList.add('no-selected');
-    todayButtonSelector.classList.add('no-selected');
-    oneMoreButtonSelector.classList.add('no-selected');
-    twoMoreButtonSelector.classList.add('no-selected');
-    threeMoreButtonSelector.classList.add('no-selected');
-
-    const todayDate = new Date();
-    const theDay = todayDate.getDate()-1;
-    const theMonth = todayDate.getMonth() + 1;
-    const theYear = todayDate.getFullYear();
-
-    function dayConvert () {
-        return (theDay<10 ? "0" : "")+theDay;
-    };
-    const day = dayConvert();
-
-    function monthConvert () {
-        return (theMonth<10 ? "0" : "")+theMonth;
-    };
-    const month = monthConvert();
-    
-    const yesterday = theYear+"-"+month+"-"+day ;
-    
-
-  const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '2e2457b816msh7b4f76d57eb1fd9p1b092ajsnee5aa756253f',
-            'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
-        }
-    };
-
-    //on lance la requête
-    const gamesRequest = fetch (`https://api-nba-v1.p.rapidapi.com/games?date=${yesterday}`, options)
-    //on récupère la réponse de la requete au format json
-    .then( function (data) {return data.json()})
-    //on lance la fonction handleGamesJson
-    .then( handleGamesJson );
-
-
-
-}
-
-//fonction qui permet de récupérer les matchs d'avant-hier
-function handleTwoDaysBeforeButtonGames () {
-
+    console.log ("handleGamesButton");
 
     const elements = document.querySelectorAll('*');
     elements.forEach((element)=> {
@@ -470,301 +380,65 @@ function handleTwoDaysBeforeButtonGames () {
 
     sectionSelector.classList.toggle('off');
     thirdSectionSelector.classList.toggle('off');
-
-    oneLessButtonSelector.classList.add('no-selected');
-    twoLessButtonSelector.classList.add('selected');
-    threeLessButtonSelector.classList.add('no-selected');
-    todayButtonSelector.classList.add('no-selected');
-    oneMoreButtonSelector.classList.add('no-selected');
-    twoMoreButtonSelector.classList.add('no-selected');
-    threeMoreButtonSelector.classList.add('no-selected');
-
-
-    const todayDate = new Date();
-    const theDay = todayDate.getDate()-2;
-    const theMonth = todayDate.getMonth() + 1;
-    const theYear = todayDate.getFullYear();
-
-    function dayConvert () {
-        return (theDay<10 ? "0" : "")+theDay;
-    };
-    const day = dayConvert();
-
-    function monthConvert () {
-        return (theMonth<10 ? "0" : "")+theMonth;
-    };
-    const month = monthConvert();
-    
-    const twodaysbefore = theYear+"-"+month+"-"+day ;
-    
-
-  const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '2e2457b816msh7b4f76d57eb1fd9p1b092ajsnee5aa756253f',
-            'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
-        }
-    };
-
-    //on lance la requête
-    const gamesRequest = fetch (`https://api-nba-v1.p.rapidapi.com/games?date=${twodaysbefore}`, options)
-    //on récupère la réponse de la requete au format json
-    .then( function (data) {return data.json()})
-    //on lance la fonction handleGamesJson
-    .then( handleGamesJson );
-
-
-
-}
-
-//fonction qui permet de récupérer les matchs d'avant-avant-hier
-function handleThreeDaysBeforeButtonGames () {
-
-    const elements = document.querySelectorAll('*');
-    elements.forEach((element)=> {
-        element.classList.remove("off");
-        element.classList.remove('selected');
-        element.classList.remove('no-selected');
-    });
-    
-    eastButtonSelector.classList.add("off");
-    westButtonSelector.classList.add("off");
-
-    sectionSelector.classList.toggle('off');
-    thirdSectionSelector.classList.toggle('off');
-
-    oneLessButtonSelector.classList.add('no-selected');
-    twoLessButtonSelector.classList.add('no-selected');
-    threeLessButtonSelector.classList.add('selected');
-    todayButtonSelector.classList.add('no-selected');
-    oneMoreButtonSelector.classList.add('no-selected');
-    twoMoreButtonSelector.classList.add('no-selected');
-    threeMoreButtonSelector.classList.add('no-selected');
-
-    const todayDate = new Date();
-    const theDay = todayDate.getDate()-3;
-    const theMonth = todayDate.getMonth() + 1;
-    const theYear = todayDate.getFullYear();
-
-    function dayConvert () {
-        return (theDay<10 ? "0" : "")+theDay;
-    };
-    const day = dayConvert();
-
-    function monthConvert () {
-        return (theMonth<10 ? "0" : "")+theMonth;
-    };
-    const month = monthConvert();
-    
-    const threedaysbefore = theYear+"-"+month+"-"+day ;
-    
-
-  const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '2e2457b816msh7b4f76d57eb1fd9p1b092ajsnee5aa756253f',
-            'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
-        }
-    };
-
-    //on lance la requête
-    const gamesRequest = fetch (`https://api-nba-v1.p.rapidapi.com/games?date=${threedaysbefore}`, options)
-    //on récupère la réponse de la requete au format json
-    .then( function (data) {return data.json()})
-    //on lance la fonction handleGamesJson
-    .then( handleGamesJson );
-
-
-
-}
-
-//fonction qui permet de récupérer les matchs de demain
-function handleTomorowButtonGames () {
-
-    const elements = document.querySelectorAll('*');
-    elements.forEach((element)=> {
-        element.classList.remove("off");
-        element.classList.remove('selected');
-        element.classList.remove('no-selected');
-    });
-    
-    eastButtonSelector.classList.add("off");
-    westButtonSelector.classList.add("off");
-
-    sectionSelector.classList.toggle('off');
-    thirdSectionSelector.classList.toggle('off');
-
+    fourthSectionSelector.classList.toggle('off');
     oneLessButtonSelector.classList.add('no-selected');
     twoLessButtonSelector.classList.add('no-selected');
     threeLessButtonSelector.classList.add('no-selected');
-    todayButtonSelector.classList.add('no-selected');
-    oneMoreButtonSelector.classList.add('selected');
-    twoMoreButtonSelector.classList.add('no-selected');
-    threeMoreButtonSelector.classList.add('no-selected');
-
-
-
-
-    const todayDate = new Date();
-    const theDay = todayDate.getDate()+1;
-    const theMonth = todayDate.getMonth() + 1;
-    const theYear = todayDate.getFullYear();
-
-    function dayConvert () {
-        return (theDay<10 ? "0" : "")+theDay;
-    };
-    const day = dayConvert();
-
-    function monthConvert () {
-        return (theMonth<10 ? "0" : "")+theMonth;
-    };
-    const month = monthConvert();
-    
-    const tomorow = theYear+"-"+month+"-"+day ;
-    
-
-  const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '2e2457b816msh7b4f76d57eb1fd9p1b092ajsnee5aa756253f',
-            'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
-        }
-    };
-
-    //on lance la requête
-    const gamesRequest = fetch (`https://api-nba-v1.p.rapidapi.com/games?date=${tomorow}`, options)
-    //on récupère la réponse de la requete au format json
-    .then( function (data) {return data.json()})
-    //on lance la fonction handleGamesJson
-    .then( handleGamesJson );
-
-
-
-}
-
-//fonction qui permet de récupérer les matchs dans 2 jours
-function handleTwoDaysAfterButtonGames () {
-
-    
-    const elements = document.querySelectorAll('*');
-    elements.forEach((element)=> {
-        element.classList.remove("off");
-        element.classList.remove('selected');
-        element.classList.remove('no-selected');
-    });
-    
-    eastButtonSelector.classList.add("off");
-    westButtonSelector.classList.add("off");
-
-    sectionSelector.classList.toggle('off');
-    thirdSectionSelector.classList.toggle('off');
-
-    oneLessButtonSelector.classList.add('no-selected');
-    twoLessButtonSelector.classList.add('no-selected');
-    threeLessButtonSelector.classList.add('no-selected');
-    todayButtonSelector.classList.add('no-selected');
-    oneMoreButtonSelector.classList.add('no-selected');
-    twoMoreButtonSelector.classList.add('selected');
-    threeMoreButtonSelector.classList.add('no-selected');
-
-
-    const todayDate = new Date();
-    const theDay = todayDate.getDate()+2;
-    const theMonth = todayDate.getMonth() + 1;
-    const theYear = todayDate.getFullYear();
-
-    function dayConvert () {
-        return (theDay<10 ? "0" : "")+theDay;
-    };
-    const day = dayConvert();
-
-    function monthConvert () {
-        return (theMonth<10 ? "0" : "")+theMonth;
-    };
-    const month = monthConvert();
-    
-    const twodaysafter = theYear+"-"+month+"-"+day ;
-    
-
-  const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '2e2457b816msh7b4f76d57eb1fd9p1b092ajsnee5aa756253f',
-            'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
-        }
-    };
-
-    //on lance la requête
-    const gamesRequest = fetch (`https://api-nba-v1.p.rapidapi.com/games?date=${twodaysafter}`, options)
-    //on récupère la réponse de la requete au format json
-    .then( function (data) {return data.json()})
-    //on lance la fonction handleGamesJson
-    .then( handleGamesJson );
-
-
-
-}
-
-//fonction qui permet de récupérer les matchs dans 3 jours
-function handleThreeDaysAfterButtonGames () {
-  
-    const elements = document.querySelectorAll('*');
-    elements.forEach((element)=> {
-        element.classList.remove("off");
-        element.classList.remove('selected');
-        element.classList.remove('no-selected');
-    });
-    
-    eastButtonSelector.classList.add("off");
-    westButtonSelector.classList.add("off");
-    sectionSelector.classList.toggle('off');
-    thirdSectionSelector.classList.toggle('off');
-
-    oneLessButtonSelector.classList.add('no-selected');
-    twoLessButtonSelector.classList.add('no-selected');
-    threeLessButtonSelector.classList.add('no-selected');
-    todayButtonSelector.classList.add('no-selected');
     oneMoreButtonSelector.classList.add('no-selected');
     twoMoreButtonSelector.classList.add('no-selected');
-    threeMoreButtonSelector.classList.add('selected');
+    threeMoreButtonSelector.classList.add('no-selected');
+    todayButtonSelector.classList.add('selected');
 
-    const todayDate = new Date();
-    const theDay = todayDate.getDate()+3;
-    const theMonth = todayDate.getMonth() + 1;
-    const theYear = todayDate.getFullYear();
-
-    function dayConvert () {
-        return (theDay<10 ? "0" : "")+theDay;
-    };
-    const day = dayConvert();
-
-    function monthConvert () {
-        return (theMonth<10 ? "0" : "")+theMonth;
-    };
-    const month = monthConvert();
-    
-    const threedaysafter = theYear+"-"+month+"-"+day ;
-    
-
-  const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '2e2457b816msh7b4f76d57eb1fd9p1b092ajsnee5aa756253f',
-            'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
-        }
-    };
-
-    //on lance la requête
-    const gamesRequest = fetch (`https://api-nba-v1.p.rapidapi.com/games?date=${threedaysafter}`, options)
-    //on récupère la réponse de la requete au format json
-    .then( function (data) {return data.json()})
-    //on lance la fonction handleGamesJson
-    .then( handleGamesJson );
+     
+    getTheDate ();
 
 
+   
+            const dayNumber = todayButtonSelector.textContent;
 
-}
+            const todayDate = new Date();
 
+            const theYear = todayDate.getFullYear();
+            const theMonth = todayDate.getMonth() + 1;
+
+
+            function dayConvert () {
+                return (dayNumber<10 ? "0" : "")+dayNumber;
+            };
+            const day = dayConvert();
+
+
+            function monthConvert () {
+                return (theMonth<10 ? "0" : "")+theMonth;
+            };
+            const month = monthConvert();
+
+           
+
+            const today = theYear+"-"+month+"-"+day;
+        
+
+            const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': '2e2457b816msh7b4f76d57eb1fd9p1b092ajsnee5aa756253f',
+                'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
+            }
+                };
+
+            //on lance la requête
+            const gamesRequest = fetch (`https://api-nba-v1.p.rapidapi.com/games?date=${today}`, options)
+            //on récupère la réponse de la requete au format json
+            .then( function (data) {return data.json()})
+            //on lance la fonction handleGamesJson
+            .then( handleGamesJson );
+
+        
+            
+
+
+
+};
 
 //fonction qui récupère la liste des matchs
 function handleGamesJson (json) {
@@ -796,6 +470,8 @@ function handleGamesJson (json) {
         noGameCardP.textContent="Pas de matchs ce jour-là...";
 
         gamesElementSelector.append(noGameCardP);
+
+    
     
     }
 
@@ -815,8 +491,8 @@ function handleGamesJson (json) {
             const newHomeTeamElement = document.createElement("div");
             newHomeTeamElement.classList.add("homeTeam");
 
-            const newImageCard = document.createElement("img");
-            newImageCard.classList.add("gameCardImageHome");
+            //const newImageCard = document.createElement("img");
+            //newImageCard.classList.add("gameCardImageHome");
 
             const newGameData = document.createElement("div");
             newGameData.classList.add("gameData");
@@ -833,8 +509,8 @@ function handleGamesJson (json) {
             const newVisitorTeamElement = document.createElement("div");
             newVisitorTeamElement.classList.add("visitorTeam");
 
-            const newVisitorImageCard = document.createElement("img");
-            newVisitorImageCard.classList.add("gameCardImageVisitor");
+            //const newVisitorImageCard = document.createElement("img");
+            //newVisitorImageCard.classList.add("gameCardImageVisitor");
 
             const newVisitorGameData = document.createElement("div");
             newVisitorGameData.classList.add("gameData");
@@ -846,7 +522,7 @@ function handleGamesJson (json) {
             newVisitorTeamScore.classList.add("visitorTeamScore");
 
             //on affecte les données aux éléments de chaque équipe du match
-            newImageCard.src = dataGames.teams.home.logo;
+            //newImageCard.src = dataGames.teams.home.logo;
             newHomeTeamName.textContent = dataGames.teams.home.name;
             newHomeTeamScore.textContent= dataGames.scores.home.points;
             const colorHomeTeam= dataGames.teams.home.code;
@@ -859,8 +535,8 @@ function handleGamesJson (json) {
             //on affecte une couleur différente pour chaque équipe
             newHomeTeamElement.classList.add(`${colorHomeTeam}`);
             newVisitorTeamElement.classList.add(`${colorVisitorTeam}`);
-            
-            newVisitorImageCard.src = dataGames.teams.visitors.logo;
+
+            //newVisitorImageCard.src = dataGames.teams.visitors.logo;
             //newVisitorImageCard.style.backgroundImage=dataGames.teams.visitors.logo;
             newVisitorTeamName.textContent = dataGames.teams.visitors.name;
             newVisitorTeamScore.textContent= dataGames.scores.visitors.points;
@@ -869,29 +545,88 @@ function handleGamesJson (json) {
 
             gamesElementSelector.append(newGameCard);
             newGameCard.append(newHomeTeamElement);
-            newHomeTeamElement.append(newImageCard);
+            //newHomeTeamElement.append(newImageCard);
             newHomeTeamElement.append(newGameData);
             //newGameData.append(newHomeTeamName);
             newGameData.append(newHomeTeamScore);
 
 
             newGameCard.append(newVisitorTeamElement);
-            newVisitorTeamElement.append(newVisitorImageCard);
+            //newVisitorTeamElement.append(newVisitorImageCard);
             newVisitorTeamElement.append(newVisitorGameData);
             //newVisitorGameData.append(newVisitorTeamName);
             newVisitorGameData.append(newVisitorTeamScore);
 
 
+            const status = dataGames.status.long;
+            const hour = dataGames.date.start;
+           
+
+            if (status === "Scheduled") {
+                //console.log(hour);
+
+
+            const gameHour = document.createElement('div');
+            gameHour.classList.add('gameHour');
+            const gameHourP=document.createElement('p');
+   
+            const hourToConvert = new Date (hour);
+            
+            
+            const theMinutes = hourToConvert.getMinutes();
+             
+            function mminutesConvert () {
+                return (theMinutes<10 ? "0" : "")+theMinutes;
+            };
+            const minutes = mminutesConvert();
+
+            const justHour = hourToConvert.getHours()+":"+minutes;
+
+            gameHourP.textContent=justHour;
+
+            newHomeTeamElement.after(gameHour);
+            gameHour.append(gameHourP);   
+
+            }
+           
+
 
         }
-
 
     
     }
 
     selectTheGame();
+
+
 }
 
+
+//fonction permettant de récupérer les données d'une équipe selectionnée dans le classement
+
+    //Boucle qui pose un écouteur d'évènement sur chaque équipe du classement
+for ( const team of cardTeamSelector){
+    team.addEventListener('click', handleTeam);
+    const idOfTeam = team.id;
+    //console.log(idOfTeam);
+}
+
+function handleTeam (idOfTeam) {
+
+        const idOfTeamSelected = idOfTeam.srcElement.id;
+        console.log(idOfTeamSelected);
+        fourthSectionSelector.classList.remove('off');
+    
+};
+
+
+
+//fonction qui récupère la liste des joueurs d'une équipe sélectionnée
+function handleTeamJson (json){    
+
+
+}
+ 
 
 
 
@@ -903,11 +638,3 @@ eastButtonSelector.addEventListener('click', handleEastButton);
 westButtonSelector.addEventListener('click', handleWestButton);
 standingsButton.addEventListener('click', handleStandingsButton);
 gamesButton.addEventListener('click', handleGamesButton);
-todayButtonSelector.addEventListener('click', handleGamesButton )
-yesterdayButtonSelector.addEventListener('click',handleYesterdayButtonGames );
-twoDaysBeforeButtonSelector.addEventListener('click',handleTwoDaysBeforeButtonGames);
-threeDaysBeforeButtonSelector.addEventListener('click',handleThreeDaysBeforeButtonGames);
-
-tomorowButtonSelector.addEventListener('click',handleTomorowButtonGames );
-twoDaysAfterButtonSelector.addEventListener('click',handleTwoDaysAfterButtonGames);
-threeDaysAfterButtonSelector.addEventListener('click',handleThreeDaysAfterButtonGames);

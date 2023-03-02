@@ -20,6 +20,14 @@ body {
     visibility: hidden;
 }
 
+.gamesMonthAndYear{
+    font-family: 'Anton', sans-serif;
+    font-weight: normal;
+    font-size: 22px;
+    color: white;
+    padding-top: 0.5rem;
+}
+
 
 .loader-container {
     position: fixed;
@@ -32,7 +40,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #0c121d;
-    transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
 }
 
 .loader-container p {
@@ -71,6 +79,7 @@ body {
     width: 100%;
     padding-top: 1rem;
     padding-bottom: 1rem;
+    
     background-color: #fb5924;
     color: #1D2C49;
 }
@@ -239,16 +248,14 @@ main {
 
 
 
-
 .dateWrapper {
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
 background-color:#0c121d;
-height: 4.5rem;
 width: 100%;
-margin-bottom: 1rem;
+margin-bottom: 0.5rem;
 }
 
 .dateWrapperButtons {
@@ -310,10 +317,29 @@ margin-bottom: 1rem;
     width: 100%;
 }
 
+.fourth-section__container {
+    display: flex;
+    flex-direction: column;
+    margin: 3rem 5rem 3rem 5rem;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Jost', sans-serif;
+    color:#bdc1c6;
+    border-radius: 8px;
+    transition: all ease-in-out 0.5s;
+}
+
+
+
+
 @media screen and (max-width: 640px){
     .first-section {
         margin: 0;
     }  
+
+    .fourth-section__container {
+      margin: 1rem 0.5rem 1rem 0.5rem;  
+    }
 }
 
 .cardImage {
@@ -331,7 +357,7 @@ margin-bottom: 1rem;
     width: 60%;
     border-collapse: collapse;
     border-radius: 7px;
-    background-color: #1D2C49;  
+    background-color: #05070c;  
 }
 
 @media screen and (max-width: 768px){
@@ -342,31 +368,33 @@ margin-bottom: 1rem;
  }
 
 
-thead th:nth-child(1) {
-    width: 1%;
+ .standingsTable thead th:nth-child(1) {
+    width: 0.5%;
   }
   
-  thead th:nth-child(2) {
+  .standingsTable thead th:nth-child(2) {
     width: 1%;
     
   }
   
-  thead th:nth-child(3) {
-    width: 6%;
+  .standingsTable thead th:nth-child(3) {
+    width: 12%;
+    
   }
 
-  thead th:nth-child(4) {
-    width: 4%;
-  }
-  thead th:nth-child(5) {
-    width: 4%;
-  }
-  thead th:nth-child(6) {
-    width: 4%;
+  .standingsTable thead th:nth-child(4) {
+    width: 1%;
   }
 
-  thead th:nth-child(7) {
-    width: 4%;
+  .standingsTable thead th:nth-child(5) {
+    width: 1%;
+  }
+  .standingsTable thead th:nth-child(6) {
+    width: 1%;
+  }
+
+  .standingsTable thead th:nth-child(7) {
+    width: 1%;
   }
 
   th, td {
@@ -374,29 +402,24 @@ thead th:nth-child(1) {
     text-align: center;
   }
 
-tbody tr:nth-child(6) {
+  .standingsTable tbody tr:nth-child(6) {
     border-bottom: #bdc1c6 1px dotted;
 }
 
-tbody tr:nth-child(10) {
+.standingsTable tbody tr:nth-child(10) {
     border-bottom: #bdc1c6 1px solid;
 }
 
-tbody tr:nth-child(15) {
-    border-bottom-left-radius: 7px;
-    border-bottom-right-radius: 7px;
- }
-
-tbody tr:nth-child(odd) {
-    background-color: #121b2e;    
+.standingsTable tbody tr:nth-child(odd) {
+    background-color: #1d2c49;    
   }
   
-tbody tr:nth-child(even) {
+.standingsTable tbody tr:nth-child(even) {
     
-    background-color: #0c121d;
+    background-color: #19263d;
   }
 
-  tbody tr:hover {
+.standingsTable tbody tr:hover {
     color:white;
     transition: ease-in-out 0.3s;
     cursor: pointer;
@@ -408,6 +431,10 @@ tbody tr:nth-child(even) {
     font-size: 20px;
 }
 
+.cardName {
+    text-align: left;
+}
+
 @media screen and (max-width: 640px){
     .cardRank {
         font-size: 14px;
@@ -415,6 +442,8 @@ tbody tr:nth-child(even) {
     
     .cardName {
         font-size: 14px;
+        font-weight: normal;
+        text-align: left;
     }
 
     .cardWin {
@@ -430,6 +459,98 @@ tbody tr:nth-child(even) {
 
 }
 
+/*====TABLEAU D'UNE EQUIPE====*/
+
+.teamSelected{
+    margin: 1rem;
+    background-color: #05070cea;  
+    padding:  0.5rem 5rem 0.5rem 5rem;
+    border-radius: 7px;
+    font-size: 25px;
+}
+
+
+.teamTable {
+    margin: 0.5rem auto 1rem auto;
+    table-layout: fixed;
+    padding-bottom: 2rem;
+    width: 60%;
+    border-collapse: collapse;
+    border-radius: 7px;
+    background-color: #05070cea;  
+}
+
+.headTeamCol {
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.headTeamTable th:nth-child(1) {
+    width: 6%;
+  }
+
+.headTeamTable th:nth-child(2) {
+    width: 15%;
+  }
+  
+.headTeamTable th:nth-child(3) {
+    width: 8%;
+  }
+  
+.headTeamTable th:nth-child(4) {
+    width: 3%;
+  }
+
+.cardTeamElements{
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.bodyTeamTable tr:nth-child(odd) {
+    background-color: #1616169d;    
+  }
+  
+.bodyTeamTable tr:nth-child(even) {
+    
+    background-color: #111111a1;
+  }
+
+  .bodyTeamTable tr:hover {
+    color:white;
+    transition: ease-in-out 0.3s;
+    background-color:#05070c;
+  }
+
+  .cardTeamFirstName , .cardTeamLastName {
+    text-align: left; 
+    }
+    .cardTeamFirstName , .cardTeamLastName, .cardTeamBirth , .cardTeamCountry {
+        font-size: 20px;
+        
+    }  
+
+@media screen and (max-width: 768px){
+
+    .teamSelected {
+        padding:  0.5rem 1rem 0.5rem 1rem;
+        margin: 0.5rem auto 1rem auto;
+    }
+
+    .teamTable{
+        font-weight:lighter;
+        width: 95%;
+    }
+    
+    .headTeamCol {
+        font-size: 12px;
+        
+    }
+
+    .cardTeamFirstName , .cardTeamLastName, .cardTeamBirth , .cardTeamCountry {
+        font-weight: normal;
+        
+    }
+ }
 
 
 
@@ -548,6 +669,8 @@ tbody tr:nth-child(even) {
         margin-left: auto;
         margin-right: auto;
         width: 90%;
+        font-size: 12px;
+        font-weight: normal;
     }
 
 }
@@ -624,11 +747,11 @@ tbody tr:nth-child(even) {
 
 .gameCardButton {
     border-radius: 8px;
-    background-color: transparent;
+    background-color: #0c121d;
     border: none;
     display: flex;
     flex-direction: center;
-    color:#d8d8d8;
+    color:rgb(233, 233, 233);
     letter-spacing: 2px;
     margin: 0.5rem;
     font-family: 'Anton', sans-serif;
@@ -646,11 +769,21 @@ tbody tr:nth-child(even) {
     cursor: pointer;
     color: white;
     height: auto;
-    font-size: 55px;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     
 }
 
+.gameHour{
+    font-size: 30px;
+    padding: 4rem 0.5rem 3rem 0.5rem;
+
+}
+
+@media screen and (max-width:640px){
+    .gameHour {
+        padding: 2.5rem 0.5rem 1rem 0.5rem;
+    }
+}
 
 .homeTeam {
     display: flex;
@@ -658,7 +791,7 @@ tbody tr:nth-child(even) {
     justify-content: center;
     text-align: center;
     width: 50%;
-    height: 12rem;
+    height: 10rem;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
     background: rgb(44, 0, 0);
@@ -675,7 +808,7 @@ tbody tr:nth-child(even) {
     flex-direction: row-reverse;
     justify-content: center;
     width: 50%;
-    height: 12rem;
+    height: 10rem;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
     background: rgb(0, 108, 209);
@@ -688,36 +821,40 @@ tbody tr:nth-child(even) {
 }
 
 
-
 .gameData {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     margin: auto;
     padding: 0.2rem;
+    
 }
 
 .gameData p {
     display: flex;
     font-weight: bold;
-    font-size: 50px;
+    font-size: 80px;
+    text-shadow: rgb(0, 0, 0) 3px 0 15px;
 }
+
+
 
 @media screen and (max-width: 640px){
     .gameData p {
-        font-size: 35px;
+        font-size: 50px;
     }
 }
 
 
+
 .homeTeamScore {
-    font-size: 50px;
+    margin-left: 2.5rem;
 }
-
-
 
 .visitorTeamScore {
-    font-size: x-large;
+    margin-right: 2.5rem;
 }
+
 
 .gameCardImageVisitor , .gameCardImageHome{
     width: 50%;
@@ -730,150 +867,249 @@ tbody tr:nth-child(even) {
 /*BACKGROUND COLORS DE CHAQUE EQUIPE*/
 
 
+
 /*CONF EST*/
 .BOS {
     background: rgb(0, 129, 11);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/e/ee/Hawks_2016.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .MIL {
     background: rgb(0, 75, 16);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/3/34/Bucks2015.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .PHI{
     background: rgb(29, 116, 216);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/4/48/76ers_2016.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .CLE{
     background: rgb(44, 0, 0);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/0/06/Cavs_de_Cleveland_logo_2017.png/150px-Cavs_de_Cleveland_logo_2017.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
-
-.CLE .gameCardImage {
-   width: 40%; 
-}
-
 
 .BKN{
     background: rgb(39, 39, 39);
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Brooklyn_Nets_newlogo.svg/130px-Brooklyn_Nets_newlogo.svg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
-
-.BKN .gameCardImage {
-    width: 40%; 
- }
 
 
 .MIA{
     background: rgb(77, 0, 0);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/1/1c/Miami_Heat_-_Logo.svg/1200px-Miami_Heat_-_Logo.svg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .NYK{
     background: rgb(216, 86, 0);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/3/34/Knicks_de_NY.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
-
-.NKK .gameCardImage {
-    width: 90%; 
- }
 
 .ATL{
     background: rgb(255, 40, 40);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/e/ee/Hawks_2016.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .WAS{
     background: rgb(255, 255, 255);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/archive/d/d6/20161212034849%21Wizards2015.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .TOR{
     background: rgb(24, 24, 24);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/8/89/Raptors2015.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .CHI{
     background: rgb(165, 0, 0);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/d/d1/Bulls_de_Chicago_logo.svg/1200px-Bulls_de_Chicago_logo.svg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .IND {
     background: rgb(212, 156, 0);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/c/cf/Pacers_de_l%27Indiana_logo.svg/1180px-Pacers_de_l%27Indiana_logo.svg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .ORL{
     background: rgb(72, 196, 253);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/b/bd/Orlando_Magic_logo_2010.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .CHA {
     background: rgb(0, 160, 172);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/f/f3/Hornets_de_Charlotte_logo.svg/1200px-Hornets_de_Charlotte_logo.svg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .DET {
     background: rgb(0, 71, 177);
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Detroit_Pistons_primary_logo_2017.png/150px-Detroit_Pistons_primary_logo_2017.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 /*CONF OUEST*/
 .MEM {
-    background: rgb(0, 42, 121);
+    background: rgb(20, 129, 202);
+    background-image: url(https://upload.wikimedia.org/wikipedia/en/thumb/f/f1/Memphis_Grizzlies.svg/1200px-Memphis_Grizzlies.svg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .MIN {
     background: rgb(0, 63, 134);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/d/d9/Timberwolves_du_Minnesota_logo_2017.png/200px-Timberwolves_du_Minnesota_logo_2017.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .DEN {
     background: rgb(0, 0, 29);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/3/35/Nuggets_de_Denver_2018.png/180px-Nuggets_de_Denver_2018.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .SAC {
     background: rgb(87, 11, 138);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/9/95/Kings_de_Sacramento_logo.svg/1200px-Kings_de_Sacramento_logo.svg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .PHX {
     background: rgb(121, 0, 190);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/5/56/Phoenix_Suns_2013.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .DAL {
     background: rgb(0, 36, 196);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/b/b8/Mavericks_de_Dallas_logo.svg/150px-Mavericks_de_Dallas_logo.svg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .LAC {
-    background: rgb(0, 14, 75);
+    background: rgb(221, 221, 221);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/d/d6/Los_Angeles_Clippers_logo_2010.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
-.LAC .gameCardImage {
-    width: 60%; 
- }
 
 .NOP {
-    background: rgb(90, 0, 15);
+    background: rgb(0, 27, 116);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/2/21/New_Orleans_Pelicans.png/200px-New_Orleans_Pelicans.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .GSW {
     background: rgb(212, 145, 0);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/d/de/Warriors_de_Golden_State_logo.svg/1200px-Warriors_de_Golden_State_logo.svg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .OKC {
     background: rgb(196, 46, 0);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/4/4f/Thunder_d%27Oklahoma_City_logo.svg/1200px-Thunder_d%27Oklahoma_City_logo.svg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .UTA {
     background: rgb(0, 92, 54);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/3/3b/Jazz_de_l%27Utah_logo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .POR {
     background: rgb(100, 0, 0);
+    background-image: url(https://upload.wikimedia.org/wikipedia/en/thumb/2/21/Portland_Trail_Blazers_logo.svg/1200px-Portland_Trail_Blazers_logo.svg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .LAL {
-    background: rgb(39, 0, 131);
+    background: rgb(61, 9, 182);
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Los_Angeles_Lakers_logo.svg/220px-Los_Angeles_Lakers_logo.svg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
-.LAL .gameCardImage {
-    width: 55%; 
- }
 
 .SAS {
-    background: rgb(128, 128, 128);
+    background: rgb(189, 189, 189);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/0/0e/San_Antonio_Spurs_2018.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .HOU {
-    background: rgb(46, 0, 0);
+    background: rgb(24, 0, 0);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/d/de/Houston_Rockets_logo_2003.png/330px-Houston_Rockets_logo_2003.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 50%;
 }
-
-.HOU .gameCardImage {
-    width: 60%; 
- }
