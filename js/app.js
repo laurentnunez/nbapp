@@ -51,6 +51,8 @@ const secondSectionSelector = document.querySelector('.second-section');
 
 const thirdSectionSelector = document.querySelector('.third-section');
 
+const fourthSectionSelector = document.querySelector('.fourth-section');
+
 const dateWrapperSelector = document.querySelector('.dateWrapper');
 
 const dateButtonSelector = document.querySelectorAll(".dateButton");
@@ -191,6 +193,9 @@ function handleJson (json){
             newPercentage.textContent = dataTeam.win.percentage;
             newWin.textContent = dataTeam.win.total;
             newLost.textContent = dataTeam.loss.total;
+
+            const idTeam = dataTeam.team.id;
+            newName.setAttribute("id",`${idGame}`);
     
             //on organise les éléments créés dans le tableau
 
@@ -214,31 +219,9 @@ function deleteElements () {
         oldCardElements.remove();
 }
   
-//Boucle qui pose un écouteur d'évènement sur chaque équipe du classement
-for ( const team of cardTeamSelector){
-    team.addEventListener('click', handleTeam);
-    teamName = team.textContent;
-    console.log(teamName);
-}
-
-//fonction pour sélectionner une équipe dans le classement
-function handleTeam (teamName) {
-
-        const teamNameSelected = teamName.target;
-        console.log(teamNameSelected);
-
 
     
-};
-    
-//fonction qui récupère la liste des joueurs d'une équipe sélectionnée
-function handleTeamJson (json){
 
-       
-
-
-}
- 
 //fonction pour effacer les anciennes données des joueurs    
 function deletePlayersElements () {
         const oldPlayers = document.querySelector(".teamPlayers");
@@ -274,7 +257,7 @@ function handleStandingsButton () {
 
     handleEastButton ();
 
-
+    selectTeam ();
 
 
 }
@@ -479,8 +462,8 @@ function handleGamesJson (json) {
             const newHomeTeamElement = document.createElement("div");
             newHomeTeamElement.classList.add("homeTeam");
 
-            const newImageCard = document.createElement("img");
-            newImageCard.classList.add("gameCardImageHome");
+            //const newImageCard = document.createElement("img");
+            //newImageCard.classList.add("gameCardImageHome");
 
             const newGameData = document.createElement("div");
             newGameData.classList.add("gameData");
@@ -497,8 +480,8 @@ function handleGamesJson (json) {
             const newVisitorTeamElement = document.createElement("div");
             newVisitorTeamElement.classList.add("visitorTeam");
 
-            const newVisitorImageCard = document.createElement("img");
-            newVisitorImageCard.classList.add("gameCardImageVisitor");
+            //const newVisitorImageCard = document.createElement("img");
+            //newVisitorImageCard.classList.add("gameCardImageVisitor");
 
             const newVisitorGameData = document.createElement("div");
             newVisitorGameData.classList.add("gameData");
@@ -510,7 +493,7 @@ function handleGamesJson (json) {
             newVisitorTeamScore.classList.add("visitorTeamScore");
 
             //on affecte les données aux éléments de chaque équipe du match
-            newImageCard.src = dataGames.teams.home.logo;
+            //newImageCard.src = dataGames.teams.home.logo;
             newHomeTeamName.textContent = dataGames.teams.home.name;
             newHomeTeamScore.textContent= dataGames.scores.home.points;
             const colorHomeTeam= dataGames.teams.home.code;
@@ -523,8 +506,8 @@ function handleGamesJson (json) {
             //on affecte une couleur différente pour chaque équipe
             newHomeTeamElement.classList.add(`${colorHomeTeam}`);
             newVisitorTeamElement.classList.add(`${colorVisitorTeam}`);
-            
-            newVisitorImageCard.src = dataGames.teams.visitors.logo;
+
+            //newVisitorImageCard.src = dataGames.teams.visitors.logo;
             //newVisitorImageCard.style.backgroundImage=dataGames.teams.visitors.logo;
             newVisitorTeamName.textContent = dataGames.teams.visitors.name;
             newVisitorTeamScore.textContent= dataGames.scores.visitors.points;
@@ -533,14 +516,14 @@ function handleGamesJson (json) {
 
             gamesElementSelector.append(newGameCard);
             newGameCard.append(newHomeTeamElement);
-            newHomeTeamElement.append(newImageCard);
+            //newHomeTeamElement.append(newImageCard);
             newHomeTeamElement.append(newGameData);
             //newGameData.append(newHomeTeamName);
             newGameData.append(newHomeTeamScore);
 
 
             newGameCard.append(newVisitorTeamElement);
-            newVisitorTeamElement.append(newVisitorImageCard);
+            //newVisitorTeamElement.append(newVisitorImageCard);
             newVisitorTeamElement.append(newVisitorGameData);
             //newVisitorGameData.append(newVisitorTeamName);
             newVisitorGameData.append(newVisitorTeamScore);
@@ -590,6 +573,35 @@ function handleGamesJson (json) {
 }
 
 
+//fonction permettant de récupérer les données d'une équipe selectionnée dans le classement
+
+    //Boucle qui pose un écouteur d'évènement sur chaque équipe du classement
+for ( const team of cardTeamSelector){
+    team.addEventListener('click', handleTeam);
+    const idOfTeam = team.id;
+    //console.log(idOfTeam);
+}
+
+function handleTeam (idOfTeam) {
+
+        const idOfTeamSelected = idOfTeam.srcElement.id;
+        console.log(idOfTeamSelected);
+        fourthSectionSelector.classList.remove('off');
+    
+};
+
+
+
+
+
+//fonction qui récupère la liste des joueurs d'une équipe sélectionnée
+function handleTeamJson (json){
+
+       
+
+
+}
+ 
 
 
 

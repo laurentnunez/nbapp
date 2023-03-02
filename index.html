@@ -61,7 +61,7 @@
                     <tr class="cardElements">
                         <th class="cardRank">1</th>
                         <th class="cardImageTh"><img class="cardImage" src="https://upload.wikimedia.org/wikipedia/fr/3/34/Bucks2015.png"></th>
-                        <th class="cardName">Milwaukee Bucks</th>
+                        <th class="cardName" id="21">Milwaukee Bucks</th>
                         <th class="cardWin">44</th>
                         <th class="cardLost">17</th>
                         <th class="cardPercentage">0.721</th>
@@ -69,7 +69,7 @@
                     <tr class="cardElements">
                         <th class="cardRank">2</th>
                         <th class="cardImageTh"><img class="cardImage" src="https://upload.wikimedia.org/wikipedia/fr/3/34/Bucks2015.png"></th>
-                        <th class="cardName">Boston Celtics</th>
+                        <th class="cardName" id="2">Boston Celtics</th>
                         <th class="cardWin">44</th>
                         <th class="cardLost">18</th>
                         <th class="cardPercentage">0.710</th>
@@ -77,7 +77,7 @@
                     <tr class="cardElements">
                         <th class="cardRank">3</th>
                         <th class="cardImageTh"><img class="cardImage" src="https://upload.wikimedia.org/wikipedia/fr/3/34/Bucks2015.png"></th>
-                        <th class="cardName">Philadelphia 76ers</th>
+                        <th class="cardName" id="27">Philadelphia 76ers</th>
                         <th class="cardWin">39</th>
                         <th class="cardLost">21</th>
                         <th class="cardPercentage">0.650</th>
@@ -126,20 +126,53 @@
                 </table>
             </div>    
         </div>
-        <div class="forth-section">
-            <div class="forth-section__container MIL">
+        <div class="fourth-section off">
+            <div class="fourth-section__container MIL">
                 <div class="teamSelected">
                     <p class="teamSelected__name">Milwaukee Bucks</p>
                     <p class="teamSelected__rank">#1 dans la Conférence Est</p>
                     <p class="teamSelected__win">44v</p>
                     <p class="teamSelected__loss">17d</p>
                 </div>
-
+                <table class ="teamTable">
+                    <thead class="headTeamTable">
+                        <tr class ="headTeamCol">
+                            <th scope="col">JOUEURS</th>
+                            <th scope="col"></th>
+                            <th scope="col">DATE DE NAISSANCE</th>
+                            <th scope="col">PAYS</th>
+                        </tr> 
+                    </thead>
+                    <tbody class="bodyTeamTable">
+                        <tr class="cardTeamElements">
+                            <th class="cardTeamFirstName">John</th>
+                            <th class="cardTeamLastName">Collins</th>
+                            <th class="cardTeamBirth">16-2-1997</th>
+                            <th class="cardTeamCountry">USA</th>
+                            
+                        </tr>
+                        <tr class="cardTeamElements">
+                            <th class="cardTeamFirstName">John</th>
+                            <th class="cardTeamLastName">Collins</th>
+                            <th class="cardTeamBirth">16-2-1997</th>
+                            <th class="cardTeamCountry">USA</th>
+                            
+                        </tr>
+                        <tr class="cardTeamElements">
+                            <th class="cardTeamFirstName">John</th>
+                            <th class="cardTeamLastName">Collins</th>
+                            <th class="cardTeamBirth">16-2-1997</th>
+                            <th class="cardTeamCountry">USA</th>
+                            
+                        </tr>
+                    </tbody>
+                </table> 
             </div>    
         </div>
     </main>
     <script src="./js/date.js" ></script>
     <script src="./js/oneGame.js" ></script>
+    <script src="./js/team.js" ></script>
     
 
 </body>
