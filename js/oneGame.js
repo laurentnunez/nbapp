@@ -43,7 +43,12 @@ for (const game of gameCardSelector) {
 //fonction permettant d'afficher les stats du match sélectionné
 function handleOneGame (json) {
 
-    console.log(json.response);
+
+    const allPlayers = [json.response.sort((a,b)=> b.points - a.points)];
+
+    console.log(allPlayers);
+
+    
 
     //==TABLE HOME
 

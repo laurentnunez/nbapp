@@ -521,6 +521,14 @@ margin-bottom: 0.5rem;
     background-color:#05070c;
   }
 
+
+
+
+
+
+
+
+
   .cardTeamFirstName , .cardTeamLastName {
     text-align: left; 
     }
@@ -657,6 +665,29 @@ margin-bottom: 0.5rem;
     background-color: #0c121d; 
     font-size: 18px;
 }
+
+
+
+
+
+.bodyGameTable tr:nth-child(odd) {
+    background-color: #1d2c49;    
+  }
+  
+.bodyGameTable tr:nth-child(even) {
+    
+    background-color: #19263d;
+  }
+
+.bodyGameTable tr:hover {
+    color:white;
+    transition: ease-in-out 0.3s;
+    cursor: pointer;
+    background-color:#05070c;
+  }
+
+
+
 
 .playerLogo {
     width: 35px;
@@ -871,7 +902,7 @@ margin-bottom: 0.5rem;
 /*CONF EST*/
 .BOS {
     background: rgb(0, 129, 11);
-    background-image: url(https://upload.wikimedia.org/wikipedia/fr/e/ee/Hawks_2016.png);
+    background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/6/65/Celtics_de_Boston_logo.svg/1024px-Celtics_de_Boston_logo.svg.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
