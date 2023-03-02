@@ -992,7 +992,7 @@ margin-bottom: 0.5rem;
 
 /*CONF OUEST*/
 .MEM {
-    background: rgb(0, 42, 121);
+    background: rgb(20, 129, 202);
     background-image: url(https://upload.wikimedia.org/wikipedia/en/thumb/f/f1/Memphis_Grizzlies.svg/1200px-Memphis_Grizzlies.svg.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -1049,7 +1049,7 @@ margin-bottom: 0.5rem;
 
 
 .NOP {
-    background: rgb(90, 0, 15);
+    background: rgb(0, 27, 116);
     background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/2/21/New_Orleans_Pelicans.png/200px-New_Orleans_Pelicans.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -1106,7 +1106,7 @@ margin-bottom: 0.5rem;
 }
 
 .HOU {
-    background: rgb(46, 0, 0);
+    background: rgb(24, 0, 0);
     background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/d/de/Houston_Rockets_logo_2003.png/330px-Houston_Rockets_logo_2003.png);
     background-repeat: no-repeat;
     background-position: center;

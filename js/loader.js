@@ -3,7 +3,8 @@
     function closeLoader () {
         document.querySelector('.loader-container').classList.add('hidden');
 
-        //handleGamesButton ();
+        handleGamesButton();
+        
     }
 
     setTimeout(closeLoader, 2500); 

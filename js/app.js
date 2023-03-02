@@ -264,8 +264,51 @@ function handleStandingsButton () {
 
 
 
+
+
+for (const date of dateButtonSelector) {
+    date.addEventListener('click', ()=> {
+    const day = date.textContent;
+
+    const today = new Date ();
+
+    const year = today.getFullYear();
+    const month = today.getMonth() + 1;
+
+
+    function dayConvert () {
+        return (day<10 ? "0" : "")+day;
+    };
+    const dayConverted = dayConvert();
+
+
+    function monthConvert () {
+        return (month<10 ? "0" : "")+month;
+    };
+    const monthConverted = monthConvert();
+        
+        todayButtonSelector.classList.remove('no-selected');
+        date.classList.add('selected');
+
+
+    const theDate = year+"-"+monthConverted+"-"+dayConverted;
+    
+
+    console.log(theDate);
+    handleGames (theDate);
+    });
+
+    
+}
+
+
+
+
+
 //fonction pour lancer l'application
-function handleGames () {
+function handleGames (theDate) {
+
+    console.log ("handleGames");
 
     showLoader ();
 
@@ -281,6 +324,7 @@ function handleGames () {
 
     sectionSelector.classList.toggle('off');
     thirdSectionSelector.classList.toggle('off');
+    fourthSectionSelector.classList.toggle('off');
     oneLessButtonSelector.classList.add('no-selected');
     twoLessButtonSelector.classList.add('no-selected');
     threeLessButtonSelector.classList.add('no-selected');
@@ -294,32 +338,7 @@ function handleGames () {
     getTheDate ();
 
 
-    for (const date of dateButtonSelector) {
-        date.addEventListener('click', ()=> {
-        const day = date.textContent;
-
-        const today = new Date ();
-
-        const year = today.getFullYear();
-        const month = today.getMonth() + 1;
-
-
-        function dayConvert () {
-            return (day<10 ? "0" : "")+day;
-        };
-        const dayConverted = dayConvert();
-
-
-        function monthConvert () {
-            return (month<10 ? "0" : "")+month;
-        };
-        const monthConverted = monthConvert();
-            
-            todayButtonSelector.classList.remove('no-selected');
-            date.classList.add('selected');
-
-
-        const theDate = year+"-"+monthConverted+"-"+dayConverted;
+    
 
         const options = {
             method: 'GET',
@@ -336,14 +355,19 @@ function handleGames () {
             //on lance la fonction handleGamesJson
             .then( handleGamesJson );
 
-        })
-    }
+        
+    
 
 };
+
 
 //fonction qui permet de récupérer les matchs d'aujourd'hui
 function handleGamesButton () {
     
+    showLoader ();
+
+    console.log ("handleGamesButton");
+
     const elements = document.querySelectorAll('*');
     elements.forEach((element)=> {
         element.classList.remove("off");
@@ -356,6 +380,7 @@ function handleGamesButton () {
 
     sectionSelector.classList.toggle('off');
     thirdSectionSelector.classList.toggle('off');
+    fourthSectionSelector.classList.toggle('off');
     oneLessButtonSelector.classList.add('no-selected');
     twoLessButtonSelector.classList.add('no-selected');
     threeLessButtonSelector.classList.add('no-selected');
@@ -409,6 +434,10 @@ function handleGamesButton () {
             .then( handleGamesJson );
 
         
+            
+
+
+
 };
 
 //fonction qui récupère la liste des matchs
@@ -592,12 +621,8 @@ function handleTeam (idOfTeam) {
 
 
 
-
-
 //fonction qui récupère la liste des joueurs d'une équipe sélectionnée
-function handleTeamJson (json){
-
-       
+function handleTeamJson (json){    
 
 
 }
