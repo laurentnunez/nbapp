@@ -574,7 +574,7 @@ margin-bottom: 0.5rem;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 1rem;
-    padding: 0.5rem; 
+    height: 12rem; 
 }
 
 .headGame p {
@@ -586,40 +586,21 @@ margin-bottom: 0.5rem;
 
 
 .headGameHome {
-    display: flex;
-    align-items: center;
+    width: 50%;
+    border-bottom-right-radius: 7px;
+    border-top-right-radius: 7px;
 
-}
-
-.headGameImageHome {
-    height:auto;
-    width: 100px;
-    
-}
-
-.gameHomeTeamName{
-    width: 17rem;
 }
 
 
 .headGameVisitor {
-    display: flex;
-    align-items: center;
-    flex-direction: row-reverse;
-    
+   width: 50%;
+   border-bottom-left-radius: 7px;
+   border-top-left-radius: 7px;
 
 }
 
-.headGameImageVisitor {
-    height:auto;
-    width: 100px;
-    
-    
-}
 
-.gameVisitorTeamName{
-    width: 17rem;
-}
 
 .gameContainer {
     display: flex;
@@ -901,7 +882,7 @@ margin-bottom: 0.5rem;
 
 /*CONF EST*/
 .BOS {
-    background: rgb(0, 129, 11);
+    background: #008853;
     background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/6/65/Celtics_de_Boston_logo.svg/1024px-Celtics_de_Boston_logo.svg.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -909,7 +890,7 @@ margin-bottom: 0.5rem;
 }
 
 .MIL {
-    background: rgb(0, 75, 16);
+    background: #00471b
     background-image: url(https://upload.wikimedia.org/wikipedia/fr/3/34/Bucks2015.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -917,7 +898,7 @@ margin-bottom: 0.5rem;
 }
 
 .PHI{
-    background: rgb(29, 116, 216);
+    background: #006bb8;
     background-image: url(https://upload.wikimedia.org/wikipedia/fr/4/48/76ers_2016.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -925,7 +906,7 @@ margin-bottom: 0.5rem;
 }
 
 .CLE{
-    background: rgb(44, 0, 0);
+    background: #6f212f;
     background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/0/06/Cavs_de_Cleveland_logo_2017.png/150px-Cavs_de_Cleveland_logo_2017.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -942,7 +923,7 @@ margin-bottom: 0.5rem;
 
 
 .MIA{
-    background: rgb(77, 0, 0);
+    background: #98002e;
     background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/1/1c/Miami_Heat_-_Logo.svg/1200px-Miami_Heat_-_Logo.svg.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -950,7 +931,7 @@ margin-bottom: 0.5rem;
 }
 
 .NYK{
-    background: rgb(216, 86, 0);
+    background: #f48328;
     background-image: url(https://upload.wikimedia.org/wikipedia/fr/3/34/Knicks_de_NY.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -958,7 +939,7 @@ margin-bottom: 0.5rem;
 }
 
 .ATL{
-    background: rgb(255, 40, 40);
+    background: #cc092f;
     background-image: url(https://upload.wikimedia.org/wikipedia/fr/e/ee/Hawks_2016.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -974,7 +955,7 @@ margin-bottom: 0.5rem;
 }
 
 .TOR{
-    background: rgb(24, 24, 24);
+    background: #be0f34;
     background-image: url(https://upload.wikimedia.org/wikipedia/fr/8/89/Raptors2015.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -982,7 +963,7 @@ margin-bottom: 0.5rem;
 }
 
 .CHI{
-    background: rgb(165, 0, 0);
+    background: #bc032b;
     background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/d/d1/Bulls_de_Chicago_logo.svg/1200px-Bulls_de_Chicago_logo.svg.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -990,7 +971,7 @@ margin-bottom: 0.5rem;
 }
 
 .IND {
-    background: rgb(212, 156, 0);
+    background: #ffc526;
     background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/c/cf/Pacers_de_l%27Indiana_logo.svg/1180px-Pacers_de_l%27Indiana_logo.svg.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -998,7 +979,7 @@ margin-bottom: 0.5rem;
 }
 
 .ORL{
-    background: rgb(72, 196, 253);
+    background: #0075bd;
     background-image: url(https://upload.wikimedia.org/wikipedia/fr/b/bd/Orlando_Magic_logo_2010.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -1006,7 +987,7 @@ margin-bottom: 0.5rem;
 }
 
 .CHA {
-    background: rgb(0, 160, 172);
+    background: #1d8cab;
     background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/f/f3/Hornets_de_Charlotte_logo.svg/1200px-Hornets_de_Charlotte_logo.svg.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -1014,7 +995,7 @@ margin-bottom: 0.5rem;
 }
 
 .DET {
-    background: rgb(0, 71, 177);
+    background: #002d62;
     background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Detroit_Pistons_primary_logo_2017.png/150px-Detroit_Pistons_primary_logo_2017.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -1023,7 +1004,7 @@ margin-bottom: 0.5rem;
 
 /*CONF OUEST*/
 .MEM {
-    background: rgb(20, 129, 202);
+    background: #618abb;
     background-image: url(https://upload.wikimedia.org/wikipedia/en/thumb/f/f1/Memphis_Grizzlies.svg/1200px-Memphis_Grizzlies.svg.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -1031,7 +1012,7 @@ margin-bottom: 0.5rem;
 }
 
 .MIN {
-    background: rgb(0, 63, 134);
+    background: #005183;
     background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/d/d9/Timberwolves_du_Minnesota_logo_2017.png/200px-Timberwolves_du_Minnesota_logo_2017.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -1039,7 +1020,7 @@ margin-bottom: 0.5rem;
 }
 
 .DEN {
-    background: rgb(0, 0, 29);
+    background: #00235e;
     background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/3/35/Nuggets_de_Denver_2018.png/180px-Nuggets_de_Denver_2018.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -1047,7 +1028,7 @@ margin-bottom: 0.5rem;
 }
 
 .SAC {
-    background: rgb(87, 11, 138);
+    background: #724c9f;
     background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/9/95/Kings_de_Sacramento_logo.svg/1200px-Kings_de_Sacramento_logo.svg.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -1055,7 +1036,7 @@ margin-bottom: 0.5rem;
 }
 
 .PHX {
-    background: rgb(121, 0, 190);
+    background: #27235c;
     background-image: url(https://upload.wikimedia.org/wikipedia/fr/5/56/Phoenix_Suns_2013.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -1063,7 +1044,7 @@ margin-bottom: 0.5rem;
 }
 
 .DAL {
-    background: rgb(0, 36, 196);
+    background: #1061ac;
     background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/b/b8/Mavericks_de_Dallas_logo.svg/150px-Mavericks_de_Dallas_logo.svg.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -1080,7 +1061,7 @@ margin-bottom: 0.5rem;
 
 
 .NOP {
-    background: rgb(0, 27, 116);
+    background: #002a5c;
     background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/2/21/New_Orleans_Pelicans.png/200px-New_Orleans_Pelicans.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -1088,7 +1069,7 @@ margin-bottom: 0.5rem;
 }
 
 .GSW {
-    background: rgb(212, 145, 0);
+    background: #fdb927;
     background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/d/de/Warriors_de_Golden_State_logo.svg/1200px-Warriors_de_Golden_State_logo.svg.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -1096,7 +1077,7 @@ margin-bottom: 0.5rem;
 }
 
 .OKC {
-    background: rgb(196, 46, 0);
+    background: #f05333;
     background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/4/4f/Thunder_d%27Oklahoma_City_logo.svg/1200px-Thunder_d%27Oklahoma_City_logo.svg.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -1104,7 +1085,7 @@ margin-bottom: 0.5rem;
 }
 
 .UTA {
-    background: rgb(0, 92, 54);
+    background: #00471b;
     background-image: url(https://upload.wikimedia.org/wikipedia/fr/3/3b/Jazz_de_l%27Utah_logo.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -1112,7 +1093,7 @@ margin-bottom: 0.5rem;
 }
 
 .POR {
-    background: rgb(100, 0, 0);
+    background: #d00328;
     background-image: url(https://upload.wikimedia.org/wikipedia/en/thumb/2/21/Portland_Trail_Blazers_logo.svg/1200px-Portland_Trail_Blazers_logo.svg.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -1120,7 +1101,7 @@ margin-bottom: 0.5rem;
 }
 
 .LAL {
-    background: rgb(61, 9, 182);
+    background: #542583;
     background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Los_Angeles_Lakers_logo.svg/220px-Los_Angeles_Lakers_logo.svg.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -1129,7 +1110,7 @@ margin-bottom: 0.5rem;
 
 
 .SAS {
-    background: rgb(189, 189, 189);
+    background: #84888b;
     background-image: url(https://upload.wikimedia.org/wikipedia/fr/0/0e/San_Antonio_Spurs_2018.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -1137,7 +1118,7 @@ margin-bottom: 0.5rem;
 }
 
 .HOU {
-    background: rgb(24, 0, 0);
+    background: #061922;
     background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/d/de/Houston_Rockets_logo_2003.png/330px-Houston_Rockets_logo_2003.png);
     background-repeat: no-repeat;
     background-position: center;

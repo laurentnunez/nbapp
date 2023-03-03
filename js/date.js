@@ -4,10 +4,10 @@
 
 const oneLessButtonSelector = document.querySelector('#oneLessButton');
 const twoLessButtonSelector = document.querySelector('#twoLessButton');
-const threeLessButtonSelector = document.querySelector('#threeLessButton');
+//const threeLessButtonSelector = document.querySelector('#threeLessButton');
 const oneMoreButtonSelector = document.querySelector('#oneMoreButton');
 const twoMoreButtonSelector = document.querySelector('#twoMoreButton');
-const threeMoreButtonSelector = document.querySelector('#threeMoreButton');
+//const threeMoreButtonSelector = document.querySelector('#threeMoreButton');
 const gamesMonthAndYear = document.querySelector('.gamesMonthAndYear');
 
 
@@ -40,15 +40,15 @@ function getTheDate () {
     twoLessButtonSelector.textContent=dayBeforeNumber;
 
    //la date d'avant-avant-hier
-    threeLessButtonSelector.textContent=dayBeforeNumber-1;
+    //threeLessButtonSelector.textContent=dayBeforeNumber-1;
     
     const theOneMoreDay = todayDate.getDate()+1;
     const theTwoMoreDay = todayDate.getDate()+2;
-    const theThreeMoreDay = todayDate.getDate()+3;
+    //const theThreeMoreDay = todayDate.getDate()+3;
 
     oneMoreButtonSelector.textContent=theOneMoreDay;
     twoMoreButtonSelector.textContent=theTwoMoreDay;
-    threeMoreButtonSelector.textContent=theThreeMoreDay;
+    //threeMoreButtonSelector.textContent=theThreeMoreDay;
 
 
 

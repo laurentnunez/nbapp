@@ -60,10 +60,10 @@ const dateButtonSelector = document.querySelectorAll(".dateButton");
 const todayButtonSelector = document.querySelector ('#todayButton');
 const yesterdayButtonSelector = document.querySelector ('#oneLessButton');
 const twoDaysBeforeButtonSelector = document.querySelector ('#twoLessButton');
-const threeDaysBeforeButtonSelector = document.querySelector ('#threeLessButton');
+//const threeDaysBeforeButtonSelector = document.querySelector ('#threeLessButton');
 const tomorowButtonSelector = document.querySelector('#oneMoreButton');
 const twoDaysAfterButtonSelector = document.querySelector('#twoMoreButton');
-const threeDaysAfterButtonSelector = document.querySelector('#threeMoreButton');
+//const threeDaysAfterButtonSelector = document.querySelector('#threeMoreButton');
 
 const standingsTableSelector = document.querySelector('.standingsTable');
 
@@ -141,7 +141,7 @@ function handleJson (json){
 
 
     const gamesMonthAndYearSelector = document.querySelector(".gamesMonthAndYear");
-    gamesMonthAndYear.classList.add("off");
+    gamesMonthAndYearSelector.classList.add("off");
 
    const standingsTableSelector = document.querySelector('.standingsTable');
     const headTableSelector = document.querySelector('.headTable');
@@ -195,7 +195,7 @@ function handleJson (json){
             newLost.textContent = dataTeam.loss.total;
 
             const idTeam = dataTeam.team.id;
-            newName.setAttribute("id",`${idGame}`);
+            newName.setAttribute("id",`${idTeam}`);
     
             //on organise les éléments créés dans le tableau
 
@@ -245,14 +245,14 @@ function handleStandingsButton () {
     todayButtonSelector.classList.add("off");
     oneLessButtonSelector.classList.add("off");
     twoLessButtonSelector.classList.add("off");
-    threeLessButtonSelector.classList.add("off");
+    //threeLessButtonSelector.classList.add("off");
     oneMoreButtonSelector.classList.add("off");
     twoMoreButtonSelector.classList.add("off");
-    threeMoreButtonSelector.classList.add("off");
+    //threeMoreButtonSelector.classList.add("off");
 
     secondSectionSelector.classList.toggle('off');
     thirdSectionSelector.classList.toggle('off');
-
+    fourthSectionSelector.classList.add('off');
     eastButtonSelector.classList.add("select");
 
     handleEastButton ();
@@ -327,11 +327,11 @@ function handleGames (theDate) {
     fourthSectionSelector.classList.toggle('off');
     oneLessButtonSelector.classList.add('no-selected');
     twoLessButtonSelector.classList.add('no-selected');
-    threeLessButtonSelector.classList.add('no-selected');
+    //threeLessButtonSelector.classList.add('no-selected');
     oneMoreButtonSelector.classList.add('no-selected');
     twoMoreButtonSelector.classList.add('no-selected');
-    threeMoreButtonSelector.classList.add('no-selected');
-    todayButtonSelector.classList.add('selected');
+    //threeMoreButtonSelector.classList.add('no-selected');
+    todayButtonSelector.classList.add('no-selected');
 
     secondSectionSelector.classList.remove('off');
 
@@ -383,10 +383,10 @@ function handleGamesButton () {
     fourthSectionSelector.classList.toggle('off');
     oneLessButtonSelector.classList.add('no-selected');
     twoLessButtonSelector.classList.add('no-selected');
-    threeLessButtonSelector.classList.add('no-selected');
+    //threeLessButtonSelector.classList.add('no-selected');
     oneMoreButtonSelector.classList.add('no-selected');
     twoMoreButtonSelector.classList.add('no-selected');
-    threeMoreButtonSelector.classList.add('no-selected');
+    //threeMoreButtonSelector.classList.add('no-selected');
     todayButtonSelector.classList.add('selected');
 
      
