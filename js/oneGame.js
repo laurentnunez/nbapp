@@ -43,7 +43,12 @@ for (const game of gameCardSelector) {
 //fonction permettant d'afficher les stats du match sélectionné
 function handleOneGame (json) {
 
-    console.log(json.response);
+
+    const allPlayers = [json.response.sort((a,b)=> b.team.id - a.team.id)];
+
+    console.log(allPlayers);
+
+    
 
     //==TABLE HOME
 
@@ -58,6 +63,8 @@ function handleOneGame (json) {
 
     const bodyGameTableSelector = document.querySelector('.bodyGameTable');
 
+    
+
     //on affiche le body dans la table home et aprés l'en-tête
     tableGameSelector.append(newBodyGameTable);
     headGameTableSelector.after(newBodyGameTable);
@@ -66,13 +73,16 @@ function handleOneGame (json) {
         //on lance la boucle de création des éléments pour chaque joueur
         for ( const playerData of json.response) {
 
+            const colorHomeTeam= playerData.team.code;
+
             //on crée l'élément gameElements
             const newGameElements=document.createElement("tr");
             newGameElements.classList.add("gameElements");
 
             //on crée les éléments th pour chaque donnée
-            const newTeamLogo = document.createElement("img");
+            const newTeamLogo = document.createElement("th");
             newTeamLogo.classList.add("playerLogo");
+            newTeamLogo.classList.add(`${colorHomeTeam}`);
 
             const newPlayerName = document.createElement("th");
             newPlayerName.classList.add("playerName");
