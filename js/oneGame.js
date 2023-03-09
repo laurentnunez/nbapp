@@ -13,7 +13,7 @@ for (const game of gameCardSelector) {
         secondSectionSelector.classList.add('off');
 
         const gameId = game.id;
-        console.log(game);
+        //console.log(game);
 
     //on lance la requête nous permettant de récupérer les stats d'un match
 

@@ -799,23 +799,33 @@ margin-bottom: 0.5rem;
     text-shadow: rgb(0, 0, 0) 3px 0 15px;
 }
 
+.homeTeamScore {
+    margin-right: 4rem;
+}
 
+.visitorTeamScore {
+    margin-left: 4rem;
+}
 
 @media screen and (max-width: 640px){
     .gameData p {
         font-size: 50px;
     }
+
+    .homeTeamScore {
+        margin-right: 6rem;
+    }
+    
+    .visitorTeamScore {
+        margin-left: 6rem;
+    }
+
+
 }
 
 
 
-.homeTeamScore {
-    margin-left: 2.5rem;
-}
 
-.visitorTeamScore {
-    margin-right: 2.5rem;
-}
 
 
 .gameCardImageVisitor , .gameCardImageHome{
