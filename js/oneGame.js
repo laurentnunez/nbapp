@@ -46,9 +46,7 @@ function handleOneGame (json) {
 
     const allPlayers = [json.response.sort((a,b)=> b.team.id - a.team.id)];
 
-    console.log(allPlayers);
-
-    
+    //console.log(allPlayers);
 
     //==TABLE HOME
 
@@ -61,7 +59,7 @@ function handleOneGame (json) {
     const newBodyGameTable = document.createElement('tbody');
     newBodyGameTable.classList.add('bodyGameTable');
 
-    const bodyGameTableSelector = document.querySelector('.bodyGameTable');
+    //const bodyGameTableSelector = document.querySelector('.bodyGameTable');
 
     
 
@@ -115,6 +113,7 @@ function handleOneGame (json) {
 
         }
 
+        
 
 
 };
