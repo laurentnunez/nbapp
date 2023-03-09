@@ -565,78 +565,27 @@ margin-bottom: 0.5rem;
 /*=====TABLEAU D'UN MATCH=====*/
 
 
-.headGame {
-    border-radius: 7px;
-    background-color: #0c121d;
-    display: flex;
-    justify-content: space-between;
-    width: 40%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 1rem;
-    height: 12rem; 
-}
-
-.headGame p {
-    font-size: 50px;
-    font-weight: bold;
-    margin-left: 1rem;
-    margin-right: 1rem;
-}
-
-
-.headGameHome {
-    width: 50%;
-    border-bottom-right-radius: 7px;
-    border-top-right-radius: 7px;
-
-}
-
-
-.headGameVisitor {
-   width: 50%;
-   border-bottom-left-radius: 7px;
-   border-top-left-radius: 7px;
-
-}
-
-
 
 .gameContainer {
     display: flex;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 @media screen and (max-width: 768px){
     
 
-    .headGame {
-    width: 85%;
-    }
-
-    .headGameImageHome {
-        height:auto;
-        width: 70px;
-        
-    }
-    
-    .headGameImageVisitor {
-        height:auto;
-        width: 70px;
-    }
-     
-    .headGame p {
-        font-size: 30px;
-    }
-
-    
+      
     .gameContainer {
        
         flex-direction: column;
+        
     }
 
 }
 
-.gameTable{
+.gameTable  {
     margin-left: auto;
     margin-right:auto ;
     table-layout: fixed;
@@ -645,22 +594,23 @@ margin-bottom: 0.5rem;
     border-radius: 7px;
     background-color: #0c121d; 
     font-size: 18px;
+
 }
 
 
 
 
 
-.bodyGameTable tr:nth-child(odd) {
+.bodyGameTable tr:nth-child(odd)  {
     background-color: #1d2c49;    
   }
   
-.bodyGameTable tr:nth-child(even) {
+.bodyGameTable tr:nth-child(even){
     
     background-color: #19263d;
   }
 
-.bodyGameTable tr:hover {
+.bodyGameTable tr:hover{
     color:white;
     transition: ease-in-out 0.3s;
     cursor: pointer;
@@ -677,10 +627,10 @@ margin-bottom: 0.5rem;
 }
 
 @media screen and (max-width: 768px){
-    .gameTable{
+    .gameTable ,   .gameTableHome {
         margin-left: auto;
         margin-right: auto;
-        width: 90%;
+        width: 100%;
         font-size: 12px;
         font-weight: normal;
     }
@@ -691,16 +641,16 @@ margin-bottom: 0.5rem;
     text-align: center;
 }
 
-.gameTable th:nth-child(2){
+.gameTable th:nth-child(2) {
     text-align: left;
 }
 
-.gameTable thead th:nth-child(1) {
+.gameTable thead th:nth-child(1)  {
     width: 0.2%;
     
   }
 
-.gameTable thead th:nth-child(2) {
+.gameTable thead th:nth-child(2)  {
     width: 8%;
 }
 
@@ -708,7 +658,7 @@ margin-bottom: 0.5rem;
     width: 0.5%;
 }
 
-.gameTable thead th:nth-child(4) {
+.gameTable thead th:nth-child(4){
     width: 0.5%;
 }
 
@@ -804,8 +754,8 @@ margin-bottom: 0.5rem;
     text-align: center;
     width: 50%;
     height: 10rem;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
     background: rgb(44, 0, 0);
 }
 
@@ -821,8 +771,8 @@ margin-bottom: 0.5rem;
     justify-content: center;
     width: 50%;
     height: 10rem;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
     background: rgb(0, 108, 209);
 }
 
@@ -849,23 +799,33 @@ margin-bottom: 0.5rem;
     text-shadow: rgb(0, 0, 0) 3px 0 15px;
 }
 
+.homeTeamScore {
+    margin-right: 4rem;
+}
 
+.visitorTeamScore {
+    margin-left: 4rem;
+}
 
 @media screen and (max-width: 640px){
     .gameData p {
         font-size: 50px;
     }
+
+    .homeTeamScore {
+        margin-right: 6rem;
+    }
+    
+    .visitorTeamScore {
+        margin-left: 6rem;
+    }
+
+
 }
 
 
 
-.homeTeamScore {
-    margin-left: 2.5rem;
-}
 
-.visitorTeamScore {
-    margin-right: 2.5rem;
-}
 
 
 .gameCardImageVisitor , .gameCardImageHome{
@@ -890,7 +850,7 @@ margin-bottom: 0.5rem;
 }
 
 .MIL {
-    background: #00471b
+    background: #00471b;
     background-image: url(https://upload.wikimedia.org/wikipedia/fr/3/34/Bucks2015.png);
     background-repeat: no-repeat;
     background-position: center;

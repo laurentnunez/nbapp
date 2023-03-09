@@ -137,7 +137,7 @@ function handleJson (json){
 
     //on trie les équipes dans l'ordre du classement                
     json.response.sort((a,b)=> a.conference.rank - b.conference.rank)
-    console.log(json.response);
+    //console.log(json.response);
 
 
     const gamesMonthAndYearSelector = document.querySelector(".gamesMonthAndYear");
@@ -185,11 +185,13 @@ function handleJson (json){
             const newPercentage = document.createElement("td");
             newPercentage.classList.add("cardPercentage");
 
+            const logoTeam= dataTeam.team.code;
+            newImageTh.classList.add(`${logoTeam}`);
 
             //on affecte les données aux éléments créés précédemment
             newRank.textContent = dataTeam.conference.rank;
             newName.textContent = dataTeam.team.name;
-            newImage.src = dataTeam.team.logo;
+            //newImage.src = dataTeam.team.logo;
             newPercentage.textContent = dataTeam.win.percentage;
             newWin.textContent = dataTeam.win.total;
             newLost.textContent = dataTeam.loss.total;
@@ -264,6 +266,13 @@ function handleStandingsButton () {
 
 
 
+const buttonsElements = document.querySelectorAll('dateButton');
+buttonsElements.forEach((buttonsElement)=> {
+    buttonsElement.classList.add("no-selected");
+});
+
+
+
 
 
 for (const date of dateButtonSelector) {
@@ -287,14 +296,17 @@ for (const date of dateButtonSelector) {
     };
     const monthConverted = monthConvert();
         
+
+
         todayButtonSelector.classList.remove('no-selected');
+        date.classList.remove('no-selected');
         date.classList.add('selected');
 
 
     const theDate = year+"-"+monthConverted+"-"+dayConverted;
     
 
-    console.log(theDate);
+    console.log(day);
     handleGames (theDate);
     });
 
@@ -308,15 +320,13 @@ for (const date of dateButtonSelector) {
 //fonction pour lancer l'application
 function handleGames (theDate) {
 
-    console.log ("handleGames");
+    //console.log ("handleGames");
 
     showLoader ();
 
     const elements = document.querySelectorAll('*');
     elements.forEach((element)=> {
         element.classList.remove("off");
-        element.classList.remove('selected');
-        element.classList.remove('no-selected');
     });
     
     eastButtonSelector.classList.add("off");
@@ -325,20 +335,13 @@ function handleGames (theDate) {
     sectionSelector.classList.toggle('off');
     thirdSectionSelector.classList.toggle('off');
     fourthSectionSelector.classList.toggle('off');
-    oneLessButtonSelector.classList.add('no-selected');
-    twoLessButtonSelector.classList.add('no-selected');
-    //threeLessButtonSelector.classList.add('no-selected');
-    oneMoreButtonSelector.classList.add('no-selected');
-    twoMoreButtonSelector.classList.add('no-selected');
-    //threeMoreButtonSelector.classList.add('no-selected');
-    todayButtonSelector.classList.add('no-selected');
 
     secondSectionSelector.classList.remove('off');
+    todayButtonSelector.classList.remove('selected');
+    todayButtonSelector.classList.add('no-selected');
 
     getTheDate ();
 
-
-    
 
         const options = {
             method: 'GET',
@@ -366,13 +369,12 @@ function handleGamesButton () {
     
     showLoader ();
 
-    console.log ("handleGamesButton");
+    //console.log ("handleGamesButton");
 
     const elements = document.querySelectorAll('*');
     elements.forEach((element)=> {
         element.classList.remove("off");
         element.classList.remove('selected');
-        element.classList.remove('no-selected');
     });
     
     eastButtonSelector.classList.add("off");
@@ -381,12 +383,7 @@ function handleGamesButton () {
     sectionSelector.classList.toggle('off');
     thirdSectionSelector.classList.toggle('off');
     fourthSectionSelector.classList.toggle('off');
-    oneLessButtonSelector.classList.add('no-selected');
-    twoLessButtonSelector.classList.add('no-selected');
-    //threeLessButtonSelector.classList.add('no-selected');
-    oneMoreButtonSelector.classList.add('no-selected');
-    twoMoreButtonSelector.classList.add('no-selected');
-    //threeMoreButtonSelector.classList.add('no-selected');
+    
     todayButtonSelector.classList.add('selected');
 
      
@@ -443,7 +440,7 @@ function handleGamesButton () {
 //fonction qui récupère la liste des matchs
 function handleGamesJson (json) {
   
-    console.log(json.response);
+    //console.log(json.response);
 
     const oldElements = document.querySelectorAll('.gameCardButton');
     const oldElementsP = document.querySelectorAll('.no-game');
@@ -463,7 +460,7 @@ function handleGamesJson (json) {
 
     if (allGames.length === 0) {
 
-        console.log("le tableau est vide");
+        //console.log("le tableau est vide");
 
         const noGameCardP = document.createElement('p');
         noGameCardP.classList.add('no-game');
@@ -544,18 +541,18 @@ function handleGamesJson (json) {
             //on affiche tous les éléments sur la page
 
             gamesElementSelector.append(newGameCard);
-            newGameCard.append(newHomeTeamElement);
-            //newHomeTeamElement.append(newImageCard);
-            newHomeTeamElement.append(newGameData);
-            //newGameData.append(newHomeTeamName);
-            newGameData.append(newHomeTeamScore);
-
-
+            
             newGameCard.append(newVisitorTeamElement);
             //newVisitorTeamElement.append(newVisitorImageCard);
             newVisitorTeamElement.append(newVisitorGameData);
             //newVisitorGameData.append(newVisitorTeamName);
             newVisitorGameData.append(newVisitorTeamScore);
+
+            newGameCard.append(newHomeTeamElement);
+            //newHomeTeamElement.append(newImageCard);
+            newHomeTeamElement.append(newGameData);
+            //newGameData.append(newHomeTeamName);
+            newGameData.append(newHomeTeamScore);
 
 
             const status = dataGames.status.long;
@@ -584,7 +581,7 @@ function handleGamesJson (json) {
 
             gameHourP.textContent=justHour;
 
-            newHomeTeamElement.after(gameHour);
+            newVisitorTeamElement.after(gameHour);
             gameHour.append(gameHourP);   
 
             }
@@ -600,35 +597,6 @@ function handleGamesJson (json) {
 
 
 }
-
-
-//fonction permettant de récupérer les données d'une équipe selectionnée dans le classement
-
-    //Boucle qui pose un écouteur d'évènement sur chaque équipe du classement
-for ( const team of cardTeamSelector){
-    team.addEventListener('click', handleTeam);
-    const idOfTeam = team.id;
-    //console.log(idOfTeam);
-}
-
-function handleTeam (idOfTeam) {
-
-        const idOfTeamSelected = idOfTeam.srcElement.id;
-        console.log(idOfTeamSelected);
-        fourthSectionSelector.classList.remove('off');
-    
-};
-
-
-
-//fonction qui récupère la liste des joueurs d'une équipe sélectionnée
-function handleTeamJson (json){    
-
-
-}
- 
-
-
 
 
 //===================================================================
