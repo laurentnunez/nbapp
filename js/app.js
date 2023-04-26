@@ -307,7 +307,7 @@ for (const date of dateButtonSelector) {
     const theDate = year+"-"+monthConverted+"-"+dayConverted;
     
 
-    console.log(day);
+    //console.log(day);
     handleGames (theDate);
     });
 
@@ -441,7 +441,9 @@ function handleGamesButton () {
 //fonction qui récupère la liste des matchs
 function handleGamesJson (json) {
   
-    console.log(json.response);
+    //console.log(json.response);
+
+    
 
     const oldElements = document.querySelectorAll('.gameCardButton');
     const oldElementsP = document.querySelectorAll('.no-game');
@@ -457,6 +459,8 @@ function handleGamesJson (json) {
 
     
     const allGames = json.response; 
+    //on trie les matchs dans l'ordre de la date                
+    allGames.sort((a,b)=> a.date.start - b.date.start );
 
 
     if (allGames.length === 0) {
