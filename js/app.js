@@ -440,7 +440,7 @@ function handleGamesButton () {
 //fonction qui récupère la liste des matchs
 function handleGamesJson (json) {
   
-    //console.log(json.response);
+    console.log(json.response);
 
     const oldElements = document.querySelectorAll('.gameCardButton');
     const oldElementsP = document.querySelectorAll('.no-game');

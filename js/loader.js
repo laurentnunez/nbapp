@@ -7,7 +7,7 @@
         
     }
 
-    setTimeout(closeLoader, 2500); 
+    setTimeout(closeLoader, 1500); 
 
 
 
@@ -18,7 +18,7 @@ function showLoader () {
 
     }
 
-    setTimeout(closeLoader, 2500);
+    setTimeout(closeLoader, 1500);
 
     document.querySelector('.loader-container').classList.remove('hidden');
 }
