@@ -266,17 +266,17 @@ function handleStandingsButton () {
 
 
 
-const buttonsElements = document.querySelectorAll('dateButton');
-buttonsElements.forEach((buttonsElement)=> {
-    buttonsElement.classList.add("no-selected");
-});
-
-
-
-
-
 for (const date of dateButtonSelector) {
     date.addEventListener('click', ()=> {
+
+        const dateButtons = document.querySelectorAll('.dateButton');
+        dateButtons.forEach((dateButton)=> {
+            dateButton.classList.remove('selected');
+            dateButton.classList.add('no-selected');
+        });
+
+
+
     const day = date.textContent;
 
     const today = new Date ();
@@ -298,9 +298,10 @@ for (const date of dateButtonSelector) {
         
 
 
-        todayButtonSelector.classList.remove('no-selected');
-        date.classList.remove('no-selected');
-        date.classList.add('selected');
+    todayButtonSelector.classList.remove('no-selected');
+    
+    date.classList.remove('no-selected');
+    date.classList.add('selected');
 
 
     const theDate = year+"-"+monthConverted+"-"+dayConverted;
