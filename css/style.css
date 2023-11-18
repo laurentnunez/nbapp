@@ -21,8 +21,8 @@ body {
 }
 
 .gamesMonthAndYear{
-    font-family: 'Anton', sans-serif;
-    font-weight: normal;
+    font-family: 'Jost', sans-serif;
+    font-weight: Bold;
     font-size: 22px;
     color: white;
     padding-top: 0.5rem;
@@ -241,7 +241,7 @@ main {
 
 @media screen and (max-width: 640px){
    main 
-   {padding: 0 0 2rem 0;
+   {padding: 0 0 0.5rem 0;
 
    } 
 }
@@ -262,6 +262,19 @@ margin-bottom: 0.5rem;
     display: flex;
 }
 
+.dateWrapperButtons button {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-size: larger;
+    font-family: 'Jost', sans-serif;
+    font-weight: bold;
+    height: 2.6rem;  
+    width: 8rem;
+    margin: 0;
+}
+
+
 @media screen and (max-width: 768px){
     
     .dateWrapper {
@@ -272,19 +285,11 @@ margin-bottom: 0.5rem;
     
     .dateWrapperButtons {
         width: 100%;
+        justify-content: center;
     } 
 }
 
-.dateWrapperButtons button {
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    font-size: larger;
-    font-family: 'Anton', sans-serif;
-    height: 2.6rem;  
-    width: 6rem;
-    margin: 0;
-}
+
 
 
 
@@ -454,7 +459,8 @@ margin-bottom: 0.5rem;
         font-size: 14px;
     }
     .cardPercentage {
-        font-size: 14px;
+        font-size: 12px;
+        margin-right: 3px;
     }
 
 }
@@ -580,7 +586,7 @@ margin-bottom: 0.5rem;
     .gameContainer {
        
         flex-direction: column;
-        
+        width: 95%;
     }
 
 }
@@ -692,7 +698,7 @@ margin-bottom: 0.5rem;
 
 @media screen and (max-width:640px){
     .games {
-        margin:  0.5rem 0 0.5rem 0 ;
+        margin:  0 0 0.5rem 0 ;
     }
 }
 
@@ -721,6 +727,12 @@ margin-bottom: 0.5rem;
     transition: all ease-in-out 0.3s;
    
     
+}
+
+@media screen and (max-width:640px){
+    .gameCardButton {
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
 }
 
 .gameCardButton.off {
@@ -754,8 +766,8 @@ margin-bottom: 0.5rem;
     text-align: center;
     width: 50%;
     height: 10rem;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
     background: rgb(44, 0, 0);
 }
 
@@ -771,8 +783,8 @@ margin-bottom: 0.5rem;
     justify-content: center;
     width: 50%;
     height: 10rem;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
     background: rgb(0, 108, 209);
 }
 
@@ -796,7 +808,7 @@ margin-bottom: 0.5rem;
     display: flex;
     font-weight: bold;
     font-size: 80px;
-    text-shadow: rgb(0, 0, 0) 3px 0 15px;
+    text-shadow: 3px 0px 7px rgba(0, 0, 0, 0.8), -3px 0px 7px rgba(0, 0, 0, 0.8), 0px 4px 7px rgba(0, 0, 0, 0.8);
 }
 
 .homeTeamScore {
@@ -956,7 +968,7 @@ margin-bottom: 0.5rem;
 
 .DET {
     background: #002d62;
-    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Detroit_Pistons_primary_logo_2017.png/150px-Detroit_Pistons_primary_logo_2017.png);
+    background-image: url(https://1000logos.net/wp-content/uploads/2017/08/Detroit-Pistons-logo.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
