@@ -95,7 +95,7 @@ function handleEastButton () {
     };
 
     //on lance la requête
-    const standingsRequest = fetch ('https://api-nba-v1.p.rapidapi.com/standings?league=standard&season=2022&conference=east', options)
+    const standingsRequest = fetch ('https://api-nba-v1.p.rapidapi.com/standings?league=standard&season=2023&conference=east', options)
     //on récupère la réponse de la requete au format json
     .then( function (data) {return data.json()})
     //on lance la fonction handleJson
@@ -124,7 +124,7 @@ function handleWestButton () {
         };
     
     //on lance la requête
-    const standingsRequest = fetch ('https://api-nba-v1.p.rapidapi.com/standings?league=standard&season=2022&conference=west', options)
+    const standingsRequest = fetch ('https://api-nba-v1.p.rapidapi.com/standings?league=standard&season=2023&conference=west', options)
     //on récupère la réponse de la requete au format json
     .then( function (data) {return data.json()})
     //on lance la
