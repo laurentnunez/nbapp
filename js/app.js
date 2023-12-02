@@ -246,10 +246,10 @@ function handleStandingsButton () {
 
     todayButtonSelector.classList.add("off");
     oneLessButtonSelector.classList.add("off");
-    twoLessButtonSelector.classList.add("off");
+    //twoLessButtonSelector.classList.add("off");
     //threeLessButtonSelector.classList.add("off");
     oneMoreButtonSelector.classList.add("off");
-    twoMoreButtonSelector.classList.add("off");
+    //twoMoreButtonSelector.classList.add("off");
     //threeMoreButtonSelector.classList.add("off");
 
     secondSectionSelector.classList.toggle('off');

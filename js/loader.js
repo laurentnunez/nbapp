@@ -3,7 +3,7 @@
     function closeLoader () {
         document.querySelector('.loader-container').classList.add('hidden');
 
-        handleGamesButton();
+        //handleGamesButton();
         
     }
 
