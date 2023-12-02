@@ -4,7 +4,7 @@
 }
 
 body {
-    font-family: 'Jost', sans-serif;
+    font-family: 'Comfortaa', sans-serif;
     background-color: #10192b;
     color: #bdc1c6;
     
@@ -21,7 +21,7 @@ body {
 }
 
 .gamesMonthAndYear{
-    font-family: 'Jost', sans-serif;
+    font-family: 'Comfortaa', sans-serif;
     font-weight: Bold;
     font-size: 22px;
     color: white;
@@ -79,6 +79,7 @@ body {
     width: 100%;
     padding-top: 1rem;
     padding-bottom: 1rem;
+    border-bottom-left-radius: 70px;
     
     background-color: #fb5924;
     color: #1D2C49;
@@ -105,8 +106,9 @@ ul {
 
 .navbar__links a {
     padding: 0 1rem;
+    font-family:'Comfortaa', sans-serif ;
     font-size: larger;
-    font-weight:lighter;
+    font-weight:700;
 }
 
 .navbar__links a:hover {
@@ -136,92 +138,10 @@ ul {
         height: auto;
     }
     
-    .navbar__links{
-        display: flex;
-        flex-direction: column;
-        width: 0;
-        height: calc(100vh - 10px);
-        position: absolute;
-        top: 85px;
-        right: 0;
-        background-color: #0c121d;
-        color: #fb5924;
-        font-weight: lighter;
-        transition:all ease-in-out 0.3s;
-    }
-
-
-    .show-nav .navbar__links{
-      width: 100%;  
-    }
-
-
-    .navbar__links a{
-       display: block; 
-       padding: 2rem;
-       padding-left: 3rem;
-       font-size: 2rem;
-       transition:all ease-in-out 0.3s;
-    }
-
-    .navbar__links a:hover{
-        padding-left: 4rem;
-        
-       
-    }
-
-    .burger{
-        display: block;
-        position: relative;
-        margin-right: 1rem;
-        margin-top: 0.5rem;
-        padding: 0;
-        width: 45px;
-        height: 45px;
-        border: none;
-        background: transparent;
-        cursor: pointer;
-    }
-
-
-    .bar {
-        display: block;
-        margin-top:1rem;
-        width: 45px;
-        height: 6px;
-        background-color: #0c121d;
-        border-radius: 3px;
-        transition: all ease-in-out 0.3s;
-    }
-
-    .show-nav .bar {
-        width: 0;
-        background: transparent;
-    }
-
-    .bar::after, .bar::before {
-        content: "";
-        width: 45px;
-        height: 6px;
-        background-color: #0c121d;
-        border-radius: 3px;
-        position: absolute;
-        transition: all ease-in-out 0.3s;
-    }
-    .bar::before {
-        transform: translateY(-12px);
-    }
-
-    .bar::after {
-        transform: translateY(12px);
-    }
-
-    .show-nav .bar::before {
-        transform: rotate(-45deg);
-    }
-
-    .show-nav .bar::after {
-        transform: rotate(45deg);
+    .navbar__links a {
+        padding: 0 1rem;
+        font-size: small;
+        font-weight:700;
     }
 
 }
@@ -253,7 +173,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-background-color:#0c121d;
+
 width: 100%;
 margin-bottom: 0.5rem;
 }
@@ -267,7 +187,7 @@ margin-bottom: 0.5rem;
     border-left: none;
     border-right: none;
     font-size: larger;
-    font-family: 'Jost', sans-serif;
+    
     font-weight: bold;
     height: 2.6rem;  
     width: 8rem;
@@ -297,24 +217,25 @@ margin-bottom: 0.5rem;
 
 .dateWrapperButtons button:hover {
     cursor: pointer;
-    background-color: #10192b;
-    border-bottom: 1px solid #fb5924;
-    ;
+    background-color: #05070c;
+    
+    border-radius: 8px;
     color:white;
     transition: ease-in-out 0.5s;   
 }
 
 
 .selected {
-    background-color: #10192b;
-    border-bottom: 1px solid #fb5924;
+    background-color: #05070c;
+    border-radius: 8px;
+    border: 1px solid #fb5924;
     color:white;
 }
 
 .no-selected {
     color:#bdc1c6;
-    background-color: #0c121d;
-    border-bottom: 1px solid #0c121d;
+    background-color: transparent;
+    border-bottom: 0px;
 }
 
 
