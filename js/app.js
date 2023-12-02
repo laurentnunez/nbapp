@@ -59,11 +59,9 @@ const dateButtonSelector = document.querySelectorAll(".dateButton");
 
 const todayButtonSelector = document.querySelector ('#todayButton');
 const yesterdayButtonSelector = document.querySelector ('#oneLessButton');
-const twoDaysBeforeButtonSelector = document.querySelector ('#twoLessButton');
-//const threeDaysBeforeButtonSelector = document.querySelector ('#threeLessButton');
+
 const tomorowButtonSelector = document.querySelector('#oneMoreButton');
-const twoDaysAfterButtonSelector = document.querySelector('#twoMoreButton');
-//const threeDaysAfterButtonSelector = document.querySelector('#threeMoreButton');
+
 
 const standingsTableSelector = document.querySelector('.standingsTable');
 
@@ -190,7 +188,7 @@ function handleJson (json){
 
             //on affecte les données aux éléments créés précédemment
             newRank.textContent = dataTeam.conference.rank;
-            newName.textContent = dataTeam.team.name;
+            newName.textContent = dataTeam.team.nickname;
             //newImage.src = dataTeam.team.logo;
             newPercentage.textContent = dataTeam.win.percentage;
             newWin.textContent = dataTeam.win.total;

@@ -4,8 +4,8 @@
 }
 
 body {
-    font-family: 'Comfortaa', sans-serif;
-    background-color: #10192b;
+    font-family: 'Outfit', sans-serif;
+    background-color: #0c121d;
     color: #bdc1c6;
     
 }
@@ -21,11 +21,10 @@ body {
 }
 
 .gamesMonthAndYear{
-    font-family: 'Comfortaa', sans-serif;
+    font-family: 'Outfit', sans-serif;
     font-weight: Bold;
-    font-size: 22px;
+    font-size: 16px;
     color: white;
-    padding-top: 0.5rem;
 }
 
 
@@ -106,9 +105,9 @@ ul {
 
 .navbar__links a {
     padding: 0 1rem;
-    font-family:'Comfortaa', sans-serif ;
+    font-family:'Outfit', sans-serif ;
     font-size: larger;
-    font-weight:700;
+    font-weight:300;
 }
 
 .navbar__links a:hover {
@@ -134,14 +133,14 @@ ul {
 
     .nba-logo {
         margin-left: 1rem;
-        width: 8rem;
+        width: 6rem;
         height: auto;
     }
     
     .navbar__links a {
         padding: 0 1rem;
-        font-size: small;
-        font-weight:700;
+        font-size:medium;
+        font-weight:300;
     }
 
 }
@@ -186,8 +185,8 @@ margin-bottom: 0.5rem;
     border-top: none;
     border-left: none;
     border-right: none;
-    font-size: larger;
-    
+    font-size: 22px;
+    font-family: 'Outfit', sans-serif;
     font-weight: bold;
     height: 2.6rem;  
     width: 8rem;
@@ -217,8 +216,8 @@ margin-bottom: 0.5rem;
 
 .dateWrapperButtons button:hover {
     cursor: pointer;
-    background-color: #05070c;
-    
+    background-color: #10192b;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     border-radius: 8px;
     color:white;
     transition: ease-in-out 0.5s;   
@@ -226,14 +225,15 @@ margin-bottom: 0.5rem;
 
 
 .selected {
-    background-color: #05070c;
+    background-color: #10192b;
     border-radius: 8px;
     border: 1px solid #fb5924;
     color:white;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .no-selected {
-    color:#bdc1c6;
+    color:#8d8d8d;
     background-color: transparent;
     border-bottom: 0px;
 }
@@ -289,7 +289,7 @@ margin-bottom: 0.5rem;
 @media screen and (max-width: 768px){
     .standingsTable{
 
-        width: 95%;
+        width: 98%;
     } 
  }
 
@@ -299,12 +299,12 @@ margin-bottom: 0.5rem;
   }
   
   .standingsTable thead th:nth-child(2) {
-    width: 1%;
+    width: 2.5%;
     
   }
   
   .standingsTable thead th:nth-child(3) {
-    width: 12%;
+    width: 6%;
     
   }
 
@@ -367,7 +367,7 @@ margin-bottom: 0.5rem;
     }
     
     .cardName {
-        font-size: 14px;
+        font-size: 12px;
         font-weight: normal;
         text-align: left;
     }
@@ -380,7 +380,7 @@ margin-bottom: 0.5rem;
         font-size: 14px;
     }
     .cardPercentage {
-        font-size: 12px;
+        font-size: 14px;
         margin-right: 3px;
     }
 
@@ -611,6 +611,7 @@ margin-bottom: 0.5rem;
 .games {
     display: flex;
     flex-direction: row;
+    
     justify-content: center;
     flex-wrap: wrap;
     margin:0.5rem 5rem 2rem 5rem ;
@@ -636,14 +637,14 @@ margin-bottom: 0.5rem;
 
 .gameCardButton {
     border-radius: 8px;
-    background-color: #0c121d;
+    background-color: #10192b;
     border: none;
     display: flex;
     flex-direction: center;
     color:rgb(233, 233, 233);
-    letter-spacing: 2px;
+    font-family: 'Outfit', sans-serif;
     margin: 0.5rem;
-    font-family: 'Anton', sans-serif;
+    
     width: 25rem;
     transition: all ease-in-out 0.3s;
    
@@ -689,9 +690,9 @@ margin-bottom: 0.5rem;
     height: 8rem;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-    background: #19263d;
+    
     background-position: right;
-    background-size: 40%;
+    background-size: 30%;
 }
 
 
@@ -703,9 +704,8 @@ margin-bottom: 0.5rem;
     height: 8rem;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
-    background: #19263d;
     background-position: left;
-    background-size: 40%;
+    background-size: 30%;
 }
 
 
@@ -722,7 +722,7 @@ margin-bottom: 0.5rem;
 .gameData p {
     display: flex;
     font-weight: bold;
-    font-size: 80px;
+    font-size: 50px;
     text-shadow: 3px 0px 7px rgba(0, 0, 0, 0.8), -3px 0px 7px rgba(0, 0, 0, 0.8), 0px 4px 7px rgba(0, 0, 0, 0.8);
 }
 
@@ -738,15 +738,6 @@ margin-bottom: 0.5rem;
     .gameData p {
         font-size: 40px;
     }
-
-    .homeTeamScore {
-        margin-right: 4rem;
-    }
-    
-    .visitorTeamScore {
-        margin-left: 4rem;
-    }
-
 
 }
 
@@ -770,204 +761,181 @@ margin-bottom: 0.5rem;
 /*CONF EST*/
 .BOS {
     
-    background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/6/65/Celtics_de_Boston_logo.svg/1024px-Celtics_de_Boston_logo.svg.png);
+    background-image: url(https://cdn.nba.com/logos/nba/1610612738/primary/L/logo.svg);
     background-repeat: no-repeat;
-    
     background-size: contain;
 }
 
 .MIL {
     
-    background-image: url(https://upload.wikimedia.org/wikipedia/fr/3/34/Bucks2015.png);
+    background-image: url(https://cdn.nba.com/logos/nba/1610612749/primary/L/logo.svg);
     background-repeat: no-repeat;
-    
+    background-size: contain;
     
 }
 
 .PHI{
    
-    background-image: url(https://upload.wikimedia.org/wikipedia/fr/4/48/76ers_2016.png);
+    background-image: url(https://cdn.nba.com/logos/nba/1610612755/primary/L/logo.svg);
     background-repeat: no-repeat;
-    
+    background-size: contain;
     
 }
 
 .CLE{
    
-    background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/0/06/Cavs_de_Cleveland_logo_2017.png/150px-Cavs_de_Cleveland_logo_2017.png);
+    background-image: url(https://cdn.nba.com/logos/nba/1610612739/primary/L/logo.svg);
     background-repeat: no-repeat;
-   
     background-size: contain;
 }
 
 .BKN{
     
-    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Brooklyn_Nets_newlogo.svg/130px-Brooklyn_Nets_newlogo.svg.png);
+    background-image: url(https://cdn.nba.com/logos/nba/1610612751/primary/L/logo.svg);
     background-repeat: no-repeat;
-    
     background-size: contain;
 }
 
 
 .MIA{
     
-    background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/1/1c/Miami_Heat_-_Logo.svg/1200px-Miami_Heat_-_Logo.svg.png);
+    background-image: url(https://cdn.nba.com/logos/nba/1610612748/primary/L/logo.svg);
     background-repeat: no-repeat;
-   
     background-size: contain;
 }
 
 .NYK{
     
-    background-image: url(https://upload.wikimedia.org/wikipedia/fr/3/34/Knicks_de_NY.png);
+    background-image: url(https://cdn.nba.com/logos/nba/1610612752/primary/L/logo.svg);
     background-repeat: no-repeat;
-   
     background-size: contain;
 }
 
 .ATL{
     
-    background-image: url(https://upload.wikimedia.org/wikipedia/fr/e/ee/Hawks_2016.png);
+    background-image: url(https://cdn.nba.com/logos/nba/1610612737/primary/L/logo.svg);
     background-repeat: no-repeat;
-    
     background-size: contain;
 }
 
 .WAS{
     
-    background-image: url(https://upload.wikimedia.org/wikipedia/fr/archive/d/d6/20161212034849%21Wizards2015.png);
+    background-image: url(https://cdn.nba.com/logos/nba/1610612764/primary/L/logo.svg);
     background-repeat: no-repeat;
-    
     background-size: contain;
 }
 
 .TOR{
     
-    background-image: url(https://upload.wikimedia.org/wikipedia/fr/8/89/Raptors2015.png);
+    background-image: url(https://cdn.nba.com/logos/nba/1610612761/primary/L/logo.svg);
     background-repeat: no-repeat;
-    
     background-size: contain;
 }
 
 .CHI{
    
-    background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/d/d1/Bulls_de_Chicago_logo.svg/1200px-Bulls_de_Chicago_logo.svg.png);
+    background-image: url(https://cdn.nba.com/logos/nba/1610612741/primary/L/logo.svg);
     background-repeat: no-repeat;
-   
     background-size: contain;
 }
 
 .IND {
     
-    background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/c/cf/Pacers_de_l%27Indiana_logo.svg/1180px-Pacers_de_l%27Indiana_logo.svg.png);
+    background-image: url(https://cdn.nba.com/logos/nba/1610612754/primary/L/logo.svg);
     background-repeat: no-repeat;
-    
     background-size: contain;
 }
 
 .ORL{
     
-    background-image: url(https://upload.wikimedia.org/wikipedia/fr/b/bd/Orlando_Magic_logo_2010.png);
+    background-image: url(https://cdn.nba.com/logos/nba/1610612753/primary/L/logo.svg);
     background-repeat: no-repeat;
-    
     background-size: contain;
 }
 
 .CHA {
     
-    background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/f/f3/Hornets_de_Charlotte_logo.svg/1200px-Hornets_de_Charlotte_logo.svg.png);
+    background-image: url(https://cdn.nba.com/logos/nba/1610612766/primary/L/logo.svg);
     background-repeat: no-repeat;
-    
     background-size: contain;
 }
 
 .DET {
     
-    background-image: url(https://1000logos.net/wp-content/uploads/2017/08/Detroit-Pistons-logo.png);
+    background-image: url(https://cdn.nba.com/logos/nba/1610612765/primary/L/logo.svg);
     background-repeat: no-repeat;
-    
     background-size: contain;
 }
 
 /*CONF OUEST*/
 .MEM {
     
-    background-image: url(https://upload.wikimedia.org/wikipedia/en/thumb/f/f1/Memphis_Grizzlies.svg/1200px-Memphis_Grizzlies.svg.png);
+    background-image: url(https://cdn.nba.com/logos/nba/1610612763/primary/L/logo.svg);
     background-repeat: no-repeat;
-    
     background-size: contain;
 }
 
 .MIN {
     
-    background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/d/d9/Timberwolves_du_Minnesota_logo_2017.png/200px-Timberwolves_du_Minnesota_logo_2017.png);
+    background-image: url(https://cdn.nba.com/logos/nba/1610612750/primary/L/logo.svg);
     background-repeat: no-repeat;
-    
     background-size: contain;
 }
 
 .DEN {
     
-    background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/3/35/Nuggets_de_Denver_2018.png/180px-Nuggets_de_Denver_2018.png);
+    background-image: url(https://cdn.nba.com/logos/nba/1610612743/primary/L/logo.svg);
     background-repeat: no-repeat;
-    
     background-size: contain;
 }
 
 .SAC {
     
-    background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/9/95/Kings_de_Sacramento_logo.svg/1200px-Kings_de_Sacramento_logo.svg.png);
+    background-image: url(https://cdn.nba.com/logos/nba/1610612758/primary/L/logo.svg);
     background-repeat: no-repeat;
-    
     background-size: contain;
 }
 
 .PHX {
     
-    background-image: url(https://upload.wikimedia.org/wikipedia/fr/5/56/Phoenix_Suns_2013.png);
+    background-image: url(https://cdn.nba.com/logos/nba/1610612756/primary/L/logo.svg);
     background-repeat: no-repeat;
-    
     background-size: contain;
 }
 
 .DAL {
     
-    background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/b/b8/Mavericks_de_Dallas_logo.svg/150px-Mavericks_de_Dallas_logo.svg.png);
+    background-image: url(https://cdn.nba.com/logos/nba/1610612742/primary/L/logo.svg);
     background-repeat: no-repeat;
-    
     background-size: contain;
 }
 
 .LAC {
     
-    background-image: url(https://upload.wikimedia.org/wikipedia/fr/d/d6/Los_Angeles_Clippers_logo_2010.png);
+    background-image: url(https://cdn.nba.com/logos/nba/1610612746/primary/L/logo.svg);
     background-repeat: no-repeat;
-    
     background-size: contain;
 }
 
 
 .NOP {
     
-    background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/2/21/New_Orleans_Pelicans.png/200px-New_Orleans_Pelicans.png);
+    background-image: url(https://cdn.nba.com/logos/nba/1610612740/primary/L/logo.svg);
     background-repeat: no-repeat;
-    
     background-size: contain;
 }
 
 .GSW {
     
-    background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/d/de/Warriors_de_Golden_State_logo.svg/1200px-Warriors_de_Golden_State_logo.svg.png);
+    background-image: url(https://cdn.nba.com/logos/nba/1610612744/primary/L/logo.svg);
     background-repeat: no-repeat;
-    
     background-size: contain;
 }
 
 .OKC {
     
-    background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/4/4f/Thunder_d%27Oklahoma_City_logo.svg/1200px-Thunder_d%27Oklahoma_City_logo.svg.png);
+    background-image: url(https://cdn.nba.com/logos/nba/1610612760/primary/L/logo.svg);
     background-repeat: no-repeat;
-    
     background-size: contain;
 }
 
@@ -975,40 +943,34 @@ margin-bottom: 0.5rem;
     
     background-image: url(https://upload.wikimedia.org/wikipedia/fr/3/3b/Jazz_de_l%27Utah_logo.png);
     background-repeat: no-repeat;
-  
     background-size: contain;
 }
 
 .POR {
     
-    background-image: url(https://upload.wikimedia.org/wikipedia/en/thumb/2/21/Portland_Trail_Blazers_logo.svg/1200px-Portland_Trail_Blazers_logo.svg.png);
+    background-image: url(https://cdn.nba.com/logos/nba/1610612757/primary/L/logo.svg);
     background-repeat: no-repeat;
-    
     background-size: contain;
 }
 
 .LAL {
     
-    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Los_Angeles_Lakers_logo.svg/220px-Los_Angeles_Lakers_logo.svg.png);
+    background-image: url(https://cdn.nba.com/logos/nba/1610612747/primary/L/logo.svg);
     background-repeat: no-repeat;
-    
     background-size: contain;
 }
 
 
 .SAS {
    
-    background-image: url(https://upload.wikimedia.org/wikipedia/fr/0/0e/San_Antonio_Spurs_2018.png);
+    background-image: url(https://cdn.nba.com/logos/nba/1610612759/primary/L/logo.svg);
     background-repeat: no-repeat;
-    
     background-size: contain;
 }
 
 .HOU {
     
-    background-image: url(https://upload.wikimedia.org/wikipedia/fr/thumb/d/de/Houston_Rockets_logo_2003.png/330px-Houston_Rockets_logo_2003.png);
+    background-image: url(https://cdn.nba.com/logos/nba/1610612745/primary/L/logo.svg);
     background-repeat: no-repeat;
-    
     background-size: contain;
-    width: 50%;
 }
