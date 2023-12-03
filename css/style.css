@@ -653,14 +653,13 @@ margin-bottom: 0.5rem;
 
 
 .gameCardButton {
-    border-radius: 15px;
-    background-color: var(--button-color);
-    border: none;
+    
     display: flex;
     flex-direction: column;
     color:rgb(233, 233, 233);
     font-family: var(--main-police);
     margin: 0.5rem;
+    margin-bottom: 1rem;
     
     width: 25rem;
     transition: all ease-in-out 0.3s;
@@ -670,10 +669,16 @@ margin-bottom: 0.5rem;
 
 .gameCardTeams {
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
+    border-radius: 15px;
+    background-color: var(--button-color);
+    border: none; 
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .boxScore {
+    z-index: 2;
+    position: relative;
     background-color: var(--second-color);
     border-radius: 15px;
     color:rgb(233, 233, 233);
@@ -681,25 +686,22 @@ margin-bottom: 0.5rem;
     font-weight: 500;
     font-size: 16px;
     border: none;
+    cursor: pointer;
+    width: 30%;
+    height: 3rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 @media screen and (max-width:640px){
-    .gameCardButton {
-        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    }
+    
 }
 
 .gameCardButton.off {
     display: none;
 }
 
-.gameCardButton:hover {
-    cursor: pointer;
-    color: white;
-    height: auto;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    
-}
+
 
 .gameHour{
     font-size: 30px;
