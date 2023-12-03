@@ -3,11 +3,39 @@
     padding: 0;
 }
 
+:root {
+    --main-color:#0c121d;
+    --second-color: #fb5924;
+    --button-color: #10192b;
+    --main-police: 'Outfit', sans-serif;
+}
+
 body {
-    font-family: 'Outfit', sans-serif;
-    background-color: #0c121d;
+    font-family: var(--main-police);
+    background-color: var(--main-color);
     color: #bdc1c6;
     
+}
+
+.clicked {
+    font-family: var(--main-police);
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+}
+
+.selected {
+    background-color: var(--button-color);
+    border-radius: 8px;
+    border: 1px solid var(--second-color);
+    color:white;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.no-selected {
+    color:#8d8d8d;
+    background-color: transparent;
+    border-bottom: 0px;
 }
 
 .off {
@@ -21,7 +49,7 @@ body {
 }
 
 .gamesMonthAndYear{
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--main-police);
     font-weight: Bold;
     font-size: 16px;
     color: white;
@@ -38,12 +66,12 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #0c121d;
+    background-color: var(--main-color);
     transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
 }
 
 .loader-container p {
-    font-family: 'Jost', sans-serif;
+    font-family: var(--main-police);
     font-size: 30px;
     color:#bdc1c6;
     margin-top: 15rem;
@@ -54,7 +82,7 @@ body {
     content: "";
     width: 75px;
     height: 75px;
-    border: 20px solid #fb5924;
+    border: 20px solid var(--second-color);
     border-radius: 50%;
     border-top: 20px solid #1D2C49;
     animation: loading 2s ease infinite;
@@ -79,9 +107,8 @@ body {
     padding-top: 1rem;
     padding-bottom: 1rem;
     border-bottom-left-radius: 70px;
+    background-color:var(--second-color);
     
-    background-color: #fb5924;
-    color: #1D2C49;
 }
 
 ul {
@@ -105,9 +132,10 @@ ul {
 
 .navbar__links a {
     padding: 0 1rem;
-    font-family:'Outfit', sans-serif ;
+    font-family:var(--main-police) ;
     font-size: larger;
     font-weight:300;
+    color:var(--main-color);
 }
 
 .navbar__links a:hover {
@@ -139,8 +167,7 @@ ul {
     
     .navbar__links a {
         padding: 0 1rem;
-        font-size:medium;
-        font-weight:300;
+        
     }
 
 }
@@ -186,7 +213,7 @@ margin-bottom: 0.5rem;
     border-left: none;
     border-right: none;
     font-size: 22px;
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--main-police);
     font-weight: bold;
     height: 2.6rem;  
     width: 8rem;
@@ -216,7 +243,7 @@ margin-bottom: 0.5rem;
 
 .dateWrapperButtons button:hover {
     cursor: pointer;
-    background-color: #10192b;
+    background-color: var(--button-color);
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     border-radius: 8px;
     color:white;
@@ -224,19 +251,7 @@ margin-bottom: 0.5rem;
 }
 
 
-.selected {
-    background-color: #10192b;
-    border-radius: 8px;
-    border: 1px solid #fb5924;
-    color:white;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-}
 
-.no-selected {
-    color:#8d8d8d;
-    background-color: transparent;
-    border-bottom: 0px;
-}
 
 
 .first-section {
@@ -249,7 +264,7 @@ margin-bottom: 0.5rem;
     margin: 3rem 5rem 3rem 5rem;
     align-items: center;
     justify-content: center;
-    font-family: 'Jost', sans-serif;
+    font-family: var(--main-police);
     color:#bdc1c6;
     border-radius: 8px;
     transition: all ease-in-out 0.5s;
@@ -309,11 +324,11 @@ margin-bottom: 0.5rem;
   }
 
   .standingsTable thead th:nth-child(4) {
-    width: 1%;
+    width: 0.5%;
   }
 
   .standingsTable thead th:nth-child(5) {
-    width: 1%;
+    width: 0.5%;
   }
   .standingsTable thead th:nth-child(6) {
     width: 1%;
@@ -518,8 +533,8 @@ margin-bottom: 0.5rem;
     table-layout: fixed;
     width: 50%;
     border-collapse: collapse;
-    border-radius: 7px;
-    background-color: #0c121d; 
+    border-radius: 15px;
+    background-color: #05070c; 
     font-size: 18px;
 
 }
@@ -536,6 +551,8 @@ margin-bottom: 0.5rem;
     
     background-color: #19263d;
   }
+
+
 
 .bodyGameTable tr:hover{
     color:white;
@@ -629,26 +646,41 @@ margin-bottom: 0.5rem;
 }
 
 .no-game{
-    font-family: 'Jost', sans-serif;
+    font-family: var(--main-police);
     font-size: 30px;
 }
 
 
 
 .gameCardButton {
-    border-radius: 8px;
-    background-color: #10192b;
+    border-radius: 15px;
+    background-color: var(--button-color);
     border: none;
     display: flex;
-    flex-direction: center;
+    flex-direction: column;
     color:rgb(233, 233, 233);
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--main-police);
     margin: 0.5rem;
     
     width: 25rem;
     transition: all ease-in-out 0.3s;
    
     
+}
+
+.gameCardTeams {
+    display: flex;
+    flex-direction: row; 
+}
+
+.boxScore {
+    background-color: var(--second-color);
+    border-radius: 15px;
+    color:rgb(233, 233, 233);
+    font-family: var(--main-police);
+    font-weight: 500;
+    font-size: 16px;
+    border: none;
 }
 
 @media screen and (max-width:640px){
@@ -687,10 +719,7 @@ margin-bottom: 0.5rem;
     justify-content: center;
     text-align: center;
     width: 50%;
-    height: 8rem;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-    
+    height: 8rem;    
     background-position: right;
     background-size: 30%;
 }
@@ -702,8 +731,6 @@ margin-bottom: 0.5rem;
     justify-content: center;
     width: 50%;
     height: 8rem;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
     background-position: left;
     background-size: 30%;
 }
@@ -941,7 +968,7 @@ margin-bottom: 0.5rem;
 
 .UTA {
     
-    background-image: url(https://upload.wikimedia.org/wikipedia/fr/3/3b/Jazz_de_l%27Utah_logo.png);
+    background-image: url(https://cdn.nba.com/logos/nba/1610612762/primary/L/logo.svg);
     background-repeat: no-repeat;
     background-size: contain;
 }
