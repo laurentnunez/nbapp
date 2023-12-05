@@ -758,11 +758,13 @@ margin-bottom: 0.5rem;
 }
 
 .homeTeamScore {
+    margin-top: 2rem;
     margin-right: 4rem;
     font-size: 50px;
 }
 
 .visitorTeamScore {
+    margin-top: 2rem;
     margin-left: 4rem;
     font-size: 50px;
 }
@@ -773,14 +775,14 @@ margin-bottom: 0.5rem;
 
 .visitorTeamNickname{
     font-size: 12px;
-    margin-top: 3rem;
+    
     margin-left: auto;
     margin-right: 5rem;
 }
 
 .homeTeamNickname {
     font-size: 12px;
-    margin-top: 3rem;
+
     margin-left: 5rem;
     margin-right: auto;
 }
