@@ -656,11 +656,11 @@ margin-bottom: 0.5rem;
     
     display: flex;
     flex-direction: column;
+    
     color:rgb(233, 233, 233);
     font-family: var(--main-police);
     margin: 0.5rem;
     margin-bottom: 1rem;
-    
     width: 25rem;
     transition: all ease-in-out 0.3s;
    
@@ -670,15 +670,16 @@ margin-bottom: 0.5rem;
 .gameCardTeams {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     border-radius: 15px;
     background-color: var(--button-color);
     border: none; 
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    margin-bottom: 2rem;
 }
 
 .boxScore {
-    z-index: 2;
-    position: relative;
+    
     background-color: var(--second-color);
     border-radius: 15px;
     color:rgb(233, 233, 233);
@@ -688,9 +689,10 @@ margin-bottom: 0.5rem;
     border: none;
     cursor: pointer;
     width: 30%;
-    height: 3rem;
+    height: 30%;
     margin-left: auto;
     margin-right: auto;
+    
 }
 
 @media screen and (max-width:640px){
@@ -721,7 +723,7 @@ margin-bottom: 0.5rem;
     justify-content: center;
     text-align: center;
     width: 50%;
-    height: 8rem;    
+    height: 7rem;    
     background-position: right;
     background-size: 30%;
 }
@@ -731,8 +733,9 @@ margin-bottom: 0.5rem;
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
+    text-align: center;
     width: 50%;
-    height: 8rem;
+    height: 7rem;
     background-position: left;
     background-size: 30%;
 }
@@ -751,22 +754,43 @@ margin-bottom: 0.5rem;
 .gameData p {
     display: flex;
     font-weight: bold;
-    font-size: 50px;
     text-shadow: 3px 0px 7px rgba(0, 0, 0, 0.8), -3px 0px 7px rgba(0, 0, 0, 0.8), 0px 4px 7px rgba(0, 0, 0, 0.8);
 }
 
 .homeTeamScore {
     margin-right: 4rem;
+    font-size: 50px;
 }
 
 .visitorTeamScore {
     margin-left: 4rem;
+    font-size: 50px;
+}
+
+.visitorTeamNickname, .homeTeamNickname {
+    font-size: 12px;
+}
+
+.visitorTeamNickname{
+    font-size: 12px;
+    margin-top: 3rem;
+    margin-left: auto;
+    margin-right: 5rem;
+}
+
+.homeTeamNickname {
+    font-size: 12px;
+    margin-top: 3rem;
+    margin-left: 5rem;
+    margin-right: auto;
 }
 
 @media screen and (max-width: 640px){
-    .gameData p {
+    .visitorTeamScore, .homeTeamScore {
         font-size: 40px;
     }
+
+
 
 }
 
