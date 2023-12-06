@@ -310,16 +310,16 @@ margin-bottom: 0.5rem;
 
 
  .standingsTable thead th:nth-child(1) {
-    width: 0.5%;
+    width: 0.2%;
   }
   
   .standingsTable thead th:nth-child(2) {
-    width: 2.5%;
+    width: 2%;
     
   }
   
   .standingsTable thead th:nth-child(3) {
-    width: 6%;
+    width: 3%;
     
   }
 
@@ -710,6 +710,7 @@ margin-bottom: 0.5rem;
 
 
 .gameHour{
+    display: none;
     font-size: 30px;
     padding: 4rem 0.5rem 3rem 0.5rem;
 
@@ -729,7 +730,7 @@ margin-bottom: 0.5rem;
     width: 50%;
     height: 7rem;    
     background-position: right;
-    background-size: 30%;
+   
 }
 
 
@@ -741,7 +742,7 @@ margin-bottom: 0.5rem;
     width: 50%;
     height: 7rem;
     background-position: left;
-    background-size: 30%;
+   
 }
 
 
@@ -762,14 +763,14 @@ margin-bottom: 0.5rem;
 }
 
 .homeTeamScore {
-    margin-top: 2rem;
-    margin-right: 4rem;
+    margin-top: 1rem;
+    margin-right: 5rem;
     font-size: 50px;
 }
 
 .visitorTeamScore {
-    margin-top: 2rem;
-    margin-left: 4rem;
+    margin-top: 1rem;
+    margin-left: 5rem;
     font-size: 50px;
 }
 
@@ -788,9 +789,7 @@ margin-bottom: 0.5rem;
 }
 
 @media screen and (max-width: 640px){
-    .visitorTeamScore, .homeTeamScore {
-        font-size: 40px;
-    }
+    
     .visitorTeamNickname{
         margin-left: auto;
         margin-right: 5rem;
