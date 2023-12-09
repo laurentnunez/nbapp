@@ -683,13 +683,13 @@ margin-bottom: 0.5rem;
     color:rgb(233, 233, 233);
     font-family: var(--main-police);
     font-weight: 500;
-    font-size: 16px;
+    font-size: 18px;
     border: none;
     cursor: pointer;
     width: 30%;
     height: 30%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
+    text-align: center;
     
 }
 
@@ -698,6 +698,11 @@ margin-bottom: 0.5rem;
     transition: ease-in-out 0.3s;
     
  }
+
+.boxScoreP {
+    padding-top: 0.5rem;
+
+} 
 
 @media screen and (max-width:640px){
     
@@ -781,11 +786,13 @@ margin-bottom: 0.5rem;
 .visitorTeamNickname{
     margin-left: auto;
     margin-right: 6rem;
+    padding-top: 1rem;
 }
 
 .homeTeamNickname {
     margin-left: 6rem;
     margin-right: auto;
+    padding-top: 1rem;
 }
 
 @media screen and (max-width: 640px){

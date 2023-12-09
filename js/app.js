@@ -491,6 +491,8 @@ function handleGamesJson (json) {
             newGameCardTeams.classList.add("gameCardTeams");
             const newBoxScore = document.createElement("div");
             newBoxScore.classList.add("boxScore");
+            const newBoxScoreP = document.createElement("p");
+            newBoxScoreP.classList.add("boxScoreP");
 
             //on crée l'élément pour l'équipe "Home"
             const newHomeTeamElement = document.createElement("div");
@@ -551,7 +553,8 @@ function handleGamesJson (json) {
             newGameData.append(newHomeTeamName);
 
             newGameCardTeams.append(newBoxScore);
-            newBoxScore.textContent="Box Score";
+            newBoxScore.append(newBoxScoreP);
+            newBoxScoreP.textContent="Box Score";
             const status = dataGames.status.long;
             const hour = dataGames.date.start;
            
@@ -572,7 +575,7 @@ function handleGamesJson (json) {
             };
             const minutes = mminutesConvert();
             const justHour = hourToConvert.getHours()+":"+minutes;
-            newBoxScore.textContent=justHour;
+            newBoxScoreP.textContent=justHour;
 
             //newVisitorTeamElement.after(gameHour);
             //gameHour.append(gameHourP);   
