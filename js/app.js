@@ -59,15 +59,14 @@ const dateButtonSelector = document.querySelectorAll(".dateButton");
 
 const todayButtonSelector = document.querySelector ('#todayButton');
 const yesterdayButtonSelector = document.querySelector ('#oneLessButton');
-const twoDaysBeforeButtonSelector = document.querySelector ('#twoLessButton');
-//const threeDaysBeforeButtonSelector = document.querySelector ('#threeLessButton');
+
 const tomorowButtonSelector = document.querySelector('#oneMoreButton');
-const twoDaysAfterButtonSelector = document.querySelector('#twoMoreButton');
-//const threeDaysAfterButtonSelector = document.querySelector('#threeMoreButton');
+
 
 const standingsTableSelector = document.querySelector('.standingsTable');
 
-
+const matchsTitleSelector = document.querySelector(".matchsTitle");
+const standingsTitleSelector = document.querySelector(".standingsTitle");
 
 //===================================================================
 //FONCTIONS
@@ -81,10 +80,15 @@ function handleEastButton () {
     //on efface les anciennes données
     deleteElements ();
 
+    standingsTitleSelector.classList.remove("off");
+    matchsTitleSelector.classList.remove("off");
+    matchsTitleSelector.classList.add("off");
+
     eastButtonSelector.classList.remove("no-selected");
     westButtonSelector.classList.remove("no-selected");
     eastButtonSelector.classList.add("selected");
     westButtonSelector.classList.add("no-selected");
+    
     
     const options = {
         method: 'GET',
@@ -108,10 +112,13 @@ function handleWestButton () {
     //on efface les anciennes données
     deleteElements ();
 
+    standingsTitleSelector.classList.remove("off");
+    matchsTitleSelector.classList.add("off");
     eastButtonSelector.classList.remove("no-selected");
     westButtonSelector.classList.remove("no-selected");
     westButtonSelector.classList.add("selected");
     eastButtonSelector.classList.add("no-selected");
+    
 
         //d'abord, on crée un objet de configuration
         //on indique la clé id pour pouvoir accéder à l'API
@@ -131,7 +138,7 @@ function handleWestButton () {
     .then( handleJson );
 };
 
-//fonction qui les infos du classement dont on a besoin et on les affiche sur la page
+//fonction qui récupère les infos du classement dont on a besoin et on les affiche sur la page
 function handleJson (json){
     
 
@@ -190,7 +197,7 @@ function handleJson (json){
 
             //on affecte les données aux éléments créés précédemment
             newRank.textContent = dataTeam.conference.rank;
-            newName.textContent = dataTeam.team.name;
+            newName.textContent = dataTeam.team.nickname;
             //newImage.src = dataTeam.team.logo;
             newPercentage.textContent = dataTeam.win.percentage;
             newWin.textContent = dataTeam.win.total;
@@ -246,10 +253,10 @@ function handleStandingsButton () {
 
     todayButtonSelector.classList.add("off");
     oneLessButtonSelector.classList.add("off");
-    twoLessButtonSelector.classList.add("off");
+    //twoLessButtonSelector.classList.add("off");
     //threeLessButtonSelector.classList.add("off");
     oneMoreButtonSelector.classList.add("off");
-    twoMoreButtonSelector.classList.add("off");
+    //twoMoreButtonSelector.classList.add("off");
     //threeMoreButtonSelector.classList.add("off");
 
     secondSectionSelector.classList.toggle('off');
@@ -330,6 +337,9 @@ function handleGames (theDate) {
         element.classList.remove("off");
     });
     
+    standingsTitleSelector.classList.add ("off");
+    matchsTitleSelector.classList.remove("off");
+
     eastButtonSelector.classList.add("off");
     westButtonSelector.classList.add("off");
 
@@ -386,6 +396,9 @@ function handleGamesButton () {
     fourthSectionSelector.classList.toggle('off');
     
     todayButtonSelector.classList.add('selected');
+
+    standingsTitleSelector.classList.add ("off");
+    matchsTitleSelector.classList.remove("off");
 
      
     getTheDate ();
@@ -485,47 +498,47 @@ function handleGamesJson (json) {
         for (const dataGames of allGames)
         {
             //on crée une card pour chaque matchs
-            const newGameCard = document.createElement("button");
+            const newGameCard = document.createElement("div");
             newGameCard.classList.add("gameCardButton");
             
+            //on crée la div englobant les données des équipes
+            const newGameCardTeams = document.createElement("div");
+            newGameCardTeams.classList.add("gameCardTeams");
+            const newBoxScore = document.createElement("div");
+            newBoxScore.classList.add("boxScore");
+            const newBoxScoreP = document.createElement("p");
+            newBoxScoreP.classList.add("boxScoreP");
 
             //on crée l'élément pour l'équipe "Home"
             const newHomeTeamElement = document.createElement("div");
             newHomeTeamElement.classList.add("homeTeam");
 
-            //const newImageCard = document.createElement("img");
-            //newImageCard.classList.add("gameCardImageHome");
-
             const newGameData = document.createElement("div");
             newGameData.classList.add("gameData");
-
-            const newHomeTeamName = document.createElement("p");
-            newHomeTeamName.classList.add("homeTeamName");
 
             const newHomeTeamScore = document.createElement("p");
             newHomeTeamScore.classList.add("homeTeamScore");
 
-        
+            const newHomeTeamName = document.createElement("p");
+            newHomeTeamName.classList.add("homeTeamNickname");
+                   
             
             //on crée l'élément pour l'équipe "Visitor"
             const newVisitorTeamElement = document.createElement("div");
             newVisitorTeamElement.classList.add("visitorTeam");
 
-            //const newVisitorImageCard = document.createElement("img");
-            //newVisitorImageCard.classList.add("gameCardImageVisitor");
-
             const newVisitorGameData = document.createElement("div");
             newVisitorGameData.classList.add("gameData");
-
-            const newVisitorTeamName = document.createElement("p");
-            newVisitorTeamName.classList.add("visitorTeamName");
 
             const newVisitorTeamScore = document.createElement("p");
             newVisitorTeamScore.classList.add("visitorTeamScore");
 
+            const newVisitorTeamName = document.createElement("p");
+            newVisitorTeamName.classList.add("visitorTeamNickname");
+           
+
             //on affecte les données aux éléments de chaque équipe du match
-            //newImageCard.src = dataGames.teams.home.logo;
-            newHomeTeamName.textContent = dataGames.teams.home.name;
+            newHomeTeamName.textContent = dataGames.teams.home.nickname;
             newHomeTeamScore.textContent= dataGames.scores.home.points;
             const colorHomeTeam= dataGames.teams.home.code;
             const colorVisitorTeam = dataGames.teams.visitors.code;
@@ -534,32 +547,29 @@ function handleGamesJson (json) {
             const idGame = dataGames.id;
             newGameCard.setAttribute("id",`${idGame}`);
 
-            //on affecte une couleur différente pour chaque équipe
+            //on affecte le logo de chaque équipe
             newHomeTeamElement.classList.add(`${colorHomeTeam}`);
             newVisitorTeamElement.classList.add(`${colorVisitorTeam}`);
-
-            //newVisitorImageCard.src = dataGames.teams.visitors.logo;
-            //newVisitorImageCard.style.backgroundImage=dataGames.teams.visitors.logo;
-            newVisitorTeamName.textContent = dataGames.teams.visitors.name;
+            newVisitorTeamName.textContent = dataGames.teams.visitors.nickname;
             newVisitorTeamScore.textContent= dataGames.scores.visitors.points;
 
             //on affiche tous les éléments sur la page
 
             gamesElementSelector.append(newGameCard);
-            
-            newGameCard.append(newVisitorTeamElement);
-            //newVisitorTeamElement.append(newVisitorImageCard);
+            newGameCard.append(newGameCardTeams);
+            newGameCardTeams.append(newVisitorTeamElement)
             newVisitorTeamElement.append(newVisitorGameData);
-            //newVisitorGameData.append(newVisitorTeamName);
             newVisitorGameData.append(newVisitorTeamScore);
+            newVisitorGameData.append(newVisitorTeamName);
 
-            newGameCard.append(newHomeTeamElement);
-            //newHomeTeamElement.append(newImageCard);
+            newGameCardTeams.append(newHomeTeamElement);
             newHomeTeamElement.append(newGameData);
-            //newGameData.append(newHomeTeamName);
             newGameData.append(newHomeTeamScore);
+            newGameData.append(newHomeTeamName);
 
-
+            newGameCardTeams.append(newBoxScore);
+            newBoxScore.append(newBoxScoreP);
+            newBoxScoreP.textContent="Box Score";
             const status = dataGames.status.long;
             const hour = dataGames.date.start;
            
@@ -568,26 +578,22 @@ function handleGamesJson (json) {
                 //console.log(hour);
 
 
-            const gameHour = document.createElement('div');
-            gameHour.classList.add('gameHour');
-            const gameHourP=document.createElement('p');
+            //const gameHour = document.createElement('div');
+           //gameHour.classList.add('gameHour');
+            //const gameHourP=document.createElement('p');
    
-            const hourToConvert = new Date (hour);
-            
-            
+            const hourToConvert = new Date (hour);  
             const theMinutes = hourToConvert.getMinutes();
              
             function mminutesConvert () {
                 return (theMinutes<10 ? "0" : "")+theMinutes;
             };
             const minutes = mminutesConvert();
-
             const justHour = hourToConvert.getHours()+":"+minutes;
+            newBoxScoreP.textContent=justHour;
 
-            gameHourP.textContent=justHour;
-
-            newVisitorTeamElement.after(gameHour);
-            gameHour.append(gameHourP);   
+            //newVisitorTeamElement.after(gameHour);
+            //gameHour.append(gameHourP);   
 
             }
            
