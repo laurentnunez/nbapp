@@ -65,7 +65,8 @@ const tomorowButtonSelector = document.querySelector('#oneMoreButton');
 
 const standingsTableSelector = document.querySelector('.standingsTable');
 
-
+const matchsTitleSelector = document.querySelector(".matchsTitle");
+const standingsTitleSelector = document.querySelector(".standingsTitle");
 
 //===================================================================
 //FONCTIONS
@@ -79,10 +80,15 @@ function handleEastButton () {
     //on efface les anciennes données
     deleteElements ();
 
+    standingsTitleSelector.classList.remove("off");
+    matchsTitleSelector.classList.remove("off");
+    matchsTitleSelector.classList.add("off");
+
     eastButtonSelector.classList.remove("no-selected");
     westButtonSelector.classList.remove("no-selected");
     eastButtonSelector.classList.add("selected");
     westButtonSelector.classList.add("no-selected");
+    
     
     const options = {
         method: 'GET',
@@ -106,10 +112,13 @@ function handleWestButton () {
     //on efface les anciennes données
     deleteElements ();
 
+    standingsTitleSelector.classList.remove("off");
+    matchsTitleSelector.classList.add("off");
     eastButtonSelector.classList.remove("no-selected");
     westButtonSelector.classList.remove("no-selected");
     westButtonSelector.classList.add("selected");
     eastButtonSelector.classList.add("no-selected");
+    
 
         //d'abord, on crée un objet de configuration
         //on indique la clé id pour pouvoir accéder à l'API
@@ -328,6 +337,9 @@ function handleGames (theDate) {
         element.classList.remove("off");
     });
     
+    standingsTitleSelector.classList.add ("off");
+    matchsTitleSelector.classList.remove("off");
+
     eastButtonSelector.classList.add("off");
     westButtonSelector.classList.add("off");
 
@@ -384,6 +396,9 @@ function handleGamesButton () {
     fourthSectionSelector.classList.toggle('off');
     
     todayButtonSelector.classList.add('selected');
+
+    standingsTitleSelector.classList.add ("off");
+    matchsTitleSelector.classList.remove("off");
 
      
     getTheDate ();

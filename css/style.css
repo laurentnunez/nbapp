@@ -48,6 +48,15 @@ body {
     visibility: hidden;
 }
 
+.logoHead {
+    margin-top: 1.5rem;
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: row;
+    font-size: 35px;
+    color: white;
+}
+
 .gamesMonthAndYear{
     font-family: var(--main-police);
     font-weight: Bold;
@@ -102,11 +111,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    top:0;
+    bottom:0;
     width: 100%;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    border-bottom-left-radius: 70px;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-top-right-radius: 70px;
     background-color:var(--second-color);
     
 }
@@ -156,7 +165,8 @@ ul {
 
     .navbar{
         position: fixed;
-        justify-content: space-between;
+        justify-content: center;
+        bottom:0;
     }
 
     .nba-logo {
@@ -224,7 +234,7 @@ margin-bottom: 0.5rem;
 @media screen and (max-width: 768px){
     
     .dateWrapper {
-        margin-top: 5rem;
+        margin-top: 1rem;
 
     }
     
