@@ -85,7 +85,11 @@ function handleEastButton () {
     matchsTitleSelector.classList.add("off");
 
     eastButtonSelector.classList.remove("no-selected");
+    eastButtonSelector.classList.remove("selected");
+
     westButtonSelector.classList.remove("no-selected");
+    westButtonSelector.classList.remove("selected");
+
     eastButtonSelector.classList.add("selected");
     westButtonSelector.classList.add("no-selected");
     
@@ -113,11 +117,17 @@ function handleWestButton () {
     deleteElements ();
 
     standingsTitleSelector.classList.remove("off");
+    matchsTitleSelector.classList.remove("off");
     matchsTitleSelector.classList.add("off");
+
     eastButtonSelector.classList.remove("no-selected");
+    eastButtonSelector.classList.remove("selected");
+
     westButtonSelector.classList.remove("no-selected");
-    westButtonSelector.classList.add("selected");
+    westButtonSelector.classList.remove("selected");
+
     eastButtonSelector.classList.add("no-selected");
+    westButtonSelector.classList.add("selected");
     
 
         //d'abord, on crée un objet de configuration
@@ -335,10 +345,13 @@ function handleGames (theDate) {
     const elements = document.querySelectorAll('*');
     elements.forEach((element)=> {
         element.classList.remove("off");
+        element.classList.remove('selected');
+        element.classList.remove('no-selected');
     });
     
+    
     standingsTitleSelector.classList.add ("off");
-    matchsTitleSelector.classList.remove("off");
+    //matchsTitleSelector.classList.remove("off");
 
     eastButtonSelector.classList.add("off");
     westButtonSelector.classList.add("off");
@@ -347,9 +360,11 @@ function handleGames (theDate) {
     thirdSectionSelector.classList.toggle('off');
     fourthSectionSelector.classList.toggle('off');
 
-    secondSectionSelector.classList.remove('off');
-    todayButtonSelector.classList.remove('selected');
     todayButtonSelector.classList.add('no-selected');
+
+    yesterdayButtonSelector.classList.add('no-selected');
+    tomorowButtonSelector.classList.add('no-selected');
+
 
     getTheDate ();
 
@@ -386,6 +401,7 @@ function handleGamesButton () {
     elements.forEach((element)=> {
         element.classList.remove("off");
         element.classList.remove('selected');
+        element.classList.remove('no-selected');
     });
     
     eastButtonSelector.classList.add("off");
@@ -397,8 +413,11 @@ function handleGamesButton () {
     
     todayButtonSelector.classList.add('selected');
 
+    yesterdayButtonSelector.classList.add('no-selected');
+    tomorowButtonSelector.classList.add('no-selected');
+
     standingsTitleSelector.classList.add ("off");
-    matchsTitleSelector.classList.remove("off");
+    //matchsTitleSelector.classList.remove("off");
 
      
     getTheDate ();
