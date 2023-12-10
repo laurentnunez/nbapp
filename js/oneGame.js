@@ -3,7 +3,7 @@
 
 function selectTheGame () {
 
-const gameCardSelector = document.querySelectorAll('.gameCardButton');
+const gameCardSelector = document.querySelectorAll('.boxScore');
 
 //on lance une boucle permettant de faire apparaître la section 'third-section' en cliquant sur un des match de la liste
 for (const game of gameCardSelector) {
