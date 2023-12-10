@@ -17,6 +17,8 @@ body {
     
 }
 
+
+
 .clicked {
     font-family: var(--main-police);
     font-weight: bold;
@@ -106,17 +108,25 @@ body {
    }     
 }
 
+.menuBar {
+    display: flex;
+    justify-content: center;
+}
 
 .navbar {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    bottom:0;
-    width: 100%;
+    bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+    width: 80%;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-    border-top-right-radius: 70px;
+    border-radius: 15px;
     background-color:var(--second-color);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     
 }
 
@@ -266,7 +276,14 @@ margin-bottom: 0.5rem;
 
 .first-section {
     width: 100%;
+    margin-bottom: 5rem;
 }
+
+.second-section {
+    margin-bottom: 5rem;
+}
+
+
 
 .fourth-section__container {
     display: flex;
@@ -304,6 +321,7 @@ margin-bottom: 0.5rem;
 .standingsTable {
     margin-left: auto;
     margin-right:auto ;
+    margin-bottom: 6rem;
     table-layout: fixed;
     width: 60%;
     border-collapse: collapse;
@@ -523,6 +541,7 @@ margin-bottom: 0.5rem;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 5rem;
 }
 
 @media screen and (max-width: 768px){
@@ -668,7 +687,6 @@ margin-bottom: 0.5rem;
     color:rgb(233, 233, 233);
     font-family: var(--main-police);
     margin: 0.5rem;
-    margin-bottom: 1rem;
     width: 25rem;
     transition: all ease-in-out 0.3s;
    
@@ -683,7 +701,7 @@ margin-bottom: 0.5rem;
     background-color: var(--button-color);
     border: none; 
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .boxScore {
