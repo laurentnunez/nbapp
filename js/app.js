@@ -545,7 +545,7 @@ function handleGamesJson (json) {
 
             //on affecte l'id à chaque match
             const idGame = dataGames.id;
-            newGameCard.setAttribute("id",`${idGame}`);
+            newBoxScore.setAttribute("id",`${idGame}`);
 
             //on affecte le logo de chaque équipe
             newHomeTeamElement.classList.add(`${colorHomeTeam}`);
