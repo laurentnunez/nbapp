@@ -42,36 +42,23 @@ const eastButtonSelector = document.querySelector(".eastButton");
 const westButtonSelector = document.querySelector(".westButton");
 
 const cardTeamSelector = document.querySelectorAll(".cardName");
-
 const gamesElementSelector = document.querySelector('.games');
-
 const sectionSelector = document.querySelector('.first-section');
-
 const secondSectionSelector = document.querySelector('.second-section');
-
 const thirdSectionSelector = document.querySelector('.third-section');
-
 const fourthSectionSelector = document.querySelector('.fourth-section');
-
 const dateWrapperSelector = document.querySelector('.dateWrapper');
-
 const dateButtonSelector = document.querySelectorAll(".dateButton");
-
 const todayButtonSelector = document.querySelector ('#todayButton');
 const yesterdayButtonSelector = document.querySelector ('#oneLessButton');
-
 const tomorowButtonSelector = document.querySelector('#oneMoreButton');
-
-
 const standingsTableSelector = document.querySelector('.standingsTable');
-
 const matchsTitleSelector = document.querySelector(".matchsTitle");
 const standingsTitleSelector = document.querySelector(".standingsTitle");
 
 //===================================================================
 //FONCTIONS
 //===================================================================
-
 
 
 //fonction d'appel à la requête pour la Conf Est
@@ -114,7 +101,7 @@ function handleEastButton () {
 function handleWestButton () {
 
     //on efface les anciennes données
-    deleteElements ();
+    //deleteElements ();
 
     standingsTitleSelector.classList.remove("off");
     matchsTitleSelector.classList.remove("off");
@@ -237,8 +224,6 @@ function deleteElements () {
         const oldCardElements = document.querySelector('.bodyTable');
         oldCardElements.remove();
 }
-  
-
     
 
 //fonction pour effacer les anciennes données des joueurs    
@@ -251,32 +236,34 @@ function deletePlayersElements () {
 function handleStandingsButton () {
     //console.log("afficher classements");
 
-    showLoader ();
+    //showLoader ();
     
 
     
     const elements = document.querySelectorAll('*');
     elements.forEach((element)=> {
         element.classList.remove("off");
-        element.classList.remove("select");
+        element.classList.remove("selected");
     });
 
     todayButtonSelector.classList.add("off");
-    oneLessButtonSelector.classList.add("off");
+    yesterdayButtonSelector.classList.add("off");
     //twoLessButtonSelector.classList.add("off");
     //threeLessButtonSelector.classList.add("off");
-    oneMoreButtonSelector.classList.add("off");
+    tomorowButtonSelector.classList.add("off");
     //twoMoreButtonSelector.classList.add("off");
     //threeMoreButtonSelector.classList.add("off");
 
     secondSectionSelector.classList.toggle('off');
     thirdSectionSelector.classList.toggle('off');
     fourthSectionSelector.classList.add('off');
-    eastButtonSelector.classList.add("select");
+    eastButtonSelector.classList.remove("no-selected");
+    eastButtonSelector.classList.add("selected");
+    westButtonSelector.classList.add("no-selected");
 
-    handleEastButton ();
+    //handleEastButton ();
 
-    selectTeam ();
+    //selectTeam ();
 
 
 }

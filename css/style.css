@@ -44,7 +44,7 @@ body {
     display: none;
 }
 
-.loader-container.hidden {   
+.hidden {   
 
     opacity: 0;
     visibility: hidden;
