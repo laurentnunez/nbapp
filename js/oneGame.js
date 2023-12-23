@@ -50,6 +50,7 @@ function handleOneGame (json) {
 
     //==TABLE HOME
 
+
     //on sélectionne la table home
     const tableGameSelector = document.querySelector('.gameTable');
     //on sélectionne l'en-tête de la table home

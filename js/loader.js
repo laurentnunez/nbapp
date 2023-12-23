@@ -3,10 +3,10 @@
     function closeLoader () {
         document.querySelector('.loader-container').classList.add('hidden');
 
-        handleGamesButton();
-        deleteElements();
-        handleEastButton ();
-        handleWestButton ();
+        //handleGamesButton();
+        //deleteElements();
+        //handleEastButton ();
+       // handleWestButton ();
         
     }
 
