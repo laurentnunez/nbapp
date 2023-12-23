@@ -4,10 +4,10 @@
         document.querySelector('.loader-container').classList.add('hidden');
         document.querySelector('.menuBar').classList.remove('hidden');
 
-        //handleGamesButton();
-        //deleteElements();
-        //handleEastButton ();
-       // handleWestButton ();
+        handleGamesButton();
+        deleteElements();
+        handleEastButton ();
+       handleWestButton ();
         
     }
 
