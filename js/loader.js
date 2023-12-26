@@ -5,9 +5,9 @@
         document.querySelector('.menuBar').classList.remove('hidden');
 
         handleGamesButton();
-        deleteElements();
+        //deleteElements();
         handleEastButton ();
-       handleWestButton ();
+        handleWestButton ();
         
     }
 

@@ -65,7 +65,7 @@ const standingsTitleSelector = document.querySelector(".standingsTitle");
 function handleEastButton () {
     
     //on efface les anciennes données
-    deleteElements ();
+    //deleteElements ();
 
     standingsTitleSelector.classList.remove("off");
     matchsTitleSelector.classList.remove("off");
@@ -221,7 +221,7 @@ function handleJson (json){
 //fonction qui efface les anciennes données de classement
 function deleteElements () {
 
-        const oldCardElements = document.querySelector('.bodyTable');
+        const oldCardElements = document.querySelector(".bodyTable");
         oldCardElements.remove();
 }
     
@@ -236,7 +236,7 @@ function deletePlayersElements () {
 function handleStandingsButton () {
     //console.log("afficher classements");
 
-    //showLoader ();
+    showLoader ();
     
 
     
@@ -260,8 +260,11 @@ function handleStandingsButton () {
     eastButtonSelector.classList.remove("no-selected");
     eastButtonSelector.classList.add("selected");
     westButtonSelector.classList.add("no-selected");
+    standingsTitleSelector.classList.remove("off");
+    matchsTitleSelector.classList.remove("off");
+    matchsTitleSelector.classList.add("off");
 
-    //handleEastButton ();
+    handleEastButton ();
 
     //selectTeam ();
 
@@ -325,7 +328,7 @@ for (const date of dateButtonSelector) {
 //fonction pour lancer l'application
 function handleGames (theDate) {
 
-    //console.log ("handleGames");
+    console.log ("handleGames");
 
     showLoader ();
 
@@ -338,7 +341,7 @@ function handleGames (theDate) {
     
     
     standingsTitleSelector.classList.add ("off");
-    //matchsTitleSelector.classList.remove("off");
+    matchsTitleSelector.classList.remove("off");
 
     eastButtonSelector.classList.add("off");
     westButtonSelector.classList.add("off");
@@ -382,7 +385,7 @@ function handleGamesButton () {
     
     showLoader ();
 
-    //console.log ("handleGamesButton");
+    console.log ("handleGamesButton");
 
     const elements = document.querySelectorAll('*');
     elements.forEach((element)=> {
@@ -404,7 +407,7 @@ function handleGamesButton () {
     tomorowButtonSelector.classList.add('no-selected');
 
     standingsTitleSelector.classList.add ("off");
-    //matchsTitleSelector.classList.remove("off");
+    matchsTitleSelector.classList.remove("off");
 
      
     getTheDate ();
