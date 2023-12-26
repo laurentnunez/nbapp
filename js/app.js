@@ -101,7 +101,7 @@ function handleEastButton () {
 function handleWestButton () {
 
     //on efface les anciennes données
-    //deleteElements ();
+    deleteElements ();
 
     standingsTitleSelector.classList.remove("off");
     matchsTitleSelector.classList.remove("off");
@@ -328,7 +328,7 @@ for (const date of dateButtonSelector) {
 //fonction pour lancer l'application
 function handleGames (theDate) {
 
-    console.log ("handleGames");
+    //console.log ("handleGames");
 
     showLoader ();
 
