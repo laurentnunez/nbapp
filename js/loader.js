@@ -26,7 +26,8 @@ function showLoader () {
 
     setTimeout(closeLoader, 1500);
 
-    document.querySelector('.loader-container').classList.remove('hidden');
     document.querySelector('.menuBar').classList.add('hidden');
+    document.querySelector('.loader-container').classList.remove('hidden');
+    
 }
 

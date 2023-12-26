@@ -706,6 +706,12 @@ margin-bottom: 0.5rem;
     margin-bottom: 1rem;
 }
 
+.gameCardTeams:hover {
+    background-color:#1d2c49;
+    transition: ease-in-out 0.3s; 
+}
+
+
 .boxScore {
     
     background-color: var(--second-color);
